@@ -1,5 +1,5 @@
 rank,title,source,marketShare,tokens,snippets,updateUtc,updateAgo,trustScore,verified,benchmarkScore,type,popularityRank,docsRepoUrl,docsSiteUrl,libraryId
-1,Next.js,/vercel/next.js,11.749559775202007,595014,2035,2026-03-03T01:36:19.617000Z,23h,10,True,93,repo,1,https://github.com/vercel/next.js,,/vercel/next.js
+1,Next.js,/vercel/next.js,11.749559775202007,595014,2035,2026-03-03T01:36:19.617000Z,1d,10,True,93,repo,1,https://github.com/vercel/next.js,,/vercel/next.js
 2,Vercel AI SDK,/vercel/ai,3.5719439276621507,1004567,3565,2026-02-19T12:43:35.647000Z,12d,10,True,76.9,repo,8,https://github.com/vercel/ai,,/vercel/ai
 3,Better Auth,/better-auth/better-auth,3.466909193441825,473556,2018,2026-02-26T10:48:07.729000Z,5d,7.6,True,77.1,repo,2,https://github.com/better-auth/better-auth,,/better-auth/better-auth
 4,Shadcn UI,/shadcn-ui/ui,2.845657324041388,173801,847,2026-02-24T00:44:38.058000Z,8d,10,True,78,repo,4,https://github.com/shadcn-ui/ui,,/shadcn-ui/ui

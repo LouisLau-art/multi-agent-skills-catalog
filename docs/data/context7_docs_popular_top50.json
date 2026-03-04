@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-03-04T01:26:08.888851+00:00",
+  "generatedAtUtc": "2026-03-04T01:42:12.202845+00:00",
   "baseUrl": "https://context7.com",
   "limit": 50,
   "rows": 50,
@@ -14,7 +14,7 @@
       "tokens": 595014,
       "snippets": 2035,
       "updateUtc": "2026-03-03T01:36:19.617000Z",
-      "updateAgo": "23h",
+      "updateAgo": "1d",
       "trustScore": 10,
       "verified": true,
       "benchmarkScore": 93,
