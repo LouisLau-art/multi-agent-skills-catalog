@@ -38,15 +38,6 @@ jobs:
             --output-json docs/data/context7_skills_ranked_all.json \
             --output-csv docs/data/context7_skills_ranked_all.csv
 
-      - name: Build Figma watchlist dataset
-        run: |
-          python3 scripts/build_figma_watchlist.py \
-            --input-json docs/data/context7_skills_ranked_all.json \
-            --selected-list skills_selected.txt \
-            --pattern figma \
-            --output-json docs/data/context7_figma_watchlist.json \
-            --output-csv docs/data/context7_figma_watchlist.csv
-
       - name: Commit and push if changed
         run: |
           if [[ -n "$(git status --porcelain docs/data)" ]]; then
@@ -56,9 +47,7 @@ jobs:
               docs/data/context7_docs_popular_top50.json \
               docs/data/context7_docs_popular_top50.csv \
               docs/data/context7_skills_ranked_all.json \
-              docs/data/context7_skills_ranked_all.csv \
-              docs/data/context7_figma_watchlist.json \
-              docs/data/context7_figma_watchlist.csv
+              docs/data/context7_skills_ranked_all.csv
             git commit -m "chore: refresh Context7 docs+skills ranking data"
             git push
           else
