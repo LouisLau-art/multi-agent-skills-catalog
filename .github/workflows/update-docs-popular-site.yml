@@ -1,0 +1,44 @@
+name: Update Context7 Docs Popular Site
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 2 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-docs-popular-site
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh dataset
+        run: |
+          python3 scripts/fetch_context7_docs_popular.py \
+            --limit 50 \
+            --output-json docs/data/context7_docs_popular_top50.json \
+            --output-csv docs/data/context7_docs_popular_top50.csv
+
+      - name: Commit and push if changed
+        run: |
+          if [[ -n "$(git status --porcelain docs/data)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs/data/context7_docs_popular_top50.json docs/data/context7_docs_popular_top50.csv
+            git commit -m "chore: refresh Context7 docs popular ranking data"
+            git push
+          else
+            echo "No docs ranking changes."
+          fi

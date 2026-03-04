@@ -93,6 +93,36 @@ Endpoints used:
 - `GET /api/libraries/latest?limit=...`
 - `GET /api/libraries/count`
 
+## Static Ranking Site (GitHub Pages)
+
+This repo now includes a simple static dashboard at:
+- `docs/index.html`
+- data file: `docs/data/context7_docs_popular_top50.json`
+
+The dataset is generated via:
+
+```bash
+python3 scripts/fetch_context7_docs_popular.py \
+  --limit 50 \
+  --output-json docs/data/context7_docs_popular_top50.json \
+  --output-csv docs/data/context7_docs_popular_top50.csv
+```
+
+Automatic updates are handled by:
+- `.github/workflows/update-docs-popular-site.yml`
+- triggers: daily schedule + manual `workflow_dispatch`
+
+### Enable GitHub Pages
+
+1. Open repository `Settings` -> `Pages`.
+2. Under `Build and deployment`, choose:
+   - `Source`: `Deploy from a branch`
+   - `Branch`: `main`
+   - `Folder`: `/docs`
+3. Save, then open the published URL.
+
+After that, the ranking site updates automatically as the workflow refreshes data.
+
 ## 163 Skills Distribution (Current Pack)
 
 High-level stack distribution for the current curated 163 skills:

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context7 Docs Popular Ranking</title>
+  <meta name="description" content="Auto-updated Context7 docs popularity ranking dashboard." />
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --line: #dde3ea;
+      --text: #0f172a;
+      --muted: #516071;
+      --accent: #0f766e;
+      --accent-soft: #e6f5f3;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top right, #eaf6ff 0, #f4f6f8 45%);
+      color: var(--text);
+      font-family: "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 18px 40px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 36px);
+      letter-spacing: 0.02em;
+    }
+
+    .sub {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .bar {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr 0.9fr;
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .k {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .v {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .controls {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 10px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .table-shell {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+      max-height: 70vh;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1040px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border-bottom: 1px solid #edf1f5;
+      padding: 10px 10px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #f8fbfd;
+      z-index: 1;
+      color: #334155;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    tr:hover td {
+      background: #f8fbfd;
+    }
+
+    .rank {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      color: #1f2937;
+      width: 56px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      color: #334155;
+    }
+
+    .num { font-variant-numeric: tabular-nums; }
+    .pct { color: #0f766e; font-weight: 600; }
+    .muted { color: var(--muted); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-size: 11px;
+      padding: 3px 8px;
+      border: 1px solid transparent;
+    }
+
+    .ok {
+      background: #e8faf1;
+      color: #11673d;
+      border-color: #bce8d0;
+    }
+
+    .no {
+      background: #f6f6f7;
+      color: #65717f;
+      border-color: #e2e8f0;
+    }
+
+    .footer {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .error {
+      margin-top: 16px;
+      border: 1px solid #fecaca;
+      background: #fff1f2;
+      color: #9f1239;
+      border-radius: 10px;
+      padding: 12px;
+      display: none;
+    }
+
+    @media (max-width: 840px) {
+      .bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Context7 Docs Popular Ranking</h1>
+    <div class="sub">
+      Auto-updated from Context7 API. Useful for spotting active docs ecosystems and tech momentum.
+    </div>
+
+    <div class="bar">
+      <div class="card">
+        <div class="k">Rows</div>
+        <div class="v num" id="rowsCount">-</div>
+      </div>
+      <div class="card">
+        <div class="k">Top Library</div>
+        <div class="v" id="topLibrary">-</div>
+      </div>
+      <div class="card">
+        <div class="k">Top Market Share</div>
+        <div class="v num" id="topShare">-</div>
+      </div>
+      <div class="card">
+        <div class="k">Last Updated (UTC)</div>
+        <div class="v num" id="generatedAt">-</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input id="searchBox" type="search" placeholder="Filter by title or source..." />
+      <button id="resetBtn" class="btn" type="button">Reset Search/Sort</button>
+    </div>
+
+    <div class="table-shell">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-key="rank">Rank</th>
+              <th data-key="title">Library</th>
+              <th data-key="source">Source</th>
+              <th data-key="marketShare">Share %</th>
+              <th data-key="tokens">Tokens</th>
+              <th data-key="snippets">Snippets</th>
+              <th data-key="updateAgo">Updated</th>
+              <th data-key="trustScore">Trust</th>
+              <th data-key="verified">Verified</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="errorBox" class="error"></div>
+    <div class="footer">
+      Data file: <span class="mono">docs/data/context7_docs_popular_top50.json</span>
+    </div>
+  </div>
+
+  <script>
+    const DATA_URL = "./data/context7_docs_popular_top50.json";
+    const state = {
+      rows: [],
+      filtered: [],
+      query: "",
+      sortKey: "rank",
+      sortDir: "asc",
+      generatedAtUtc: ""
+    };
+
+    const el = {
+      rowsCount: document.getElementById("rowsCount"),
+      topLibrary: document.getElementById("topLibrary"),
+      topShare: document.getElementById("topShare"),
+      generatedAt: document.getElementById("generatedAt"),
+      tbody: document.getElementById("tbody"),
+      searchBox: document.getElementById("searchBox"),
+      resetBtn: document.getElementById("resetBtn"),
+      errorBox: document.getElementById("errorBox"),
+      headers: Array.from(document.querySelectorAll("thead th"))
+    };
+
+    function fmtNum(v) {
+      if (typeof v !== "number" || Number.isNaN(v)) return "-";
+      return new Intl.NumberFormat("en-US").format(v);
+    }
+
+    function fmtPct(v) {
+      if (typeof v !== "number" || Number.isNaN(v)) return "-";
+      return v.toFixed(2) + "%";
+    }
+
+    function asComparable(row, key) {
+      const v = row[key];
+      if (key === "updateAgo") {
+        return typeof row.updateUtc === "string" ? row.updateUtc : "";
+      }
+      if (typeof v === "number") return v;
+      if (typeof v === "boolean") return v ? 1 : 0;
+      return (v || "").toString().toLowerCase();
+    }
+
+    function sortRows(rows) {
+      const arr = [...rows];
+      arr.sort((a, b) => {
+        const va = asComparable(a, state.sortKey);
+        const vb = asComparable(b, state.sortKey);
+        if (va < vb) return state.sortDir === "asc" ? -1 : 1;
+        if (va > vb) return state.sortDir === "asc" ? 1 : -1;
+        return 0;
+      });
+      return arr;
+    }
+
+    function filterRows(rows) {
+      const q = state.query.trim().toLowerCase();
+      if (!q) return rows;
+      return rows.filter((r) =>
+        (r.title || "").toLowerCase().includes(q) ||
+        (r.source || "").toLowerCase().includes(q)
+      );
+    }
+
+    function render() {
+      state.filtered = sortRows(filterRows(state.rows));
+
+      el.rowsCount.textContent = fmtNum(state.filtered.length);
+      const top = state.rows.find((r) => r.rank === 1) || state.rows[0];
+      el.topLibrary.textContent = top ? top.title : "-";
+      el.topShare.textContent = top ? fmtPct(top.marketShare) : "-";
+      el.generatedAt.textContent = state.generatedAtUtc
+        ? state.generatedAtUtc.replace("T", " ").replace(".000000+00:00", "")
+        : "-";
+
+      const rowsHtml = state.filtered.map((r) => {
+        const verified = r.verified ? '<span class="badge ok">yes</span>' : '<span class="badge no">no</span>';
+        return `
+          <tr>
+            <td class="rank num">${fmtNum(r.rank)}</td>
+            <td>${r.title || "-"}</td>
+            <td class="mono">${r.source || "-"}</td>
+            <td class="pct num">${fmtPct(r.marketShare)}</td>
+            <td class="num">${fmtNum(r.tokens)}</td>
+            <td class="num">${fmtNum(r.snippets)}</td>
+            <td class="muted">${r.updateAgo || "-"}</td>
+            <td class="num">${r.trustScore ?? "-"}</td>
+            <td>${verified}</td>
+          </tr>
+        `;
+      }).join("");
+      el.tbody.innerHTML = rowsHtml;
+
+      el.headers.forEach((th) => {
+        const key = th.dataset.key;
+        if (!key) return;
+        const dir = (state.sortKey === key) ? (state.sortDir === "asc" ? " ↑" : " ↓") : "";
+        th.textContent = th.textContent.replace(/ [↑↓]$/, "") + dir;
+      });
+    }
+
+    function showError(msg) {
+      el.errorBox.style.display = "block";
+      el.errorBox.textContent = msg;
+    }
+
+    async function loadData() {
+      try {
+        const resp = await fetch(DATA_URL, { cache: "no-store" });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status} while loading ${DATA_URL}`);
+        const payload = await resp.json();
+        state.rows = Array.isArray(payload.items) ? payload.items : [];
+        state.generatedAtUtc = payload.generatedAtUtc || "";
+        render();
+      } catch (err) {
+        showError("Failed to load ranking data. Ensure GitHub Action generated docs/data/context7_docs_popular_top50.json");
+        console.error(err);
+      }
+    }
+
+    el.searchBox.addEventListener("input", (e) => {
+      state.query = e.target.value || "";
+      render();
+    });
+
+    el.resetBtn.addEventListener("click", () => {
+      state.query = "";
+      state.sortKey = "rank";
+      state.sortDir = "asc";
+      el.searchBox.value = "";
+      render();
+    });
+
+    el.headers.forEach((th) => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.key;
+        if (!key) return;
+        if (state.sortKey === key) {
+          state.sortDir = (state.sortDir === "asc") ? "desc" : "asc";
+        } else {
+          state.sortKey = key;
+          state.sortDir = (key === "rank") ? "asc" : "desc";
+        }
+        render();
+      });
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
