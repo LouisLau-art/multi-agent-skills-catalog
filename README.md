@@ -1,5 +1,7 @@
 # Context7 Skills Curated Pack
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Installable Skills](https://img.shields.io/badge/installable_skills-163-blue)
 ![Local Total](https://img.shields.io/badge/local_total_with__.system-164-6f42c1)
@@ -7,6 +9,8 @@
 ![Context7](https://img.shields.io/badge/source-Context7-black)
 
 A curated, deduplicated Context7 skills pack for software development workflows.
+
+Live site (GitHub Pages): https://louislau-art.github.io/context7-skills-curated-pack/
 
 Current snapshot: **163 installable skills** (plus internal `.system`, total local dirs = 164).
 
