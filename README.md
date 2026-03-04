@@ -137,6 +137,15 @@ Automatic updates are handled by:
 
 After that, the ranking site updates automatically as the workflow refreshes data.
 
+## For Other AI Models
+
+If another model/agent needs these rankings, start here:
+
+- Guide: `AI_RANKINGS_GUIDE.md`
+- Machine-readable manifest: `docs/data/context7_rankings_manifest.json`
+- Public manifest URL:
+  `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_rankings_manifest.json`
+
 ## 163 Skills Distribution (Current Pack)
 
 High-level stack distribution for the current curated 163 skills:

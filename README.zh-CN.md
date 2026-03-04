@@ -81,6 +81,15 @@ python3 scripts/fetch_context7_skills_for_site.py \
 - `.github/workflows/update-docs-popular-site.yml`
 - 触发方式：每日定时 + 手动触发
 
+## 给其他大模型的说明书
+
+为其他模型/Agent 准备的入口：
+
+- 说明文档：`AI_RANKINGS_GUIDE.md`
+- 机器可读清单：`docs/data/context7_rankings_manifest.json`
+- 公网 manifest 地址：
+  `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_rankings_manifest.json`
+
 ## 当前 163 技能分布（摘要）
 
 - Frontend & Web UI: 46
