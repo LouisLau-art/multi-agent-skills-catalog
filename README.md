@@ -1,11 +1,14 @@
 # Context7 Skills Curated Pack
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Skills](https://img.shields.io/badge/skills-164-blue)
+![Installable Skills](https://img.shields.io/badge/installable_skills-163-blue)
+![Local Total](https://img.shields.io/badge/local_total_with__.system-164-6f42c1)
 ![Curation](https://img.shields.io/badge/curation-Installs%2BTrust%2BVerified-orange)
 ![Context7](https://img.shields.io/badge/source-Context7-black)
 
 A curated, deduplicated Context7 skills pack for software development workflows.
+
+Current snapshot: **163 installable skills** (plus internal `.system`, total local dirs = 164).
 
 This repository intentionally contains:
 - `skills_manifest.csv` (selected skills with source/score)
