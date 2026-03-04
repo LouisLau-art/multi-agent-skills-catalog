@@ -27,11 +27,17 @@ https://louislau-art.github.io/context7-skills-curated-pack/
 # 安装到 Claude 目标目录
 bash scripts/install_curated.sh claude
 
+# 一次安装并同步到 Codex + Gemini
+bash scripts/install_curated.sh all
+
 # 先 dry-run
 DRY_RUN=1 bash scripts/install_curated.sh claude
 ```
 
-支持目标：`claude`、`universal`、`global`、`auto`
+支持目标：
+`claude`、`codex`、`gemini`、`all`（或 `claude+codex+gemini`）、
+`claude+codex`、`claude+gemini`、`codex+gemini`、
+`universal`、`global`、`cursor`、`auto`
 
 ## 拉取动态榜单
 
@@ -74,7 +80,7 @@ python3 scripts/fetch_context7_docs_popular.py \
   --output-csv docs/data/context7_docs_popular_top50.csv
 
 python3 scripts/fetch_context7_docs_extended.py \
-  --top-k 1000 \
+  --top-k 20000 \
   --max-workers 12 \
   --output-json docs/data/context7_docs_extended_top1000.json \
   --output-csv docs/data/context7_docs_extended_top1000.csv

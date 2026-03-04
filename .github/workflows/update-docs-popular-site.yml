@@ -15,6 +15,8 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      CONTEXT7_API_KEY: ${{ secrets.CONTEXT7_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +36,7 @@ jobs:
       - name: Refresh docs extended dataset
         run: |
           python3 scripts/fetch_context7_docs_extended.py \
-            --top-k 1000 \
+            --top-k 20000 \
             --max-workers 8 \
             --output-json docs/data/context7_docs_extended_top1000.json \
             --output-csv docs/data/context7_docs_extended_top1000.csv \

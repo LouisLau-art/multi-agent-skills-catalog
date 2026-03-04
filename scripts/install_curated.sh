@@ -1,15 +1,40 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TARGET=${1:-claude}   # claude | universal | global | auto
+TARGET=${1:-claude}   # claude | codex | gemini | all | universal | global | cursor | auto
 DRY_RUN=${DRY_RUN:-0}
+CLAUDE_SKILLS_DIR=${CLAUDE_SKILLS_DIR:-"$HOME/.claude/skills"}
+CODEX_SKILLS_DIR=${CODEX_SKILLS_DIR:-"$HOME/.codex/skills"}
+GEMINI_SKILLS_DIR=${GEMINI_SKILLS_DIR:-"$HOME/.gemini/skills"}
 
 case "$TARGET" in
+  claude) BASE_TARGET="claude"; SYNC_CODEX=0; SYNC_GEMINI=0 ;;
+  codex) BASE_TARGET="claude"; SYNC_CODEX=1; SYNC_GEMINI=0 ;;
+  gemini) BASE_TARGET="claude"; SYNC_CODEX=0; SYNC_GEMINI=1 ;;
+  all|claude+codex+gemini|claude-codex-gemini) BASE_TARGET="claude"; SYNC_CODEX=1; SYNC_GEMINI=1 ;;
+  claude+codex) BASE_TARGET="claude"; SYNC_CODEX=1; SYNC_GEMINI=0 ;;
+  claude+gemini) BASE_TARGET="claude"; SYNC_CODEX=0; SYNC_GEMINI=1 ;;
+  codex+gemini) BASE_TARGET="claude"; SYNC_CODEX=1; SYNC_GEMINI=1 ;;
+  universal) BASE_TARGET="universal"; SYNC_CODEX=0; SYNC_GEMINI=0 ;;
+  global) BASE_TARGET="global"; SYNC_CODEX=0; SYNC_GEMINI=0 ;;
+  cursor) BASE_TARGET="cursor"; SYNC_CODEX=0; SYNC_GEMINI=0 ;;
+  auto) BASE_TARGET="auto"; SYNC_CODEX=0; SYNC_GEMINI=0 ;;
+  *)
+    echo "Usage: $0 [claude|codex|gemini|all|claude+codex|claude+gemini|codex+gemini|universal|global|cursor|auto]"
+    exit 1
+    ;;
+esac
+
+case "$BASE_TARGET" in
   claude) FLAG="--claude" ;;
   universal) FLAG="--universal" ;;
   global) FLAG="--global" ;;
+  cursor) FLAG="--cursor" ;;
   auto) FLAG="" ;;
-  *) echo "Usage: $0 [claude|universal|global|auto]"; exit 1 ;;
+  *)
+    echo "Internal error: unsupported base target '$BASE_TARGET'"
+    exit 1
+    ;;
 esac
 
 run_install() {
@@ -25,7 +50,27 @@ run_install() {
   fi
 }
 
-echo "Installing curated skills (target=$TARGET, count=163)..."
+sync_dir() {
+  local src="$1"
+  local dst="$2"
+  if [ "$DRY_RUN" = "1" ]; then
+    echo "DRY_RUN: sync $src -> $dst"
+    return
+  fi
+  if [ ! -d "$src" ]; then
+    echo "WARN: source directory does not exist, skip sync: $src"
+    return
+  fi
+  mkdir -p "$dst"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a "$src"/ "$dst"/
+  else
+    cp -a "$src"/. "$dst"/
+  fi
+  echo "Synced skills: $src -> $dst"
+}
+
+echo "Installing curated skills (target=$TARGET, base=$BASE_TARGET, count=163)..."
 run_install /vercel-labs/agent-browser agent-browser
 run_install /anthropics/claude-code 'Agent Development'
 run_install /vercel/ai-elements ai-elements
@@ -189,5 +234,16 @@ run_install /anthropics/skills webapp-testing
 run_install /cloudflare/skills wrangler
 run_install /obra/superpowers writing-plans
 run_install /anthropics/skills xlsx
+
+if [ "$SYNC_CODEX" = "1" ]; then
+  sync_dir "$CLAUDE_SKILLS_DIR" "$CODEX_SKILLS_DIR"
+fi
+if [ "$SYNC_GEMINI" = "1" ]; then
+  sync_dir "$CLAUDE_SKILLS_DIR" "$GEMINI_SKILLS_DIR"
+fi
+
 echo "Done."
-echo "Note: For Codex folder sync, copy ~/.claude/skills to ~/.codex/skills if needed."
+echo "Installed via base target: $BASE_TARGET"
+if [ "$SYNC_CODEX" = "1" ] || [ "$SYNC_GEMINI" = "1" ]; then
+  echo "Sync complete from $CLAUDE_SKILLS_DIR."
+fi

@@ -6,13 +6,16 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
+import random
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 DEFAULT_BASE_URL = "https://context7.com"
@@ -21,18 +24,53 @@ DEFAULT_MIN_INSTALLS = 0
 DEFAULT_MAX_PAGES = 500
 DEFAULT_OUT_JSON = "docs/data/context7_skills_ranked_all.json"
 DEFAULT_OUT_CSV = "docs/data/context7_skills_ranked_all.csv"
+DEFAULT_RETRIES = 6
 
 
-def fetch_json(url: str, timeout: int = 30) -> Any:
-    try:
-        with urlopen(url, timeout=timeout) as resp:  # nosec B310 (trusted host input)
-            return json.loads(resp.read().decode("utf-8"))
-    except HTTPError as exc:
-        raise RuntimeError(f"HTTP {exc.code} for {url}") from exc
-    except URLError as exc:
-        raise RuntimeError(f"Network error for {url}: {exc}") from exc
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(f"Invalid JSON from {url}") from exc
+def build_request(url: str) -> Request:
+    headers = {
+        "User-Agent": "context7-skills-curated-pack/1.0",
+    }
+    api_key = os.environ.get("CONTEXT7_API_KEY", "").strip()
+    if api_key:
+        headers["CONTEXT7_API_KEY"] = api_key
+        headers["Authorization"] = f"Bearer {api_key}"
+    return Request(url, headers=headers)
+
+
+def fetch_json(url: str, timeout: int = 30, retries: int = DEFAULT_RETRIES) -> Any:
+    last_err: Exception | None = None
+    for attempt in range(1, retries + 1):
+        try:
+            req = build_request(url)
+            with urlopen(req, timeout=timeout) as resp:  # nosec B310 (trusted host input)
+                return json.loads(resp.read().decode("utf-8"))
+        except HTTPError as exc:
+            last_err = exc
+            if attempt < retries:
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                if retry_after and retry_after.isdigit():
+                    sleep_s = float(retry_after)
+                elif exc.code == 429:
+                    sleep_s = min(60.0, 1.5 * (2 ** (attempt - 1)))
+                else:
+                    sleep_s = 0.4 * attempt
+                sleep_s += random.uniform(0.0, 0.25)
+                time.sleep(sleep_s)
+            continue
+        except (URLError, json.JSONDecodeError) as exc:
+            last_err = exc
+            if attempt < retries:
+                time.sleep(0.4 * attempt)
+            continue
+
+    if isinstance(last_err, HTTPError):
+        raise RuntimeError(f"HTTP {last_err.code} for {url}") from last_err
+    if isinstance(last_err, URLError):
+        raise RuntimeError(f"Network error for {url}: {last_err}") from last_err
+    if isinstance(last_err, json.JSONDecodeError):
+        raise RuntimeError(f"Invalid JSON from {url}") from last_err
+    raise RuntimeError(f"Failed to fetch {url}")
 
 
 def to_num(value: Any) -> float | None:

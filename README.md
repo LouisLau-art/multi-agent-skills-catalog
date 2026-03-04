@@ -34,14 +34,22 @@ It intentionally does **not** contain third-party `SKILL.md` contents.
 # install to Claude target
 bash scripts/install_curated.sh claude
 
+# install and sync to Codex + Gemini
+bash scripts/install_curated.sh all
+
 # dry-run first
 DRY_RUN=1 bash scripts/install_curated.sh claude
 ```
 
 Supported targets:
 - `claude` (default)
+- `codex` (install via Claude target, then sync to `~/.codex/skills`)
+- `gemini` (install via Claude target, then sync to `~/.gemini/skills`)
+- `all` / `claude+codex+gemini`
+- `claude+codex`, `claude+gemini`, `codex+gemini`
 - `universal`
 - `global`
+- `cursor`
 - `auto`
 
 ## Files
@@ -119,7 +127,7 @@ python3 scripts/fetch_context7_docs_popular.py \
   --output-csv docs/data/context7_docs_popular_top50.csv
 
 python3 scripts/fetch_context7_docs_extended.py \
-  --top-k 1000 \
+  --top-k 20000 \
   --max-workers 12 \
   --output-json docs/data/context7_docs_extended_top1000.json \
   --output-csv docs/data/context7_docs_extended_top1000.csv

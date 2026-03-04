@@ -204,7 +204,7 @@
       <button class="tab" data-mode="skills">Skills (ranked, no installs threshold)</button>
     </div>
 
-    <div class="note" id="modeNote">Docs market-share ranking is currently limited by Context7 API to top 50 libraries.</div>
+    <div class="note" id="modeNote">Docs market-share ranking is currently limited by Context7 API to top 50 libraries. Search uses extended docs data when available.</div>
 
     <div class="bar">
       <div class="card"><div class="k">Rows</div><div class="v num" id="rowsCount">-</div></div>
@@ -236,7 +236,7 @@
       docs: {
         label: "Docs Popular",
         dataUrl: "./data/context7_docs_popular_top50.json",
-        note: "Docs market-share ranking is currently limited by Context7 API to top 50 libraries.",
+        note: "Docs market-share ranking is limited by Context7 API to top 50 libraries. Search will use Docs Extended data when available.",
         topLabel: "Top Library",
         metricLabel: "Top Market Share",
         metricKey: "marketShare",
@@ -346,10 +346,31 @@
       return primary.toLowerCase().includes(q) || (row.source || "").toLowerCase().includes(q);
     }
 
+    function toDocsSearchRow(row) {
+      if (!row || typeof row !== "object") return {};
+      const out = { ...row };
+      if (typeof out.marketShare !== "number" && typeof out.officialMarketShare === "number") {
+        out.marketShare = out.officialMarketShare;
+      }
+      return out;
+    }
+
+    function getSearchBaseRows() {
+      if (state.mode === "docs" && state.query.trim()) {
+        const ext = state.datasets.docsExtended && Array.isArray(state.datasets.docsExtended.items)
+          ? state.datasets.docsExtended.items
+          : [];
+        if (ext.length > 0) {
+          return ext.map(toDocsSearchRow);
+        }
+      }
+      return state.rows;
+    }
+
     function getRenderedRows() {
       const q = state.query.trim().toLowerCase();
       const mode = state.mode;
-      const rows = state.rows.filter((r) => rowMatches(r, q, mode));
+      const rows = getSearchBaseRows().filter((r) => rowMatches(r, q, mode));
       rows.sort((a, b) => {
         const va = asComparable(a, state.sortKey, mode);
         const vb = asComparable(b, state.sortKey, mode);
@@ -411,7 +432,13 @@
     function renderMeta(rows) {
       const cfg = MODES[state.mode];
       const ds = state.datasets[state.mode] || {};
-      const top = state.rows.find((x) => x.rank === 1) || state.rows[0] || null;
+      const baseRows = getSearchBaseRows();
+      const top = baseRows.find((x) => x.rank === 1) || baseRows[0] || null;
+      const docsGlobalSearchOn =
+        state.mode === "docs" &&
+        state.query.trim().length > 0 &&
+        Array.isArray(state.datasets.docsExtended?.items) &&
+        state.datasets.docsExtended.items.length > 0;
 
       el.modeNote.textContent = cfg.note;
       el.rowsCount.textContent = fmtNum(rows.length);
@@ -423,10 +450,13 @@
 
       const footer = [
         `Mode: ${cfg.label}`,
-        `Rows in dataset: ${fmtNum(state.rows.length)}`,
+        `Rows in dataset: ${fmtNum(baseRows.length)}`,
         `Rows shown: ${fmtNum(rows.length)}`,
         `Source: ${cfg.dataUrl}`
       ];
+      if (docsGlobalSearchOn) {
+        footer.push("Search scope: Docs Extended dataset");
+      }
       el.footerInfo.textContent = footer.join(" | ");
     }
 
@@ -489,6 +519,7 @@
     (async () => {
       try {
         await loadMode("docs");
+        await loadMode("docsExtended");
         await loadMode("skills");
         // switch back to docs initial view
         state.mode = "docs";

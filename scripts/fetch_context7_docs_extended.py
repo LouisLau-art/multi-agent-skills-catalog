@@ -14,6 +14,7 @@ import argparse
 import csv
 import json
 import math
+import os
 import random
 import sys
 import time
@@ -22,7 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 DEFAULT_BASE_URL = "https://context7.com"
@@ -33,11 +34,23 @@ DEFAULT_OUTPUT_JSON = "docs/data/context7_docs_extended_top1000.json"
 DEFAULT_OUTPUT_CSV = "docs/data/context7_docs_extended_top1000.csv"
 
 
+def build_request(url: str) -> Request:
+    headers = {
+        "User-Agent": "context7-skills-curated-pack/1.0",
+    }
+    api_key = os.environ.get("CONTEXT7_API_KEY", "").strip()
+    if api_key:
+        headers["CONTEXT7_API_KEY"] = api_key
+        headers["Authorization"] = f"Bearer {api_key}"
+    return Request(url, headers=headers)
+
+
 def fetch_json(url: str, timeout: int = 30, retries: int = DEFAULT_RETRIES) -> Any:
     last_err: Exception | None = None
     for attempt in range(1, retries + 1):
         try:
-            with urlopen(url, timeout=timeout) as resp:  # nosec B310 (trusted host input)
+            req = build_request(url)
+            with urlopen(req, timeout=timeout) as resp:  # nosec B310 (trusted host input)
                 return json.loads(resp.read().decode("utf-8"))
         except HTTPError as exc:
             last_err = exc
