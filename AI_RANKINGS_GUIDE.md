@@ -7,6 +7,7 @@ This guide is for external AI models/agents that need to consume the two public 
 - Site: `https://louislau-art.github.io/context7-skills-curated-pack/`
 - Manifest (read this first): `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_rankings_manifest.json`
 - Docs ranking JSON: `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_docs_popular_top50.json`
+- Docs extended JSON: `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_docs_extended_top1000.json`
 - Skills ranking JSON: `https://louislau-art.github.io/context7-skills-curated-pack/docs/data/context7_skills_ranked_all.json`
 
 ## What Each Dataset Means
@@ -14,6 +15,10 @@ This guide is for external AI models/agents that need to consume the two public 
 - `docs_popular_top50`:
   - Context7 docs popularity snapshot (currently top 50 rows).
   - Main metric: `marketShare`.
+- `docs_extended_top1000`:
+  - Rows 1-50 are official rankings from Context7.
+  - Rows >50 are estimated and directional (not official market-share rows).
+  - Check `estimatedRows` in payload/meta. If `estimatedRows = 0`, the file is a temporary official-only snapshot.
 - `skills_ranked_all`:
   - Context7 skills ranked snapshot with `minInstalls=0`.
   - Main metric: `installCount` (rank order comes from Context7 ranked endpoint).

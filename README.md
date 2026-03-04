@@ -99,13 +99,15 @@ Endpoints used:
 
 ## Static Ranking Site (GitHub Pages)
 
-This repo now includes a static dashboard with two tabs:
+This repo now includes a static dashboard with three tabs:
 - `Docs Popular` (Context7 market-share list, currently top 50 from API)
+- `Docs Extended` (rows 1-50 official, rows >50 estimated from full libraries catalog)
 - `Skills Ranking` (current ranked list without installs threshold, currently thousands of rows)
 
 Files:
 - `docs/index.html`
 - `docs/data/context7_docs_popular_top50.json`
+- `docs/data/context7_docs_extended_top1000.json`
 - `docs/data/context7_skills_ranked_all.json`
 
 The dataset is generated via:
@@ -115,6 +117,12 @@ python3 scripts/fetch_context7_docs_popular.py \
   --limit 50 \
   --output-json docs/data/context7_docs_popular_top50.json \
   --output-csv docs/data/context7_docs_popular_top50.csv
+
+python3 scripts/fetch_context7_docs_extended.py \
+  --top-k 1000 \
+  --max-workers 12 \
+  --output-json docs/data/context7_docs_extended_top1000.json \
+  --output-csv docs/data/context7_docs_extended_top1000.csv
 
 python3 scripts/fetch_context7_skills_for_site.py \
   --min-installs 0 \

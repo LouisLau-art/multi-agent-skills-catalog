@@ -200,6 +200,7 @@
 
     <div class="tabs">
       <button class="tab active" data-mode="docs">Docs Popular</button>
+      <button class="tab" data-mode="docsExtended">Docs Extended</button>
       <button class="tab" data-mode="skills">Skills (ranked, no installs threshold)</button>
     </div>
 
@@ -247,6 +248,29 @@
           { key: "marketShare", label: "Share %", type: "pct" },
           { key: "tokens", label: "Tokens", type: "num" },
           { key: "snippets", label: "Snippets", type: "num" },
+          { key: "updateAgo", label: "Updated", type: "text" },
+          { key: "trustScore", label: "Trust", type: "num" },
+          { key: "verified", label: "Verified", type: "bool" }
+        ]
+      },
+      docsExtended: {
+        label: "Docs Extended",
+        dataUrl: "./data/context7_docs_extended_top1000.json",
+        note: "Rows 1-50 are official from Context7 /api/rankings. Rows after 50 are estimated (directional) from /api/libraries/all.",
+        topLabel: "Top Library",
+        metricLabel: "Top Market Share",
+        metricKey: "officialMarketShare",
+        metricFmt: (v) => (typeof v === "number" ? v.toFixed(2) + "%" : "-"),
+        columns: [
+          { key: "rank", label: "Rank", type: "num" },
+          { key: "rankType", label: "Type", type: "text" },
+          { key: "title", label: "Library", type: "text" },
+          { key: "source", label: "Source", type: "mono" },
+          { key: "officialMarketShare", label: "Official Share %", type: "pct" },
+          { key: "estimatedScore", label: "Estimated Score", type: "num" },
+          { key: "popularityRank", label: "Popularity Rank", type: "num" },
+          { key: "snippets", label: "Snippets", type: "num" },
+          { key: "tokens", label: "Tokens", type: "num" },
           { key: "updateAgo", label: "Updated", type: "text" },
           { key: "trustScore", label: "Trust", type: "num" },
           { key: "verified", label: "Verified", type: "bool" }
@@ -310,7 +334,7 @@
 
     function asComparable(row, key, mode) {
       const v = row[key];
-      if (mode === "docs" && key === "updateAgo") return row.updateUtc || "";
+      if (key === "updateAgo") return row.updateUtc || "";
       if (typeof v === "number") return v;
       if (typeof v === "boolean") return v ? 1 : 0;
       return (v || "").toString().toLowerCase();
@@ -318,8 +342,8 @@
 
     function rowMatches(row, q, mode) {
       if (!q) return true;
-      const key1 = mode === "docs" ? "title" : "name";
-      return (row[key1] || "").toLowerCase().includes(q) || (row.source || "").toLowerCase().includes(q);
+      const primary = row.title || row.name || "";
+      return primary.toLowerCase().includes(q) || (row.source || "").toLowerCase().includes(q);
     }
 
     function getRenderedRows() {

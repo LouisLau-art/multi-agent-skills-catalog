@@ -12,6 +12,7 @@ from typing import Any
 
 
 DEFAULT_DOCS_JSON = "docs/data/context7_docs_popular_top50.json"
+DEFAULT_DOCS_EXTENDED_JSON = "docs/data/context7_docs_extended_top1000.json"
 DEFAULT_SKILLS_JSON = "docs/data/context7_skills_ranked_all.json"
 DEFAULT_OUTPUT_JSON = "docs/data/context7_rankings_manifest.json"
 DEFAULT_PUBLIC_BASE = "https://louislau-art.github.io/context7-skills-curated-pack"
@@ -36,19 +37,24 @@ def main() -> int:
         description="Build machine-readable manifest for docs+skills ranking JSON files."
     )
     parser.add_argument("--docs-json", default=DEFAULT_DOCS_JSON)
+    parser.add_argument("--docs-extended-json", default=DEFAULT_DOCS_EXTENDED_JSON)
     parser.add_argument("--skills-json", default=DEFAULT_SKILLS_JSON)
     parser.add_argument("--public-base", default=DEFAULT_PUBLIC_BASE)
     parser.add_argument("--output-json", default=DEFAULT_OUTPUT_JSON)
     args = parser.parse_args()
 
     docs_path = Path(args.docs_json)
+    docs_extended_path = Path(args.docs_extended_json)
     skills_path = Path(args.skills_json)
     out_path = Path(args.output_json)
 
     docs = load_payload(docs_path)
     skills = load_payload(skills_path)
 
+    docs_extended = load_payload(docs_extended_path) if docs_extended_path.exists() else None
+
     docs_rel = docs_path.as_posix()
+    docs_ext_rel = docs_extended_path.as_posix()
     skills_rel = skills_path.as_posix()
     manifest_rel = out_path.as_posix()
 
@@ -84,6 +90,36 @@ def main() -> int:
                     "benchmarkScore",
                     "libraryId",
                 ],
+            },
+            {
+                "id": "docs_extended_top1000",
+                "title": "Context7 Docs Extended Ranking (Official Top 50 + Estimated)",
+                "relativePath": docs_ext_rel,
+                "publicUrl": public_url(args.public_base, docs_ext_rel),
+                "generatedAtUtc": docs_extended.get("generatedAtUtc") if docs_extended else None,
+                "rows": docs_extended.get("rows") if docs_extended else None,
+                "officialRows": docs_extended.get("officialRows") if docs_extended else None,
+                "estimatedRows": docs_extended.get("estimatedRows") if docs_extended else None,
+                "notes": [
+                    "Rows 1-50 are official from /api/rankings.",
+                    "Rows >50 are estimated from /api/libraries/all and should be treated as directional.",
+                ],
+                "keyFields": [
+                    "rank",
+                    "rankType",
+                    "officialRank",
+                    "officialMarketShare",
+                    "estimatedScore",
+                    "title",
+                    "source",
+                    "popularityRank",
+                    "snippets",
+                    "tokens",
+                    "updateAgo",
+                    "trustScore",
+                    "verified",
+                ],
+                "available": docs_extended is not None,
             },
             {
                 "id": "skills_ranked_all",

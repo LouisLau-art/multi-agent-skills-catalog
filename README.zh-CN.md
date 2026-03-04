@@ -54,13 +54,15 @@ python3 scripts/fetch_context7_library_rankings.py --kind popular \
 
 ## 静态网站（GitHub Pages）
 
-页面已支持双榜单：
+页面已支持三榜单：
 - `Docs Popular`（Context7 API 当前提供前 50 的市场份额榜）
+- `Docs Extended`（1-50 为官方榜，50 以后为基于全量库的估算扩展榜）
 - `Skills Ranking`（不设 installs 阈值的全量榜单，当前为数千条）
 
 页面与数据文件：
 - `docs/index.html`
 - `docs/data/context7_docs_popular_top50.json`
+- `docs/data/context7_docs_extended_top1000.json`
 - `docs/data/context7_skills_ranked_all.json`
 
 数据生成命令：
@@ -70,6 +72,12 @@ python3 scripts/fetch_context7_docs_popular.py \
   --limit 50 \
   --output-json docs/data/context7_docs_popular_top50.json \
   --output-csv docs/data/context7_docs_popular_top50.csv
+
+python3 scripts/fetch_context7_docs_extended.py \
+  --top-k 1000 \
+  --max-workers 12 \
+  --output-json docs/data/context7_docs_extended_top1000.json \
+  --output-csv docs/data/context7_docs_extended_top1000.csv
 
 python3 scripts/fetch_context7_skills_for_site.py \
   --min-installs 0 \
