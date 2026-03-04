@@ -14,7 +14,6 @@ import argparse
 import csv
 import json
 import math
-import os
 import random
 import sys
 import time
@@ -23,7 +22,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.request import urlopen
+
+from context7_auth import build_context7_request
 
 
 DEFAULT_BASE_URL = "https://context7.com"
@@ -34,15 +35,8 @@ DEFAULT_OUTPUT_JSON = "docs/data/context7_docs_extended_top1000.json"
 DEFAULT_OUTPUT_CSV = "docs/data/context7_docs_extended_top1000.csv"
 
 
-def build_request(url: str) -> Request:
-    headers = {
-        "User-Agent": "context7-skills-curated-pack/1.0",
-    }
-    api_key = os.environ.get("CONTEXT7_API_KEY", "").strip()
-    if api_key:
-        headers["CONTEXT7_API_KEY"] = api_key
-        headers["Authorization"] = f"Bearer {api_key}"
-    return Request(url, headers=headers)
+def build_request(url: str):
+    return build_context7_request(url)
 
 
 def fetch_json(url: str, timeout: int = 30, retries: int = DEFAULT_RETRIES) -> Any:

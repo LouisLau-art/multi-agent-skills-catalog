@@ -13,7 +13,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import os
 import random
 import sys
 import time
@@ -22,7 +21,9 @@ from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
-from urllib.request import Request, urlopen
+from urllib.request import urlopen
+
+from context7_auth import build_context7_request
 
 
 DEFAULT_BASE_URL = "https://context7.com"
@@ -32,15 +33,8 @@ DEFAULT_MAX_PAGES = 500
 DEFAULT_RETRIES = 6
 
 
-def build_request(url: str) -> Request:
-    headers = {
-        "User-Agent": "context7-skills-curated-pack/1.0",
-    }
-    api_key = os.environ.get("CONTEXT7_API_KEY", "").strip()
-    if api_key:
-        headers["CONTEXT7_API_KEY"] = api_key
-        headers["Authorization"] = f"Bearer {api_key}"
-    return Request(url, headers=headers)
+def build_request(url: str):
+    return build_context7_request(url)
 
 
 def fetch_json(url: str, timeout: int = 30, retries: int = DEFAULT_RETRIES) -> Any:

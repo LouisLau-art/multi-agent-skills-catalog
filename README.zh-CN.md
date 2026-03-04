@@ -58,6 +58,18 @@ python3 scripts/fetch_context7_library_rankings.py --kind popular \
   --output-json data/context7_popular_libraries.meta.json
 ```
 
+### Context7 API Key（建议）
+
+为了提升限额，运行抓取脚本前建议设置：
+
+```bash
+export CONTEXT7_API_KEY='your_ctx7_key'
+```
+
+可移植替代方案：
+- `CONTEXT7_API_KEY_FILE=/path/to/key.txt`（读取首行 token）
+- `CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1`：显式允许从 Codex MCP 配置（`~/.codex/config.toml`）读取
+
 ## 静态网站（GitHub Pages）
 
 页面已支持三榜单：

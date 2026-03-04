@@ -80,6 +80,18 @@ The script uses:
 
 Note: this is a live leaderboard; counts change over time.
 
+### Context7 API Key (Recommended)
+
+For higher rate limits, set a key before running fetch scripts:
+
+```bash
+export CONTEXT7_API_KEY='your_ctx7_key'
+```
+
+Portable alternatives:
+- `CONTEXT7_API_KEY_FILE=/path/to/key.txt` (first line is token)
+- `CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1` to explicitly allow reading Codex MCP config (`~/.codex/config.toml`)
+
 ## Live Docs Popular Ranking
 
 You can also pull Context7 docs library rankings (popular/trending/latest):
