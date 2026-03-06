@@ -368,7 +368,7 @@
       <div class="card"><div class="k">Rows</div><div class="v num" id="rowsCount">-</div></div>
       <div class="card"><div class="k" id="topLabel">Top Item</div><div class="v" id="topItem">-</div></div>
       <div class="card"><div class="k" id="metricLabel">Top Metric</div><div class="v num" id="topMetric">-</div></div>
-      <div class="card"><div class="k">Last Updated (UTC)</div><div class="v num" id="generatedAt">-</div></div>
+      <div class="card"><div class="k">Last Updated (Local)</div><div class="v num" id="generatedAt">-</div></div>
     </div>
 
     <div class="controls">
@@ -524,6 +524,32 @@
     function fmtNum(v) {
       if (typeof v !== "number" || Number.isNaN(v)) return "-";
       return new Intl.NumberFormat("en-US").format(v);
+    }
+
+    function pad2(v) {
+      return String(v).padStart(2, "0");
+    }
+
+    function parseTime(value) {
+      if (!value) return null;
+      const dt = new Date(value);
+      if (Number.isNaN(dt.getTime())) return null;
+      return dt;
+    }
+
+    function formatLocalTime(value) {
+      const dt = parseTime(value);
+      if (!dt) return "-";
+      const tzName = new Intl.DateTimeFormat(undefined, { timeZoneName: "short" })
+        .formatToParts(dt)
+        .find((p) => p.type === "timeZoneName")?.value || "Local";
+      return `${dt.getFullYear()}-${pad2(dt.getMonth() + 1)}-${pad2(dt.getDate())} ${pad2(dt.getHours())}:${pad2(dt.getMinutes())}:${pad2(dt.getSeconds())} ${tzName}`;
+    }
+
+    function formatUtcTime(value) {
+      const dt = parseTime(value);
+      if (!dt) return "-";
+      return `${dt.getUTCFullYear()}-${pad2(dt.getUTCMonth() + 1)}-${pad2(dt.getUTCDate())} ${pad2(dt.getUTCHours())}:${pad2(dt.getUTCMinutes())}:${pad2(dt.getUTCSeconds())} UTC`;
     }
 
     function escapeHtml(v) {
@@ -760,13 +786,15 @@
       el.metricLabel.textContent = cfg.metricLabel;
       el.topItem.textContent = top ? (top.title || top.name || "-") : "-";
       el.topMetric.textContent = top ? cfg.metricFmt(top[cfg.metricKey]) : "-";
-      el.generatedAt.textContent = (ds.generatedAtUtc || "-").replace("T", " ").replace("+00:00", " UTC");
+      el.generatedAt.textContent = formatLocalTime(ds.generatedAtUtc);
+      el.generatedAt.title = `UTC: ${formatUtcTime(ds.generatedAtUtc)}`;
 
       const footer = [
         `Mode: ${cfg.label}`,
         `Rows in dataset: ${fmtNum(baseRows.length)}`,
         `Rows shown: ${fmtNum(paged.rows.length)}`,
         `Page: ${state.page}/${paged.totalPages}`,
+        `GeneratedAtUtc: ${formatUtcTime(ds.generatedAtUtc)}`,
         `Source: ${cfg.dataUrl}`
       ];
       if (state.verifiedOnly) {
