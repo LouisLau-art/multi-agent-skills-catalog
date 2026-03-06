@@ -3,8 +3,8 @@
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Installable Skills](https://img.shields.io/badge/installable_skills-163-blue)
-![Local Total](https://img.shields.io/badge/local_total_with__.system-164-6f42c1)
+![Installable Skills](https://img.shields.io/badge/installable_skills-170-blue)
+![Local Total](https://img.shields.io/badge/local_total_with__.system-171-6f42c1)
 ![Curation](https://img.shields.io/badge/curation-Installs%2BTrust%2BVerified-orange)
 ![Context7](https://img.shields.io/badge/source-Context7-black)
 
@@ -12,12 +12,13 @@ A curated, deduplicated Context7 skills pack for software development workflows.
 
 Live site (GitHub Pages): https://louislau-art.github.io/context7-skills-curated-pack/
 
-Current snapshot: **163 installable skills** (plus internal `.system`, total local dirs = 164).
+Current snapshot: **170 installable skills** (plus internal `.system`, total local dirs = 171).
 
 This repository intentionally contains:
 - `skills_manifest.csv` (selected skills with source/score)
 - `skills_selected.txt` (plain list)
-- `scripts/install_curated.sh` (one-click installer)
+- `scripts/install_curated.py` (cross-platform one-click installer)
+- `scripts/install_curated.sh` (thin Unix wrapper around the Python installer)
 - docs for de-dup policy and stack classification
 
 It intentionally does **not** contain third-party `SKILL.md` contents.
@@ -27,36 +28,61 @@ It intentionally does **not** contain third-party `SKILL.md` contents.
 - lighter and easier to maintain
 - deterministic reinstall from source
 - avoids re-hosting third-party skill files
+- easier to sync the same curated pack across multiple agent directories
 
 ## Quick Start
 
 ```bash
-# install to Claude target
-bash scripts/install_curated.sh claude
+# cross-platform install to the Claude-compatible base target
+python scripts/install_curated.py claude
 
-# install and sync to Codex + Gemini
+# install once, then sync to Codex + Gemini + OpenCode + Amp
+python scripts/install_curated.py all
+
+# Qwen-compatible flow (shares Gemini skills directory)
+python scripts/install_curated.py qwen
+
+# Unix convenience wrapper
 bash scripts/install_curated.sh all
 
 # dry-run first
-DRY_RUN=1 bash scripts/install_curated.sh claude
+DRY_RUN=1 python scripts/install_curated.py claude+opencode+amp
 ```
 
 Supported targets:
 - `claude` (default)
-- `codex` (install via Claude target, then sync to `~/.codex/skills`)
-- `gemini` (install via Claude target, then sync to `~/.gemini/skills`)
-- `all` / `claude+codex+gemini`
-- `claude+codex`, `claude+gemini`, `codex+gemini`
-- `universal`
-- `global`
-- `cursor`
-- `auto`
+- `codex` (install via Claude-compatible target, then sync to `~/.codex/skills`)
+- `gemini` (sync to `~/.gemini/skills`)
+- `qwen` (alias of `gemini`; uses the same skills directory)
+- `opencode` (sync to `~/.config/opencode/skills` on Unix-like systems, `%APPDATA%\\opencode\\skills` on Windows)
+- `amp` / `ampcode` (sync to `~/.config/agents/skills` on Unix-like systems, `%APPDATA%\\agents\\skills` on Windows)
+- `all` / `claude+codex+gemini+opencode+amp`
+- custom combos such as `claude+codex+opencode`, `claude+gemini+amp`, `claude+qwen`
+- `universal`, `global`, `cursor`, `auto` (install-only targets; no post-install sync)
+
+The installer reads `skills_manifest.csv` directly, installs from upstream Context7 sources, then copies the resulting local skill tree into compatible agent directories. It does **not** vendor third-party `SKILL.md` files into this repo.
+
+### Directory Overrides
+
+If your local agent uses a non-default path, set an override before running the installer:
+
+```bash
+export CLAUDE_SKILLS_DIR=/custom/claude/skills
+export CODEX_SKILLS_DIR=/custom/codex/skills
+export GEMINI_SKILLS_DIR=/custom/gemini/skills
+export OPENCODE_SKILLS_DIR=/custom/opencode/skills
+export AMP_SKILLS_DIR=/custom/amp/skills
+```
+
+`qwen` reuses `GEMINI_SKILLS_DIR`.
 
 ## Files
 
 - `skills_manifest.csv`: `slug, skill_name, source, installs, trust, score`
 - `skills_selected.txt`: current selected slugs
 - `manifest_summary.json`: generation metadata
+- `scripts/install_curated.py`: cross-platform installer and sync entry point
+- `scripts/install_curated.sh`: Unix wrapper for the Python installer
 - `scripts/fetch_context7_skill_rankings.py`: pull live ranked skills from Context7 API
 - `scripts/fetch_context7_library_rankings.py`: pull live docs library rankings (popular/trending/latest)
 - `scripts/rebuild_skills_by_stack_zh.py`: regenerate Chinese category doc from current `skills_selected.txt`
@@ -176,23 +202,26 @@ If another model/agent needs these rankings, start here:
 - Raw GitHub fallback:
   `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_rankings_manifest.json`
 
-## 163 Skills Distribution (Current Pack)
+## 170 Skills Distribution (Current Pack)
 
-High-level stack distribution for the current curated 163 skills:
+High-level stack distribution for the current curated 170 skills:
 
 | Category | Count | Share |
 | --- | ---: | ---: |
-| Frontend & Web UI | 46 | 28.2% |
-| LLM / Agent / Prompting | 27 | 16.6% |
-| Mobile (RN / Expo / Flutter) | 18 | 11.0% |
-| Backend & Services | 16 | 9.8% |
-| Testing & QA | 11 | 6.7% |
-| Engineering Workflow | 10 | 6.1% |
-| Database & Data Engineering | 9 | 5.5% |
-| Docs & Office Automation | 8 | 4.9% |
-| Cloud & DevOps | 7 | 4.3% |
-| Python / AI / Data Science | 6 | 3.7% |
-| Security & Architecture | 5 | 3.1% |
+| Frontend & Web UI | 46 | 27.1% |
+| LLM / Agent / Prompting | 27 | 15.9% |
+| Mobile (RN / Expo / Flutter) | 18 | 10.6% |
+| Backend & Services | 16 | 9.4% |
+| Testing & QA | 11 | 6.5% |
+| Engineering Workflow | 10 | 5.9% |
+| Database & Data Engineering | 9 | 5.3% |
+| Docs & Office Automation | 8 | 4.7% |
+| Cloud & DevOps | 7 | 4.1% |
+| Other / Uncategorized | 7 | 4.1% |
+| Python / AI / Data Science | 6 | 3.5% |
+| Security & Architecture | 5 | 2.9% |
+
+Detailed grouping: `docs/skills-by-stack-zh.md`
 
 ## Selection Rule
 

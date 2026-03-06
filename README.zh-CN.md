@@ -7,37 +7,73 @@
 在线页面（GitHub Pages）：
 https://louislau-art.github.io/context7-skills-curated-pack/
 
-当前快照：**163 个可安装 skills**（另含内部 `.system`，本地目录总数 164）。
+当前快照：**170 个可安装 skills**（另含内部 `.system`，本地目录总数 171）。
 
 ## 这个仓库包含什么
 
 - `skills_manifest.csv`：已选技能清单（含 source/installs/trust/score）
 - `skills_selected.txt`：纯技能名列表
-- `scripts/install_curated.sh`：一键安装脚本
+- `scripts/install_curated.py`：跨平台一键安装器
+- `scripts/install_curated.sh`：对 Python 安装器的 Unix 薄封装
 - `scripts/fetch_context7_skill_rankings.py`：拉取 skills 动态排行榜
 - `scripts/fetch_context7_library_rankings.py`：拉取 docs 库排行榜（popular/trending/latest）
 - `scripts/fetch_context7_docs_popular.py`：拉取 docs popular 并生成站点数据
 - `docs/index.html`：静态排行榜页面
 
-不包含第三方技能原始 `SKILL.md` 文件（避免重复托管上游内容）。
+不包含第三方技能原始 `SKILL.md` 文件；仓库只保留清单、安装器与同步逻辑。
+
+## 为什么这么做
+
+- 维护成本更低
+- 可以稳定地从上游重新安装
+- 避免在仓库里重复托管第三方 skill 文件
+- 更容易把同一套精选 skills 同步到多个 agent 目录
 
 ## 快速开始
 
 ```bash
-# 安装到 Claude 目标目录
-bash scripts/install_curated.sh claude
+# 跨平台：安装到 Claude 兼容基准目录
+python scripts/install_curated.py claude
 
-# 一次安装并同步到 Codex + Gemini
+# 一次安装，并同步到 Codex + Gemini + OpenCode + Amp
+python scripts/install_curated.py all
+
+# Qwen 兼容用法（复用 Gemini skills 目录）
+python scripts/install_curated.py qwen
+
+# Unix 便捷包装
 bash scripts/install_curated.sh all
 
 # 先 dry-run
-DRY_RUN=1 bash scripts/install_curated.sh claude
+DRY_RUN=1 python scripts/install_curated.py claude+opencode+amp
 ```
 
 支持目标：
-`claude`、`codex`、`gemini`、`all`（或 `claude+codex+gemini`）、
-`claude+codex`、`claude+gemini`、`codex+gemini`、
-`universal`、`global`、`cursor`、`auto`
+- `claude`（默认）
+- `codex`：通过 Claude 兼容目录安装，再同步到 `~/.codex/skills`
+- `gemini`：同步到 `~/.gemini/skills`
+- `qwen`：`gemini` 的别名，共用同一个 skills 目录
+- `opencode`：Unix 类系统默认同步到 `~/.config/opencode/skills`；Windows 默认同步到 `%APPDATA%\\opencode\\skills`
+- `amp` / `ampcode`：Unix 类系统默认同步到 `~/.config/agents/skills`；Windows 默认同步到 `%APPDATA%\\agents\\skills`
+- `all` / `claude+codex+gemini+opencode+amp`
+- 自定义组合，例如 `claude+codex+opencode`、`claude+gemini+amp`、`claude+qwen`
+- `universal`、`global`、`cursor`、`auto`（仅安装，不做后续同步）
+
+安装器会直接读取 `skills_manifest.csv`，从上游 Context7 来源安装，再把本地生成的 skills 目录同步到兼容 agent 的目录中；并不会把第三方 `SKILL.md` vendoring 到本仓库。
+
+### 目录覆盖
+
+如果你的本地目录不是默认路径，可以先设置环境变量：
+
+```bash
+export CLAUDE_SKILLS_DIR=/custom/claude/skills
+export CODEX_SKILLS_DIR=/custom/codex/skills
+export GEMINI_SKILLS_DIR=/custom/gemini/skills
+export OPENCODE_SKILLS_DIR=/custom/opencode/skills
+export AMP_SKILLS_DIR=/custom/amp/skills
+```
+
+`qwen` 复用 `GEMINI_SKILLS_DIR`。
 
 ## 拉取动态榜单
 
@@ -118,19 +154,20 @@ python3 scripts/fetch_context7_skills_for_site.py \
 - Raw GitHub 兜底地址：
   `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_rankings_manifest.json`
 
-## 当前 163 技能分布（摘要）
+## 当前 170 技能分布（摘要）
 
-- Frontend & Web UI: 46
+- 前端与 Web UI: 46
 - LLM / Agent / Prompting: 27
-- Mobile: 18
-- Backend & Services: 16
-- Testing & QA: 11
-- Engineering Workflow: 10
-- Database & Data Engineering: 9
-- Docs & Office Automation: 8
-- Cloud & DevOps: 7
-- Python / AI / Data Science: 6
-- Security & Architecture: 5
+- 移动端: 18
+- 后端与服务端: 16
+- 测试与质量保障: 11
+- 工程流程与协作: 10
+- 数据库与数据工程: 9
+- 文档与办公自动化: 8
+- 云与 DevOps / 基础设施: 7
+- 其他 / 未分类: 7
+- Python / AI / 数据科学: 6
+- 安全与架构: 5
 
 详细分类见：`docs/skills-by-stack-zh.md`
 
