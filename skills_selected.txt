@@ -32,11 +32,13 @@ context7-docs-lookup
 context7-skills
 convex-best-practices
 create-auth-skill
+dispatching-parallel-agents
 doc-coauthoring
 documentation-lookup
 docx
 dotnet-backend-patterns
 e2e-testing-patterns
+email-and-password-best-practices
 embedding-strategies
 executing-plans
 expo-api-routes
@@ -45,6 +47,8 @@ expo-deployment
 expo-dev-client
 expo-tailwind-setup
 fastapi-templates
+figma
+figma-implement-design
 flutter
 frontend-design
 frontend-patterns
@@ -101,8 +105,10 @@ react-testing
 react-web
 redis-js
 remotion-best-practices
+requesting-code-review
 responsive-design
 rust-async-patterns
+send-email
 senior-architect
 senior-backend
 senior-computer-vision
@@ -122,6 +128,7 @@ slack-gif-creator
 sql-optimization-patterns
 stripe-best-practices
 stripe-integration
+subagent-driven-development
 supabase-nextjs
 svelte-code-writer
 systematic-debugging

@@ -1,6 +1,6 @@
 # 当前 Skills 按技术栈/语言分类
 
-- 总计目录数: 163（仅当前已保留 skills）
+- 总计目录数: 170（仅当前已保留 skills）
 - 说明: 按“主要用途”进行单标签归类，便于快速筛选。
 - 数据源: `skills_selected.txt`
 
@@ -17,6 +17,7 @@
 - 安全与架构: 5
 - 文档与办公自动化: 8
 - 工程流程与协作: 10
+- 其他/未分类: 7
 
 ## 前端与Web UI（46）
 
@@ -83,3 +84,9 @@
 主要是规划执行、规范、项目组织与工程协同。
 
 `app-store-optimization`, `brainstorming`, `coding-standards`, `convex-best-practices`, `executing-plans`, `monorepo-management`, `stripe-best-practices`, `stripe-integration`, `using-superpowers`, `writing-plans`
+
+## 其他/未分类（7）
+
+无法从既有映射中归类的条目。
+
+`dispatching-parallel-agents`, `email-and-password-best-practices`, `figma`, `figma-implement-design`, `requesting-code-review`, `send-email`, `subagent-driven-development`

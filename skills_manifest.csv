@@ -33,11 +33,13 @@ context7-docs-lookup,context7-docs-lookup,/upstash/context7,51,8.5,0.606
 context7-skills,context7-skills,/narumiruna/context7-skills-skill,81,8.8,0.544
 convex-best-practices,Convex Best Practices,/waynesutton/convexskills,59,9.6,0.648
 create-auth-skill,create-auth-skill,/better-auth/skills,111,7.8,0.634
+dispatching-parallel-agents,dispatching-parallel-agents,/obra/superpowers,36,9.5,-
 doc-coauthoring,doc-coauthoring,/anthropics/skills,431,8.5,0.741
 documentation-lookup,documentation-lookup,/upstash/context7,59,8.5,0.615
 docx,docx,/anthropics/skills,516,8.5,0.752
 dotnet-backend-patterns,dotnet-backend-patterns,/wshobson/agents,123,9.5,0.791
 e2e-testing-patterns,e2e-testing-patterns,/wshobson/agents,69,9.5,0.755
+email-and-password-best-practices,email-and-password-best-practices,/better-auth/skills,33,7.8,-
 embedding-strategies,embedding-strategies,/wshobson/agents,45,9.5,0.728
 executing-plans,executing-plans,/obra/superpowers,40,9.5,0.621
 expo-api-routes,expo-api-routes,/expo/skills,54,10,0.755
@@ -46,6 +48,8 @@ expo-deployment,expo-deployment,/expo/skills,87,10,0.785
 expo-dev-client,expo-dev-client,/expo/skills,56,10,0.757
 expo-tailwind-setup,expo-tailwind-setup,/expo/skills,104,10,0.796
 fastapi-templates,fastapi-templates,/wshobson/agents,107,9.5,0.783
+figma,figma,/johnlindquist/claude,11,9,-
+figma-implement-design,figma-implement-design,/figma/mcp-server-guide,25,-,-
 flutter,flutter,/alinaqi/claude-bootstrap,46,8.7,0.506
 frontend-design,frontend-design,/anthropics/skills,2.6K,8.5,0.855
 frontend-patterns,frontend-patterns,/affaan-m/everything-claude-code,112,9.4,0.683
@@ -102,8 +106,10 @@ react-testing,react-testing,/citypaul/dotfiles,50,-,0.250
 react-web,react-web,/alinaqi/claude-bootstrap,75,8.7,0.536
 redis-js,redis-js,/upstash/redis-js,39,8.5,0.590
 remotion-best-practices,remotion-best-practices,/remotion-dev/skills,127,8.3,0.558
+requesting-code-review,requesting-code-review,/obra/superpowers,36,9.5,-
 responsive-design,responsive-design,/wshobson/agents,94,9.5,0.775
 rust-async-patterns,rust-async-patterns,/wshobson/agents,68,9.5,0.754
+send-email,send-email,/resend/resend-skills,10,9.5,-
 senior-architect,senior-architect,/davila7/claude-code-templates,59,10,0.660
 senior-backend,senior-backend,/alirezarezvani/claude-skills,286,8.9,0.627
 senior-computer-vision,senior-computer-vision,/alirezarezvani/claude-skills,51,8.9,0.518
@@ -123,6 +129,7 @@ slack-gif-creator,slack-gif-creator,/anthropics/skills,332,8.5,0.724
 sql-optimization-patterns,sql-optimization-patterns,/wshobson/agents,49,9.5,0.734
 stripe-best-practices,stripe-best-practices,/stripe/ai,52,9,0.722
 stripe-integration,stripe-integration,/wshobson/agents,73,9.5,0.759
+subagent-driven-development,subagent-driven-development,/obra/superpowers,36,9.5,-
 supabase-nextjs,supabase-nextjs,/alinaqi/claude-bootstrap,120,8.7,0.566
 svelte-code-writer,svelte-code-writer,/sveltejs/mcp,43,9.6,0.729
 systematic-debugging,systematic-debugging,/obra/superpowers,49,9.5,0.634
