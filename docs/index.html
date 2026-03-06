@@ -360,15 +360,24 @@
         .join("/");
     }
 
-    function getSkillsLinks(row) {
+    function getProjectLinks(row) {
       const rawSource = String(row?.source || "").trim();
-      const rawName = String(row?.name || "").trim();
       const sourcePath = encodePathSegments(rawSource.replace(/^\/+/, ""));
+      return {
+        docsUrl: sourcePath ? `https://context7.com/${sourcePath}` : "",
+        githubUrl: sourcePath ? `https://github.com/${sourcePath}` : ""
+      };
+    }
+
+    function getSkillsLinks(row) {
+      const rawName = String(row?.name || "").trim();
+      const links = getProjectLinks(row);
+      const sourcePath = links.docsUrl.replace("https://context7.com/", "");
       return {
         skillUrl: sourcePath && rawName
           ? `https://context7.com/skills/${sourcePath}/${encodeURIComponent(rawName)}`
           : "",
-        githubUrl: sourcePath ? `https://github.com/${sourcePath}` : ""
+        githubUrl: links.githubUrl
       };
     }
 
@@ -458,6 +467,22 @@
           const tds = cfg.columns
             .map((c) => {
               const v = r[c.key];
+              if ((state.mode === "docs" || state.mode === "docsExtended") && c.key === "title") {
+                const links = getProjectLinks(r);
+                const text = textCell(v);
+                if (links.docsUrl) {
+                  return `<td><a class="cell-link" href="${links.docsUrl}" target="_blank" rel="noopener noreferrer">${text}</a></td>`;
+                }
+                return `<td>${text}</td>`;
+              }
+              if ((state.mode === "docs" || state.mode === "docsExtended") && c.key === "source") {
+                const links = getProjectLinks(r);
+                const text = textCell(v);
+                if (links.githubUrl) {
+                  return `<td class="mono"><a class="cell-link" href="${links.githubUrl}" target="_blank" rel="noopener noreferrer">${text}</a></td>`;
+                }
+                return `<td class="mono">${text}</td>`;
+              }
               if (state.mode === "skills" && c.key === "name") {
                 const links = getSkillsLinks(r);
                 const text = textCell(v);
