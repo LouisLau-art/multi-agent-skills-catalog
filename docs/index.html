@@ -169,6 +169,17 @@
     }
     .ok { background: #e8faf1; color: #11673d; border-color: #bce8d0; }
     .no { background: #f6f6f7; color: #65717f; border-color: #e2e8f0; }
+    .cell-link {
+      color: #0369a1;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      text-decoration-color: #94cce8;
+    }
+    .cell-link:hover {
+      color: #0c4a6e;
+      text-decoration-color: currentColor;
+    }
     .footer {
       margin-top: 12px;
       color: var(--muted);
@@ -332,6 +343,40 @@
       return new Intl.NumberFormat("en-US").format(v);
     }
 
+    function escapeHtml(v) {
+      return String(v)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function encodePathSegments(path) {
+      return String(path || "")
+        .split("/")
+        .filter(Boolean)
+        .map((seg) => encodeURIComponent(seg))
+        .join("/");
+    }
+
+    function getSkillsLinks(row) {
+      const rawSource = String(row?.source || "").trim();
+      const rawName = String(row?.name || "").trim();
+      const sourcePath = encodePathSegments(rawSource.replace(/^\/+/, ""));
+      return {
+        skillUrl: sourcePath && rawName
+          ? `https://context7.com/skills/${sourcePath}/${encodeURIComponent(rawName)}`
+          : "",
+        githubUrl: sourcePath ? `https://github.com/${sourcePath}` : ""
+      };
+    }
+
+    function textCell(v) {
+      if (v === null || v === undefined || v === "") return "-";
+      return escapeHtml(v);
+    }
+
     function asComparable(row, key, mode) {
       const v = row[key];
       if (key === "updateAgo") return row.updateUtc || "";
@@ -413,14 +458,30 @@
           const tds = cfg.columns
             .map((c) => {
               const v = r[c.key];
+              if (state.mode === "skills" && c.key === "name") {
+                const links = getSkillsLinks(r);
+                const text = textCell(v);
+                if (links.skillUrl) {
+                  return `<td><a class="cell-link" href="${links.skillUrl}" target="_blank" rel="noopener noreferrer">${text}</a></td>`;
+                }
+                return `<td>${text}</td>`;
+              }
+              if (state.mode === "skills" && c.key === "source") {
+                const links = getSkillsLinks(r);
+                const text = textCell(v);
+                if (links.githubUrl) {
+                  return `<td class="mono"><a class="cell-link" href="${links.githubUrl}" target="_blank" rel="noopener noreferrer">${text}</a></td>`;
+                }
+                return `<td class="mono">${text}</td>`;
+              }
               if (c.type === "num") return `<td class="num">${fmtNum(v)}</td>`;
               if (c.type === "pct") return `<td class="pct num">${typeof v === "number" ? v.toFixed(2) + "%" : "-"}</td>`;
-              if (c.type === "mono") return `<td class="mono">${v || "-"}</td>`;
+              if (c.type === "mono") return `<td class="mono">${textCell(v)}</td>`;
               if (c.type === "bool") {
                 return `<td>${v ? '<span class="badge ok">yes</span>' : '<span class="badge no">no</span>'}</td>`;
               }
               if (c.key === "rank") return `<td class="rank num">${fmtNum(v)}</td>`;
-              return `<td>${v || "-"}</td>`;
+              return `<td>${textCell(v)}</td>`;
             })
             .join("");
           return `<tr>${tds}</tr>`;
