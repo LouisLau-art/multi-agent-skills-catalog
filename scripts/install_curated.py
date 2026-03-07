@@ -189,6 +189,33 @@ def verify_expected_dirs(base_dir: Path, entries: list[SkillEntry]) -> list[str]
     return missing
 
 
+def run_post_install_validation(base_dir: Path, entries: list[SkillEntry], dry_run: bool) -> None:
+    if dry_run:
+        print(
+            "DRY_RUN validate: "
+            f"{base_dir} (slugs={len(entries)}) via scripts/validate_skills_frontmatter.py"
+        )
+        return
+
+    from validate_skills_frontmatter import validate_skill_tree
+
+    summary = validate_skill_tree(base_dir, slugs=[entry.slug for entry in entries], check_only=False)
+    print(
+        "Post-install frontmatter validation: "
+        f"valid={summary.valid} fixed={summary.fixed} invalid={summary.invalid} missing={summary.missing}"
+    )
+
+    for result in summary.results:
+        if result.status not in {"fixed", "invalid", "missing"}:
+            continue
+        details = result.status.upper()
+        if result.repairs:
+            details += f" repairs={','.join(result.repairs)}"
+        if result.error:
+            details += f" error={result.error}"
+        print(f"  - {result.path}: {details}")
+
+
 def main() -> int:
     args = parse_args()
     manifest_path = Path(args.manifest).resolve()
@@ -207,6 +234,14 @@ def main() -> int:
     for index, entry in enumerate(entries, start=1):
         print(f"[{index}/{len(entries)}] {entry.skill_name} <= {entry.source}")
         run_install(entry, install_flag, args.dry_run)
+
+    if base_target == "claude":
+        run_post_install_validation(paths["claude"], entries, args.dry_run)
+    else:
+        print(
+            f"Skipping post-install frontmatter validation for base target '{base_target}' "
+            "(installer does not manage a deterministic local skills path for this target)."
+        )
 
     synced_paths: list[tuple[str, Path]] = []
     if sync_targets:

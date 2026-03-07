@@ -16,10 +16,12 @@ https://louislau-art.github.io/context7-skills-curated-pack/
 - `scripts/install_curated.py`：跨平台一键安装器
 - `scripts/install_curated.sh`：对 Python 安装器的 Unix 薄封装
 - `scripts/install_curated.ps1`：对 Python 安装器的 PowerShell 薄封装
+- `scripts/validate_skills_frontmatter.py`：安装后校验/修复 `SKILL.md` frontmatter
 - `scripts/fetch_context7_skill_rankings.py`：拉取 skills 动态排行榜
 - `scripts/fetch_context7_library_rankings.py`：拉取 docs 库排行榜（popular/trending/latest）
 - `scripts/fetch_context7_docs_popular.py`：拉取 docs popular 并生成站点数据
 - `docs/index.html`：静态排行榜页面
+- `docs/troubleshooting.md`：常见安装/认证/frontmatter 排障
 
 不包含第三方技能原始 `SKILL.md` 文件；仓库只保留清单、安装器与同步逻辑。
 
@@ -70,7 +72,7 @@ $env:DRY_RUN = "1"
 - 自定义组合，例如 `claude+codex+opencode`、`claude+gemini+amp`、`claude+qwen`
 - `universal`、`global`、`cursor`、`auto`（仅安装，不做后续同步）
 
-安装器会直接读取 `skills_manifest.csv`，从上游 Context7 来源安装，再把本地生成的 skills 目录同步到兼容 agent 的目录中；并不会把第三方 `SKILL.md` vendoring 到本仓库。
+安装器会直接读取 `skills_manifest.csv`，从上游 Context7 来源安装，在 Claude 兼容基准目录里校验并修复已知 `SKILL.md` frontmatter 问题，然后再把本地生成的 skills 目录同步到兼容 agent 的目录中；并不会把第三方 `SKILL.md` vendoring 到本仓库。
 
 ### 目录覆盖
 

@@ -20,6 +20,7 @@ This repository intentionally contains:
 - `scripts/install_curated.py` (cross-platform one-click installer)
 - `scripts/install_curated.sh` (thin Unix wrapper around the Python installer)
 - `scripts/install_curated.ps1` (thin PowerShell wrapper around the Python installer)
+- `scripts/validate_skills_frontmatter.py` (post-install validator/sanitizer for `SKILL.md` frontmatter)
 - docs for de-dup policy and stack classification
 
 It intentionally does **not** contain third-party `SKILL.md` contents.
@@ -71,7 +72,7 @@ Supported targets:
 - custom combos such as `claude+codex+opencode`, `claude+gemini+amp`, `claude+qwen`
 - `universal`, `global`, `cursor`, `auto` (install-only targets; no post-install sync)
 
-The installer reads `skills_manifest.csv` directly, installs from upstream Context7 sources, then copies the resulting local skill tree into compatible agent directories. It does **not** vendor third-party `SKILL.md` files into this repo.
+The installer reads `skills_manifest.csv` directly, installs from upstream Context7 sources, validates/sanitizes known `SKILL.md` frontmatter issues in the Claude-compatible base install, then copies the resulting local skill tree into compatible agent directories. It does **not** vendor third-party `SKILL.md` files into this repo.
 
 ### Directory Overrides
 
@@ -95,11 +96,13 @@ export AMP_SKILLS_DIR=/custom/amp/skills
 - `scripts/install_curated.py`: cross-platform installer and sync entry point
 - `scripts/install_curated.sh`: Unix wrapper for the Python installer
 - `scripts/install_curated.ps1`: PowerShell wrapper for the Python installer
+- `scripts/validate_skills_frontmatter.py`: validate and sanitize known frontmatter issues in installed skills
 - `scripts/fetch_context7_skill_rankings.py`: pull live ranked skills from Context7 API
 - `scripts/fetch_context7_library_rankings.py`: pull live docs library rankings (popular/trending/latest)
 - `scripts/rebuild_skills_by_stack_zh.py`: regenerate Chinese category doc from current `skills_selected.txt`
 - `docs/dedup-policy.md`: de-dup rule
 - `docs/skills-by-stack-zh.md`: Chinese stack/language categorization
+- `docs/troubleshooting.md`: common install/auth/frontmatter troubleshooting
 
 ## Live Ranking Pull (Context7)
 
