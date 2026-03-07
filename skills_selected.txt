@@ -32,7 +32,7 @@ convex-best-practices
 create-auth-skill
 dispatching-parallel-agents
 doc-coauthoring
-documentation-lookup
+context7-docs-lookup
 docx
 dotnet-backend-patterns
 e2e-testing-patterns

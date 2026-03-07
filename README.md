@@ -237,8 +237,11 @@ Detailed grouping: `docs/skills-by-stack-zh.md`
 
 ## Selection Rule
 
-`0.50*Installs(log-normalized) + 0.30*Trust + 0.10*OfficialSource + 0.10*(Trust>=9)`
+For high-overlap groups, use:
 
+`0.60*Installs(log-normalized) + 0.25*Trust + 0.15*Verified`
+
+Then do a content review when scores are close (`gap < 0.12` or installs ratio `< 1.8x`).
 Used for high-overlap groups only, not blanket deletion.
 
 ## License

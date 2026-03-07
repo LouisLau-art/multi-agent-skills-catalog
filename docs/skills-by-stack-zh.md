@@ -12,12 +12,12 @@
 - Python/AI/数据科学: 6
 - 数据库与数据工程: 9
 - 云与DevOps/基础设施: 7
-- LLM/Agent与提示工程: 26
+- LLM/Agent与提示工程: 25
 - 测试/质量保障: 10
 - 安全与架构: 5
 - 文档与办公自动化: 8
 - 工程流程与协作: 10
-- 其他/未分类: 7
+- 其他/未分类: 8
 
 ## 前端与Web UI（44）
 
@@ -55,11 +55,11 @@
 
 `aws-solution-architect`, `cloudflare-nextjs`, `github-actions-templates`, `senior-devops`, `terraform-module-library`, `vercel-deploy`, `wrangler`
 
-## LLM/Agent与提示工程（26）
+## LLM/Agent与提示工程（25）
 
 主要是 Agent、MCP、RAG、提示工程、模型/文档接入。
 
-`agent-browser`, `agent-development`, `ai-elements`, `ai-sdk-core`, `claude-automation-recommender`, `claude-opus-4-5-migration`, `command-development`, `context7`, `context7-skills`, `documentation-lookup`, `embedding-strategies`, `gemini`, `gemini-api-dev`, `hook-development`, `langchain`, `langchain-architecture`, `mcp-builder`, `mcp-integration`, `nano-banana-prompting`, `plugin-settings`, `plugin-structure`, `rag-implementation`, `senior-prompt-engineer`, `skill-creator`, `skill-development`, `template-skill`
+`agent-browser`, `agent-development`, `ai-elements`, `ai-sdk-core`, `claude-automation-recommender`, `claude-opus-4-5-migration`, `command-development`, `context7`, `context7-skills`, `embedding-strategies`, `gemini`, `gemini-api-dev`, `hook-development`, `langchain`, `langchain-architecture`, `mcp-builder`, `mcp-integration`, `nano-banana-prompting`, `plugin-settings`, `plugin-structure`, `rag-implementation`, `senior-prompt-engineer`, `skill-creator`, `skill-development`, `template-skill`
 
 ## 测试/质量保障（10）
 
@@ -85,6 +85,6 @@
 
 `app-store-optimization`, `brainstorming`, `coding-standards`, `convex-best-practices`, `executing-plans`, `monorepo-management`, `stripe-best-practices`, `stripe-integration`, `using-superpowers`, `writing-plans`
 
-## 其他/未分类（7）
+## 其他/未分类（8）
 
-`dispatching-parallel-agents`, `email-and-password-best-practices`, `figma`, `figma-implement-design`, `requesting-code-review`, `send-email`, `subagent-driven-development`
+`dispatching-parallel-agents`, `email-and-password-best-practices`, `figma`, `figma-implement-design`, `requesting-code-review`, `send-email`, `subagent-driven-development`, `context7-docs-lookup`
