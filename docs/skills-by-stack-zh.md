@@ -1,6 +1,6 @@
 # 当前 Skills 按技术栈/语言分类
 
-- 总计目录数: 176（仅当前已保留 skills）
+- 总计目录数: 175（仅当前已保留 skills）
 - 说明: 按“主要用途”进行单标签归类，便于快速筛选。
 - 数据源: `skills_selected.txt`
 
@@ -12,7 +12,7 @@
 - Python/AI/数据科学: 6
 - 数据库与数据工程: 9
 - 云与DevOps/基础设施: 7
-- LLM/Agent与提示工程: 28
+- LLM/Agent与提示工程: 27
 - 测试/质量保障: 11
 - 安全与架构: 6
 - 文档与办公自动化: 8
@@ -55,11 +55,11 @@
 
 `aws-solution-architect`, `cloudflare-nextjs`, `github-actions-templates`, `senior-devops`, `terraform-module-library`, `vercel-deploy`, `wrangler`
 
-## LLM/Agent与提示工程（28）
+## LLM/Agent与提示工程（27）
 
 主要是 Agent、MCP、RAG、提示工程、模型/文档接入。
 
-`agent-browser`, `agent-development`, `ai-elements`, `ai-sdk-core`, `claude-automation-recommender`, `claude-opus-4-5-migration`, `command-development`, `context7`, `context7-docs-lookup`, `context7-skills`, `documentation-lookup`, `embedding-strategies`, `gemini`, `gemini-api-dev`, `hf-cli`, `hook-development`, `langchain`, `langchain-architecture`, `mcp-builder`, `mcp-integration`, `nano-banana-prompting`, `plugin-settings`, `plugin-structure`, `rag-implementation`, `senior-prompt-engineer`, `skill-creator`, `skill-development`, `template-skill`
+`agent-browser`, `ai-elements`, `ai-sdk-core`, `claude-automation-recommender`, `claude-opus-4-5-migration`, `command-development`, `context7`, `context7-docs-lookup`, `context7-skills`, `documentation-lookup`, `embedding-strategies`, `gemini`, `gemini-api-dev`, `hf-cli`, `hook-development`, `langchain`, `langchain-architecture`, `mcp-builder`, `mcp-integration`, `nano-banana-prompting`, `plugin-settings`, `plugin-structure`, `rag-implementation`, `senior-prompt-engineer`, `skill-creator`, `skill-development`, `template-skill`
 
 ## 测试/质量保障（11）
 

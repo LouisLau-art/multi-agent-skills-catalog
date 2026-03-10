@@ -1,6 +1,5 @@
 slug,skill_name,source,installs,trust,score
 agent-browser,agent-browser,/vercel-labs/agent-browser,252,9.6,0.655
-agent-development,Agent Development,/anthropics/claude-code,90,8.8,0.558
 ai-elements,ai-elements,/vercel/ai-elements,52,10,0.548
 ai-sdk-core,ai-sdk-core,/jezweb/claude-skills,42,9.7,0.524
 algorithmic-art,algorithmic-art,/anthropics/skills,451,8.5,0.671

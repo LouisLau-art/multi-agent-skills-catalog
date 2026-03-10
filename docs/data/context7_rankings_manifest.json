@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-03-09T09:29:33.071411+00:00",
+  "generatedAtUtc": "2026-03-10T09:12:41.734364+00:00",
   "project": "context7-skills-curated-pack",
   "siteUrl": "https://louislau-art.github.io/context7-skills-curated-pack",
   "datasets": [
@@ -8,7 +8,7 @@
       "title": "Context7 Docs Popular Ranking (Top 50)",
       "relativePath": "docs/data/context7_docs_popular_top50.json",
       "publicUrl": "https://louislau-art.github.io/context7-skills-curated-pack/data/context7_docs_popular_top50.json",
-      "generatedAtUtc": "2026-03-07T11:49:06.202237+00:00",
+      "generatedAtUtc": "2026-03-10T09:07:24.649954+00:00",
       "rows": 50,
       "sourceEndpoint": "https://context7.com/api/rankings",
       "notes": [
@@ -35,7 +35,7 @@
       "title": "Context7 Docs Extended Ranking (Official Top 50 + Estimated)",
       "relativePath": "docs/data/context7_docs_extended_top1000.json",
       "publicUrl": "https://louislau-art.github.io/context7-skills-curated-pack/data/context7_docs_extended_top1000.json",
-      "generatedAtUtc": "2026-03-07T11:53:28.683717+00:00",
+      "generatedAtUtc": "2026-03-10T09:08:28.210756+00:00",
       "rows": 1000,
       "officialRows": 50,
       "estimatedRows": 950,

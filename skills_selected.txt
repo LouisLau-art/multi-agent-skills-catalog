@@ -1,5 +1,4 @@
 agent-browser
-agent-development
 ai-elements
 ai-sdk-core
 algorithmic-art
