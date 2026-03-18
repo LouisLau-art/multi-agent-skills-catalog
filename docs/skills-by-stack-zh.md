@@ -1,6 +1,6 @@
 # 当前 Skills 按技术栈/语言分类
 
-- 总计目录数: 119（仅当前已保留 skills）
+- 总计目录数: 118（仅当前已保留 skills）
 - 说明: 按“主要用途”进行单标签归类，便于快速筛选。
 - 数据源: `skills_selected.txt`
 
@@ -10,12 +10,12 @@
 - 后端与服务端(Node/多语言): 12
 - Python/AI/数据科学: 6
 - 数据库与数据工程: 10
-- LLM/Agent与提示工程: 14
+- LLM/Agent与提示工程: 12
 - 测试/质量保障: 8
 - 安全与架构: 6
 - 文档与办公自动化: 9
 - 工程流程与协作: 19
-- 其他/未分类: 1
+- 其他/未分类: 2
 
 ## 前端与Web UI（34）
 
@@ -41,11 +41,11 @@
 
 `backtesting-frameworks`, `polars`, `postgresql-table-design`, `prisma`, `redis-js`, `senior-data-engineer`, `senior-data-scientist`, `sql-optimization-patterns`, `supabase-postgres-best-practices`, `supabase-nextjs`
 
-## LLM/Agent与提示工程（14）
+## LLM/Agent与提示工程（12）
 
 主要是 Agent、MCP、RAG、提示工程、模型/文档接入。
 
-`agent-browser`, `ai-elements`, `claude-automation-recommender`, `claude-opus-4-5-migration`, `context7-docs-lookup`, `context7-skills`, `embedding-strategies`, `find-skills`, `hf-cli`, `langchain`, `langchain-architecture`, `rag-implementation`, `senior-prompt-engineer`, `ai-sdk`
+`agent-browser`, `ai-elements`, `claude-opus-4-5-migration`, `context7-docs-lookup`, `embedding-strategies`, `find-skills`, `hf-cli`, `langchain`, `langchain-architecture`, `rag-implementation`, `senior-prompt-engineer`, `ai-sdk`
 
 ## 测试/质量保障（8）
 
@@ -71,6 +71,6 @@
 
 `brainstorming`, `coding-standards`, `convex-best-practices`, `executing-plans`, `gh-cli`, `monorepo-management`, `product-manager-toolkit`, `session-handoff`, `stripe-best-practices`, `stripe-integration`, `using-superpowers`, `writing-plans`, `requesting-code-review`, `receiving-code-review`, `verification-before-completion`, `using-git-worktrees`, `git-commit`, `finishing-a-development-branch`, `turborepo`
 
-## 其他/未分类（1）
+## 其他/未分类（2）
 
-`send-email`
+`send-email`, `claude-automation-recommender`

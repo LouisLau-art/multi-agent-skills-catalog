@@ -3,8 +3,8 @@
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Installable Skills](https://img.shields.io/badge/installable_skills-119-blue)
-![Local Total](https://img.shields.io/badge/local_total_with__.system-120-6f42c1)
+![Installable Skills](https://img.shields.io/badge/installable_skills-118-blue)
+![Local Total](https://img.shields.io/badge/local_total_with__.system-119-6f42c1)
 ![Curation](https://img.shields.io/badge/curation-Source%2BOverlap%2BContent-orange)
 ![Rankings](https://img.shields.io/badge/rankings-skills.sh%20primary%20%7C%20Context7%20secondary-black)
 
@@ -12,7 +12,7 @@ A curated, deduplicated skills pack for software development workflows, plus a p
 
 Live site (GitHub Pages): https://louislau-art.github.io/context7-skills-curated-pack/
 
-Current snapshot: **119 installable skills** (plus internal `.system`; a fresh local install yields 120 total dirs).
+Current snapshot: **118 installable skills** (plus internal `.system`; a fresh local install yields 119 total dirs).
 
 This repository intentionally contains:
 - `skills_manifest.csv` (selected skills with source/score)
@@ -227,22 +227,22 @@ If another model/agent needs these rankings, start here:
 - Raw GitHub fallback:
   `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_rankings_manifest.json`
 
-## 119 Skills Distribution (Current Pack)
+## 118 Skills Distribution (Current Pack)
 
-High-level stack distribution for the current curated 119 skills:
+High-level stack distribution for the current curated 118 skills:
 
 | Category | Count | Share |
 | --- | ---: | ---: |
-| Frontend & Web UI | 34 | 28.6% |
-| LLM / Agent / Prompting | 14 | 11.8% |
-| Backend & Services | 12 | 10.1% |
-| Engineering Workflow | 19 | 16.0% |
-| Database & Data Engineering | 10 | 8.4% |
-| Testing & QA | 8 | 6.7% |
+| Frontend & Web UI | 34 | 28.8% |
+| LLM / Agent / Prompting | 13 | 11.0% |
+| Backend & Services | 12 | 10.2% |
+| Engineering Workflow | 19 | 16.1% |
+| Database & Data Engineering | 10 | 8.5% |
+| Testing & QA | 8 | 6.8% |
 | Docs & Office Automation | 9 | 7.6% |
-| Python / AI / Data Science | 6 | 5.0% |
-| Security & Architecture | 6 | 5.0% |
-| Other / Uncategorized | 1 | 0.8% |
+| Python / AI / Data Science | 6 | 5.1% |
+| Security & Architecture | 6 | 5.1% |
+| Other / Uncategorized | 1 | 0.9% |
 
 Detailed grouping: `docs/skills-by-stack-zh.md`
 
