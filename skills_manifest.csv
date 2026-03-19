@@ -119,3 +119,6 @@ turborepo,turborepo,/vercel/turborepo,11.5K,10,0.748
 xlsx,xlsx,/anthropics/skills,530,8.5,0.683
 github-actions-templates,github-actions-templates,/wshobson/agents,5.3K,9.5,0.728
 deploy-to-vercel,deploy-to-vercel,/vercel-labs/agent-skills,9.5K,9.6,0.809
+wrangler,wrangler,/cloudflare/skills,4.4K,8.8,0.734
+tailored-resume-generator,tailored-resume-generator,/composiohq/awesome-claude-skills,1.7K,9.5,0.758
+content-strategy,content-strategy,/coreyhaines31/marketingskills,25.5K,8.4,0.816

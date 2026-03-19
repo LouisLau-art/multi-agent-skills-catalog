@@ -118,3 +118,6 @@ turborepo
 xlsx
 github-actions-templates
 deploy-to-vercel
+wrangler
+tailored-resume-generator
+content-strategy
