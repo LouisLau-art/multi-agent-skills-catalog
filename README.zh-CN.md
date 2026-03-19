@@ -1,11 +1,11 @@
-# Context7 Skills Curated Pack（中文说明）
+# Multi-Agent Skills Catalog（中文说明）
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 一个面向多 agent 软件工作流的公开 skills catalog 与 profile 安装仓库，同时附带多来源排行榜站点。
 
 在线页面（GitHub Pages）：
-https://louislau-art.github.io/context7-skills-curated-pack/
+https://louislau-art.github.io/multi-agent-skills-catalog/
 
 当前快照：**123 个公开可安装 skills**。默认公开安装档 `public-default` 当前会安装 **77 个 skills**；`all-public` 会安装完整的 123 个公开 catalog skills（另含内部 `.system`）。
 
@@ -232,20 +232,20 @@ python3 scripts/fetch_context7_skills_for_site.py \
 - 说明文档：`AI_RANKINGS_GUIDE.md`
 - 机器可读清单：`docs/data/context7_rankings_manifest.json`
 - 公网 manifest 地址：
-  `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_rankings_manifest.json`
+  `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_rankings_manifest.json`
 - Raw GitHub 兜底地址：
-  `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_rankings_manifest.json`
+  `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_rankings_manifest.json`
 
-## 当前 125 技能分布（摘要）
+## 当前 123 技能分布（摘要）
 
-- 前端与 Web UI: 34
-- LLM / Agent / Prompting: 13
+- 前端与 Web UI: 31
+- LLM / Agent / Prompting: 14
 - 后端与服务端: 12
-- 测试与质量保障: 8
-- 工程流程与协作: 21
+- 测试与质量保障: 7
+- 工程流程与协作: 20
 - 数据库与数据工程: 10
-- 文档与办公自动化: 9
-- 其他 / 未分类: 2
+- 文档与办公自动化: 11
+- 其他 / 未分类: 6
 - Python / AI / 数据科学: 6
 - 安全与架构: 6
 

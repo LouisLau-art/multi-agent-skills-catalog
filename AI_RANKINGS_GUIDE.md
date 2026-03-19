@@ -4,21 +4,21 @@ This guide is for external AI models/agents that need to consume the public rank
 
 ## Canonical Public URLs
 
-- Site: `https://louislau-art.github.io/context7-skills-curated-pack/`
-- Manifest (read this first): `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_rankings_manifest.json`
-- Primary skills ranking JSON: `https://louislau-art.github.io/context7-skills-curated-pack/data/skills_sh_all_time_top2000.json`
-- Secondary Context7 skills JSON: `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_skills_ranked_all.json`
-- Docs ranking JSON: `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_docs_popular_top50.json`
-- Docs extended JSON (full target): `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_docs_extended_top1000.json`
-- Docs extended runtime JSON (temporary 51+ source): `https://louislau-art.github.io/context7-skills-curated-pack/data/context7_docs_extended_top100.runtime.json`
+- Site: `https://louislau-art.github.io/multi-agent-skills-catalog/`
+- Manifest (read this first): `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_rankings_manifest.json`
+- Primary skills ranking JSON: `https://louislau-art.github.io/multi-agent-skills-catalog/data/skills_sh_all_time_top2000.json`
+- Secondary Context7 skills JSON: `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_skills_ranked_all.json`
+- Docs ranking JSON: `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_popular_top50.json`
+- Docs extended JSON (full target): `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_extended_top1000.json`
+- Docs extended runtime JSON (temporary 51+ source): `https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_extended_top100.runtime.json`
 
 Raw GitHub fallback (if Pages cache/deploy lags):
-- Manifest: `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_rankings_manifest.json`
-- Primary skills ranking: `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/skills_sh_all_time_top2000.json`
-- Secondary Context7 skills ranking: `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_skills_ranked_all.json`
-- Docs ranking: `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_docs_popular_top50.json`
-- Docs extended (full target): `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_docs_extended_top1000.json`
-- Docs extended runtime (temporary 51+ source): `https://raw.githubusercontent.com/LouisLau-art/context7-skills-curated-pack/main/docs/data/context7_docs_extended_top100.runtime.json`
+- Manifest: `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_rankings_manifest.json`
+- Primary skills ranking: `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/skills_sh_all_time_top2000.json`
+- Secondary Context7 skills ranking: `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_skills_ranked_all.json`
+- Docs ranking: `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_docs_popular_top50.json`
+- Docs extended (full target): `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_docs_extended_top1000.json`
+- Docs extended runtime (temporary 51+ source): `https://raw.githubusercontent.com/LouisLau-art/multi-agent-skills-catalog/main/docs/data/context7_docs_extended_top100.runtime.json`
 
 ## What Each Dataset Means
 

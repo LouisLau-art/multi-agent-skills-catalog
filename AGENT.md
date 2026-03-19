@@ -38,7 +38,7 @@ Apply these rules:
 
 ## 1) 当前目标
 - 用户要的是 Context7 docs 排行榜从第 51 名开始，并希望继续扩展到 1000+。
-- 仓库路径：`/root/context7-skills-curated-pack`
+- 仓库路径：当前公开 skills catalog 仓库（本地 clone 名可能仍保留旧目录名）。
 
 ## 2) 已完成并已推送
 - 已产出并推送可用的 51-100 扩展结果（估算）：
@@ -81,9 +81,9 @@ Apply these rules:
 
 ## 6) 解限后建议执行步骤
 1. 先跑 top1000（全页）：
-   - `cd /root/context7-skills-curated-pack && CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1 python3 scripts/fetch_context7_docs_extended.py --top-k 1000 --max-pages 0 --max-workers 12 --retries 3 --output-json docs/data/context7_docs_extended_top1000.json --output-csv docs/data/context7_docs_extended_top1000.csv`
+   - `cd "$(git rev-parse --show-toplevel)" && CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1 python3 scripts/fetch_context7_docs_extended.py --top-k 1000 --max-pages 0 --max-workers 12 --retries 3 --output-json docs/data/context7_docs_extended_top1000.json --output-csv docs/data/context7_docs_extended_top1000.csv`
 2. 如需更高区间，再跑 top2000：
-   - `cd /root/context7-skills-curated-pack && CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1 python3 scripts/fetch_context7_docs_extended.py --top-k 2000 --max-pages 0 --max-workers 12 --retries 3 --output-json docs/data/context7_docs_extended_top2000.json --output-csv docs/data/context7_docs_extended_top2000.csv`
+   - `cd "$(git rev-parse --show-toplevel)" && CONTEXT7_ALLOW_CODEX_MCP_FALLBACK=1 python3 scripts/fetch_context7_docs_extended.py --top-k 2000 --max-pages 0 --max-workers 12 --retries 3 --output-json docs/data/context7_docs_extended_top2000.json --output-csv docs/data/context7_docs_extended_top2000.csv`
 3. 更新 manifest（对外发布场景）：
    - `python3 scripts/build_rankings_manifest.py`
 4. 提交并推送更新后的数据文件。

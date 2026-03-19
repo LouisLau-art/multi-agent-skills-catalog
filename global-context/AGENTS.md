@@ -50,8 +50,8 @@
 
 ## Skills 仓库维护约定
 
-- 只有在维护 `/root/context7-skills-curated-pack` 或同步本机 skills 树时，才应用下面这些规则。
-- 把 `/root/context7-skills-curated-pack` 视为 curated skills 的基线仓库。
+- 只有在维护当前公开 skills catalog 仓库或同步本机 skills 树时，才应用下面这些规则。
+- 把当前公开 skills catalog 仓库视为 curated skills 的基线仓库。
 - curated source of truth 是 `skills_selected.txt` 和 `skills_manifest.csv`。
 - curated skills 去重或冲突裁剪时，优先官方来源和强维护者来源；`installs / trust / verified` 只做辅助判断。
 - 用内置 `skill-installer` 新装的 skill 默认视为 overlay skill，可以装进 `~/.codex/skills`，但不默认并入 curated repo。

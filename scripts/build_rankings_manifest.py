@@ -17,7 +17,7 @@ DEFAULT_DOCS_EXTENDED_RUNTIME_JSON = "docs/data/context7_docs_extended_top100.ru
 DEFAULT_SKILLS_SH_JSON = "docs/data/skills_sh_all_time_top2000.json"
 DEFAULT_CONTEXT7_SKILLS_JSON = "docs/data/context7_skills_ranked_all.json"
 DEFAULT_OUTPUT_JSON = "docs/data/context7_rankings_manifest.json"
-DEFAULT_PUBLIC_BASE = "https://louislau-art.github.io/context7-skills-curated-pack"
+DEFAULT_PUBLIC_BASE = "https://louislau-art.github.io/multi-agent-skills-catalog"
 
 
 def load_payload(path: Path) -> dict[str, Any]:
@@ -98,7 +98,7 @@ def main() -> int:
 
     manifest: dict[str, Any] = {
         "generatedAtUtc": now,
-        "project": "context7-skills-curated-pack",
+        "project": "multi-agent-skills-catalog",
         "siteUrl": args.public_base.rstrip("/"),
         "datasets": [
             {

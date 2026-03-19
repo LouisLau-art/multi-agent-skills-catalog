@@ -135,7 +135,7 @@ def resolve_context7_api_key() -> str:
     return ""
 
 
-def build_context7_request(url: str, user_agent: str = "context7-skills-curated-pack/1.0") -> Request:
+def build_context7_request(url: str, user_agent: str = "multi-agent-skills-catalog/1.0") -> Request:
     headers = {"User-Agent": user_agent}
     api_key = resolve_context7_api_key()
     if api_key:
