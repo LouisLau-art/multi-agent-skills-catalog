@@ -38,7 +38,6 @@ senior-backend
 senior-prompt-engineer
 senior-security
 stripe-best-practices
-stripe-integration
 svelte-code-writer
 tailwind-design-system
 tailwind-v4-shadcn

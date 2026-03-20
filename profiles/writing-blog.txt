@@ -6,6 +6,5 @@ doc-coauthoring
 markitdown
 mermaid-diagrams
 react-email
-send-email
 session-handoff
 writing-plans

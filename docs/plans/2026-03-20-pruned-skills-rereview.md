@@ -25,6 +25,14 @@ Two earlier corrections already showed that the pruning process should not be pu
 
 That same logic should be applied to other deleted skills that support business operations, content systems, research, design-to-code, or artifact delivery.
 
+## Status Update
+
+A first Round B subset has now been applied:
+
+- `send-email` moved from `writing-blog` to `cloud-platform`
+- `stripe-integration` moved from `development-core` to `cloud-platform`
+- `figma` was promoted into the public catalog and added to `design-ui`
+
 ## Bucket A: Keep Pruned
 
 These deletions still look sound even after broadening the lens. They are mostly true overlap, environment conflict, or overly narrow vendor/tool wrappers that do not deserve default residency.

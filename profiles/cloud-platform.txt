@@ -5,6 +5,8 @@ deploy-to-vercel
 gemini-api-dev
 github-actions-templates
 hf-cli
+send-email
+stripe-integration
 supabase-nextjs
 supabase-postgres-best-practices
 vercel-composition-patterns

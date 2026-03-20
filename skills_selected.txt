@@ -23,6 +23,7 @@ e2e-testing-patterns
 embedding-strategies
 executing-plans
 fastapi-templates
+figma
 find-docs
 find-skills
 frontend-design
