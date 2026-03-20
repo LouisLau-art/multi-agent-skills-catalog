@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Context7 Rankings Dashboard</title>
-  <meta name="description" content="Auto-updated Context7 docs and skills rankings dashboard." />
+  <title>Multi-Agent Skills Catalog Discovery Board</title>
+  <meta name="description" content="Use rankings for exploration, then install curated multi-agent skill profiles with reproducible workflows." />
   <style>
     :root {
       --bg-top: #e9f2ff;
@@ -484,8 +484,8 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Open Skills Rankings Dashboard</h1>
-    <div class="sub">Auto-updated ranking board for <b>skills.sh</b>, <b>Context7 skills</b>, and <b>docs libraries</b>.</div>
+    <h1>Multi-Agent Skills Catalog</h1>
+    <div class="sub">Use <b>rankings</b> and <b>find-skills</b> for exploration. Use this repo for <b>curation</b>, <b>profiles</b>, and <b>reproducible installs</b> across agents.</div>
 
     <div class="tabs">
       <button class="tab active" data-mode="skillsSh">Skills.sh All Time</button>
@@ -498,7 +498,7 @@
       </a>
     </div>
 
-    <div class="note" id="modeNote">Use search + verified filter + pagination to navigate large rankings quickly. Library/Skill and Source entries are clickable.</div>
+    <div class="note" id="modeNote">This page is the discovery surface. Explore with rankings, then install stable starter packs from the curated manifest and profile system. Library/Skill and Source entries are clickable.</div>
 
     <div class="bar">
       <div class="card"><div class="k">Rows</div><div class="v num" id="rowsCount">-</div></div>
@@ -510,9 +510,9 @@
     <section class="packs" aria-labelledby="packsTitle">
       <div class="packs-head">
         <div>
-          <div class="packs-eyebrow">Recommended Packs</div>
-          <div class="packs-title" id="packsTitle">Start from roles and real jobs, not raw rankings</div>
-          <div class="packs-sub">These are curated starter packs built from the installed skills set. Click any skill chip to jump into the best available skills leaderboard row.</div>
+          <div class="packs-eyebrow">Curated Profiles</div>
+          <div class="packs-title" id="packsTitle">Explore broadly, then install opinionated packs</div>
+          <div class="packs-sub">These are curated starter packs built from the public manifest. Use them when you want a reproducible starting point instead of assembling one-off installs by hand.</div>
         </div>
       </div>
       <div class="pack-columns">
@@ -668,25 +668,25 @@
           title: "Developer Core",
           label: "Role",
           copy: "Daily baseline for coding, debugging, review, and shipping without extra ceremony.",
-          skills: ["senior-frontend", "senior-backend", "systematic-debugging", "code-reviewer", "webapp-testing"]
+          skills: ["react-dev", "senior-backend", "systematic-debugging", "code-reviewer", "webapp-testing"]
         },
         {
           title: "Technical Lead / Architect",
           label: "Role",
           copy: "For system design, trade-off analysis, diagrams, and leadership-level technical framing.",
-          skills: ["senior-architect", "tech-stack-evaluator", "architecture-decision-records", "architecture-patterns", "internal-comms"]
+          skills: ["senior-architect", "tech-stack-evaluator", "architecture-decision-records", "architecture-patterns", "mermaid-diagrams"]
         },
         {
           title: "PM / Product",
           label: "Role",
           copy: "Requirement shaping, prioritization, planning, and cross-functional alignment.",
-          skills: ["product-manager-toolkit", "brainstorming", "writing-plans", "doc-coauthoring", "internal-comms"]
+          skills: ["product-manager-toolkit", "brainstorming", "writing-plans", "doc-coauthoring", "mermaid-diagrams"]
         },
         {
           title: "Founder / CEO / Boss Updates",
           label: "Role",
           copy: "Translate project progress into strategy, concise status, and presentation-ready materials.",
-          skills: ["product-manager-toolkit", "internal-comms", "doc-coauthoring", "pptx", "mermaid-diagrams"]
+          skills: ["product-manager-toolkit", "doc-coauthoring", "docx", "pptx", "mermaid-diagrams"]
         },
         {
           title: "Design / Research",
@@ -706,7 +706,7 @@
           title: "Weekly Status & Exec Updates",
           label: "Goal",
           copy: "Summaries that tell non-technical stakeholders what is done, what is blocked, and what remains.",
-          skills: ["internal-comms", "product-manager-toolkit", "senior-architect", "doc-coauthoring", "pptx"]
+          skills: ["product-manager-toolkit", "senior-architect", "doc-coauthoring", "docx", "pptx"]
         },
         {
           title: "PRD & Planning",

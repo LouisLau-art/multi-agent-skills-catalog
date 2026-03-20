@@ -2,7 +2,6 @@
 
 doc-coauthoring
 docx
-internal-comms
 markitdown
 mermaid-diagrams
 pdf

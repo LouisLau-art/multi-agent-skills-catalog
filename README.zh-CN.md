@@ -2,12 +2,24 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-一个面向多 agent 软件工作流的公开 skills catalog 与 profile 安装仓库，同时附带多来源排行榜站点。
+这是一个面向多 agent skills 的策展与分发层：`find-skills` 负责开放探索，这个 repo 负责安装档、可复现安装和跨 agent 同步。
 
 在线页面（GitHub Pages）：
 https://louislau-art.github.io/multi-agent-skills-catalog/
 
-当前快照：**123 个公开可安装 skills**。默认公开安装档 `public-default` 当前会安装 **77 个 skills**；`all-public` 会安装完整的 123 个公开 catalog skills（另含内部 `.system`）。
+当前快照：**120 个公开可安装 skills**。默认公开安装档 `public-default` 当前会安装 **72 个 skills**；`all-public` 会安装完整的 120 个公开 catalog skills（另含内部 `.system`）。
+
+## 项目定位
+
+这个项目并不是要替代原始的 skill 搜索。
+
+- 当你想广泛探索、搜长尾技能、临时装一个 skill 时，优先用 `find-skills`
+- 当你想要精选清单、场景化 profile、稳定重装、安装后校验、以及多 agent 一致性时，用这个 repo
+
+一句话说：
+
+- `find-skills` = 探索入口
+- 这个 repo = 策展、profiles、可复现安装
 
 ## 这个仓库包含什么
 
@@ -30,6 +42,7 @@ https://louislau-art.github.io/multi-agent-skills-catalog/
 
 ## 为什么这么做
 
+- 把“发现”和“策展分发”拆成两层，而不是混成一个问题
 - 维护成本更低
 - 可以稳定地从上游重新安装
 - 避免在仓库里重复托管第三方 skill 文件
@@ -80,6 +93,8 @@ $env:DRY_RUN = "1"
 - **public catalog**：`skills_manifest.csv` 里的全部公开技能
 - **public profiles**：`profiles/` 下的场景化安装档
 - **private local overlay**：维护者本地私有扩展，不直接当作公开产品一部分
+
+可以把排行榜和 `find-skills` 生态理解成“发现层”，把这个 repo 的 manifest + profiles 理解成“安装层”。
 
 当前公开 profiles：
 

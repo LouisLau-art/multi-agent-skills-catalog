@@ -6,38 +6,33 @@ architecture-decision-records,architecture-decision-records,/wshobson/agents,43,
 architecture-patterns,architecture-patterns,/wshobson/agents,146,9.5,0.611
 async-python-patterns,async-python-patterns,/wshobson/agents,76,9.5,0.563
 auth-implementation-patterns,auth-implementation-patterns,/wshobson/agents,87,9.5,0.573
-backend-patterns,backend-patterns,/affaan-m/everything-claude-code,62,9.4,
 backtesting-frameworks,backtesting-frameworks,/wshobson/agents,46,9.5,0.526
-better-auth-best-practices,better-auth-best-practices,/better-auth/skills,302,7.8,0.623
+better-auth,better-auth,/jezweb/claude-skills,50,9.7,
 brainstorming,brainstorming,/obra/superpowers,77,9.5,0.564
 cache-components,cache-components,/vercel/next.js,264,10,0.668
 canvas-design,canvas-design,/anthropics/skills,655,8.5,0.695
 claude-automation-recommender,claude-automation-recommender,/anthropics/claude-plugins-official,132,8.5,0.579
 claude-opus-4-5-migration,claude-opus-4-5-migration,/anthropics/claude-code,50,8.8,0.515
 code-reviewer,code-reviewer,/alirezarezvani/claude-skills,274,8.9,0.643
-coding-standards,coding-standards,/affaan-m/everything-claude-code,85,9.4,0.569
 context7-docs-lookup,context7-docs-lookup,/upstash/context7,61,8.5,0.522
 context7-mcp,context7-mcp,/upstash/context7,4.7K,9.5,0.775
 convex-best-practices,Convex Best Practices,/waynesutton/convexskills,61,9.6,0.549
-create-auth-skill,create-auth-skill,/better-auth/skills,125,7.8,0.557
 doc-coauthoring,doc-coauthoring,/anthropics/skills,453,8.5,0.671
 docx,docx,/anthropics/skills,539,8.5,0.684
 dotnet-backend-patterns,dotnet-backend-patterns,/wshobson/agents,128,9.5,0.602
 e2e-testing-patterns,e2e-testing-patterns,/wshobson/agents,72,9.5,0.559
-frontend-testing,frontend-testing,/langgenius/dify,79,8.9,
 embedding-strategies,embedding-strategies,/wshobson/agents,49,9.5,0.531
 executing-plans,executing-plans,/obra/superpowers,43,9.5,0.521
 fastapi-templates,fastapi-templates,/wshobson/agents,117,9.5,0.595
 find-docs,find-docs,/upstash/context7,8.0K,9.5,0.806
 find-skills,find-skills,/vercel-labs/skills,125,9.6,0.602
 frontend-design,frontend-design,/anthropics/skills,3K,8.5,0.812
-frontend-patterns,frontend-patterns,/affaan-m/everything-claude-code,146,9.4,
+gemini-api-dev,gemini-api-dev,/google-gemini/gemini-skills,910,8,
 gh-cli,gh-cli,/github/awesome-copilot,45,8.2,0.642
 go-concurrency-patterns,go-concurrency-patterns,/wshobson/agents,58,9.5,0.543
 gsap,gsap,/martinholovsky/claude-skills-generator,68,7.7,0.510
 hf-cli,hf-cli,/huggingface/skills,7,9,0.531
 implement-design,implement-design,/figma/mcp-server-guide,33,9.6,0.524
-internal-comms,internal-comms,/anthropics/skills,397,8.5,0.661
 langchain,langchain,/davila7/claude-code-templates,42,10,0.532
 langchain-architecture,langchain-architecture,/wshobson/agents,90,9.5,0.576
 laravel,laravel,/rawveg/skillsforge-marketplace,109,9,0.577
@@ -64,7 +59,9 @@ react-dev,react-dev,/softaworks/agent-toolkit,84,6,
 react-modernization,react-modernization,/wshobson/agents,117,9.5,0.595
 redis-js,redis-js,/upstash/redis-js,39,8.5,0.489
 remotion-best-practices,remotion-best-practices,/remotion-dev/skills,127,8.3,0.571
+resume-ats-optimizer,Resume ATS Optimizer,/Paramchoudhary/ResumeSkills,,,
 resume-builder,resume-builder,/amruthpillai/reactive-resume,2,10,0.492
+resume-bullet-writer,Resume Bullet Writer,/Paramchoudhary/ResumeSkills,,,
 responsive-design,responsive-design,/wshobson/agents,102,9.5,0.585
 rust-async-patterns,rust-async-patterns,/wshobson/agents,71,9.5,0.558
 send-email,send-email,/resend/resend-skills,10,9.5,0.417

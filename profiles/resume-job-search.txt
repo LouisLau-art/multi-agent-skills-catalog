@@ -2,9 +2,10 @@
 
 brainstorming
 docx
-internal-comms
 markitdown
 pdf
+resume-ats-optimizer
+resume-bullet-writer
 resume-builder
 session-handoff
 tailored-resume-generator

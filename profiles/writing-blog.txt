@@ -3,7 +3,6 @@
 brainstorming
 content-strategy
 doc-coauthoring
-internal-comms
 markitdown
 mermaid-diagrams
 react-email
