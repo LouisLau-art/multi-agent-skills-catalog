@@ -1,7 +1,6 @@
 # Public baseline: discovery, review, verification, planning, continuity
 
 brainstorming
-claude-automation-recommender
 context7-docs-lookup
 executing-plans
 find-skills

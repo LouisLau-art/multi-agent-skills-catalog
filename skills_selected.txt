@@ -10,8 +10,6 @@ better-auth
 brainstorming
 cache-components
 canvas-design
-claude-automation-recommender
-claude-opus-4-5-migration
 code-reviewer
 context7-docs-lookup
 context7-mcp

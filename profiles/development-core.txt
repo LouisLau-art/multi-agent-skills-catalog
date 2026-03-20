@@ -10,7 +10,6 @@ auth-implementation-patterns
 backtesting-frameworks
 better-auth
 cache-components
-claude-opus-4-5-migration
 code-reviewer
 convex-best-practices
 dotnet-backend-patterns

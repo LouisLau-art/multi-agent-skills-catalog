@@ -38,6 +38,11 @@ A follow-up content-workflow update has also now been applied:
 - `technical-blog-writing` was promoted into the public catalog and added to `writing-blog`
 - local `infsh` CLI installation has been verified, though real execution still requires an authenticated inference.sh account
 
+A high-confidence Round C cleanup has also now been applied:
+
+- `claude-automation-recommender` was removed from the public catalog and `core-meta`
+- `claude-opus-4-5-migration` was removed from the public catalog and `development-core`
+
 ## Bucket A: Keep Pruned
 
 These deletions still look sound even after broadening the lens. They are mostly true overlap, environment conflict, or overly narrow vendor/tool wrappers that do not deserve default residency.
@@ -45,8 +50,8 @@ These deletions still look sound even after broadening the lens. They are mostly
 | Skill | Wave | Current Public State | Recommended Action | Why |
 |---|---:|---|---|---|
 | `audit-website` | 22 | not public | keep pruned | Useful, but bound to `squirrelscan`; superseded by more standard browser/perf audit paths. |
-| `claude-opus-4-5-migration` | 22 | public | keep pruned, consider future public demotion | One-time migration utility, not durable daily capability. |
-| `claude-automation-recommender` | 22 | public | keep pruned, consider future public demotion | Claude-specific meta-setup advice; weak fit for a cross-agent curated layer. |
+| `claude-opus-4-5-migration` | 22 | not public | keep pruned | One-time migration utility, not durable daily capability. |
+| `claude-automation-recommender` | 22 | not public | keep pruned | Claude-specific meta-setup advice; weak fit for a cross-agent curated layer. |
 | `react-web` | 23 | not public | keep pruned | Broad React umbrella, largely superseded by `react-dev`. |
 | `react-components` | 23 | not public | keep pruned | Bound to the proprietary Stitch workflow. |
 | `better-auth-best-practices` | 24 | not public | keep pruned | Fragmentary sub-skill under the already-kept `better-auth`. |
@@ -86,10 +91,10 @@ These are the deletions that most likely suffered from a coding-first or overly 
 
 | Skill | Wave | Current Public State | Recommended Action | Why |
 |---|---:|---|---|---|
-| `figma` | 22 | not public | consider public promotion | Design-token extraction and design-to-code are real agent workflows, not fluff. |
+| `figma` | 22 | public (`design-ui`) | keep public/on-demand | Design-token extraction and design-to-code are real agent workflows, not fluff. |
 | `figma-implement-design` | 22 | not public | consider public promotion | Figma-to-code is a valid implementation surface if MCP/connector support exists. |
-| `send-email` | 22 | public (`writing-blog`) | keep public, consider better profile placement | Transactional email is core solo-founder/business capability, not a minor SaaS edge case. |
-| `stripe-integration` | 21 | public (`development-core`) | keep public, consider narrower profile placement | Payments are central business infrastructure, not just an occasional API wrapper. |
+| `send-email` | 22 | public (`cloud-platform`) | keep public | Transactional email is core solo-founder/business capability, not a minor SaaS edge case. |
+| `stripe-integration` | 21 | public (`cloud-platform`) | keep public | Payments are central business infrastructure, not just an occasional API wrapper. |
 | `blog-post` | 29 | not public | rewrite before restore or public promotion | High-value long-form content pipeline, but written against unavailable `task` + `generate_cover` contracts. |
 | `technical-blog-writing` | 29 | public (`writing-blog`) | keep public/on-demand, consider future rewrite | Valuable technical content workflow; `infsh` is now installable locally, but the workflow still depends on authenticated inference.sh access. |
 | `ai-elements` | 31 | public (`design-ui`) | keep public, consider optional local restore for AI-product work | Strong AI-native UI surface, not mere cosmetic library noise. |
@@ -120,7 +125,7 @@ If a follow-up public-catalog pass happens, the best Round B candidates are:
 1. Re-evaluate whether `blog-post` and `technical-blog-writing` deserve public inclusion after adapting them to the current environment.
 2. Re-check profile placement for `send-email` and `stripe-integration`.
 3. Consider whether `figma` / `figma-implement-design` should exist as public on-demand skills.
-4. Decide whether `claude-opus-4-5-migration` and `claude-automation-recommender` still belong in the public catalog at all.
+4. Decide whether `figma-implement-design` deserves public on-demand promotion once connector assumptions are clearer.
 
 ## Draft Round B Actions
 

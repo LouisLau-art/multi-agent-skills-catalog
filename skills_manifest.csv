@@ -11,8 +11,6 @@ better-auth,better-auth,/jezweb/claude-skills,50,9.7,
 brainstorming,brainstorming,/obra/superpowers,77,9.5,0.564
 cache-components,cache-components,/vercel/next.js,264,10,0.668
 canvas-design,canvas-design,/anthropics/skills,655,8.5,0.695
-claude-automation-recommender,claude-automation-recommender,/anthropics/claude-plugins-official,132,8.5,0.579
-claude-opus-4-5-migration,claude-opus-4-5-migration,/anthropics/claude-code,50,8.8,0.515
 code-reviewer,code-reviewer,/alirezarezvani/claude-skills,274,8.9,0.643
 context7-docs-lookup,context7-docs-lookup,/upstash/context7,61,8.5,0.522
 context7-mcp,context7-mcp,/upstash/context7,4.7K,9.5,0.775
