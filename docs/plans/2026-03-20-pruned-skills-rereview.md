@@ -47,6 +47,10 @@ A follow-up Figma review also clarified one duplication boundary:
 
 - `figma-implement-design` remains non-public for now because the public catalog already includes `implement-design` as the active Figma-to-code on-demand entrypoint
 
+A dedicated rewrite review now exists for the last major blog-content candidate:
+
+- [`blog-post` rewrite review](./2026-03-21-blog-post-rewrite-review.md) concludes that the old skill should stay non-public until it is rewritten to remove `task`/`generate_cover` assumptions and to stop overlapping with `technical-blog-writing`
+
 ## Bucket A: Keep Pruned
 
 These deletions still look sound even after broadening the lens. They are mostly true overlap, environment conflict, or overly narrow vendor/tool wrappers that do not deserve default residency.
