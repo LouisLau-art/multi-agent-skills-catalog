@@ -8,8 +8,7 @@ from pathlib import Path
 
 
 SYNC_ALIAS = {
-    "ampcode": "amp",
-}
+    }
 
 
 def platform_skill_dirs() -> dict[str, Path]:
@@ -17,17 +16,15 @@ def platform_skill_dirs() -> dict[str, Path]:
     appdata = Path(os.getenv("APPDATA", str(home)))
     if os.name == "nt":
         opencode_default = appdata / "opencode" / "skills"
-        amp_default = appdata / "agents" / "skills"
     else:
         opencode_default = home / ".config" / "opencode" / "skills"
-        amp_default = home / ".config" / "agents" / "skills"
+    
     return {
         "claude": Path(os.getenv("CLAUDE_SKILLS_DIR", str(home / ".claude" / "skills"))).expanduser(),
         "codex": Path(os.getenv("CODEX_SKILLS_DIR", str(home / ".codex" / "skills"))).expanduser(),
         "gemini": Path(os.getenv("GEMINI_SKILLS_DIR", str(home / ".gemini" / "skills"))).expanduser(),
         "qwen": Path(os.getenv("QWEN_SKILLS_DIR", str(home / ".qwen" / "skills"))).expanduser(),
         "opencode": Path(os.getenv("OPENCODE_SKILLS_DIR", str(opencode_default))).expanduser(),
-        "amp": Path(os.getenv("AMP_SKILLS_DIR", str(amp_default))).expanduser(),
         "codebuddy": Path(os.getenv("CODEBUDDY_SKILLS_DIR", str(home / ".codebuddy" / "skills"))).expanduser(),
     }
 
@@ -38,8 +35,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--targets",
-        default="claude,gemini,qwen,opencode,amp,codebuddy",
-        help="Comma-separated target dirs to sync from codex. Supported: claude, gemini, qwen, opencode, amp, codebuddy.",
+        default="claude,gemini,qwen,opencode,codebuddy",
+        help="Comma-separated target dirs to sync from codex. Supported: claude, gemini, qwen, opencode, codebuddy.",
     )
     parser.add_argument(
         "--mode",
@@ -131,7 +128,7 @@ def main() -> int:
 
     raw_targets = [t.strip().lower() for t in args.targets.split(",") if t.strip()]
     targets = [SYNC_ALIAS.get(t, t) for t in raw_targets]
-    valid = {"claude", "gemini", "qwen", "opencode", "amp", "codebuddy"}
+    valid = {"claude", "gemini", "qwen", "opencode", "codebuddy"}
     for target in targets:
         if target not in valid:
             raise SystemExit(f"Unsupported target: {target}")

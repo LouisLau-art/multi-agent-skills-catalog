@@ -1,25 +1,28 @@
 # 全局用户说明
 
-## 核心交互
+## 核心偏好
 
-- 始终使用中文交流。
-- 输出以直接、可执行、少废话为原则。
-- 先判断 warning 是 blocker 还是 non-blocker，再决定是否继续处理。
+1. 始终使用中文沟通。
+2. Python 包与环境管理优先使用 `uv`，除非仓库已经明确固定其他工作流。
+3. JavaScript 工具安装与运行优先使用 `bun`，除非仓库已经固定使用其他包管理器或锁文件。
+4. 每个非平凡任务一开始都先用 `find-skills`。
+   先检查是否存在匹配的已安装 skill 或可安装 skill；如果用户点名某个 skill，或者任务明显匹配某个已安装 skill，先打开对应的 `SKILL.md` 并按其流程执行。
+5. 优先使用 MCP，而不是普通 web search。
+   文档、框架、API、SDK、CLI 工具和配置说明优先用 Context7；GitHub 相关信息默认优先用 GitHub MCP 的只读搜索/发现能力；只有当 Context7、GitHub MCP、`gh` 和本地文档都不够时，才回退到 web search。
+6. 如果用户直接给的是 GitHub 仓库 URL，优先用 `gh` 或 GitHub MCP 去看仓库信息、README、目录、issue、pull request、release，不要先用普通 web search。
+7. 不要只在任务开始时用一次 skill。
+   只要存在合适的 skill，就应在整个任务过程中持续优先采用 skill 驱动的工作流，而不是临时即兴探索。
+8. 把 GitHub 当作优先知识与方案库。
+   做任何事情之前，先思考 GitHub 上是否已经有人做过、并且已经开源；能复用现成方案、成熟实现、最佳实践或相近项目时，优先先查、先比对、先借鉴，而不是默认从零开始。
 
-## 文档与检索
+## Skills 使用规则
 
-- 查询库、框架、API 文档时，不要一上来就用 web search，优先使用 Context7；如果 Context7 上有多个同名条目，先多看几个候选并优先官方/高质量来源，实在找不到或不够用时再退回官方网页、源码或 web search。
-- 做 GitHub 开源贡献、PR、issue、review 相关工作时，优先使用 `gh`，而不是先去网页上手工找。
-
-## Skills 运行时使用规则
-
-- 任务匹配 skill 时，主动使用 skill，而不是等用户重复提醒。
-- 单个任务默认只用 `1-3` 个 skill；复杂任务通常 `2-3` 个最合适；避免一次铺到 `4+` 个。
+- 单个任务默认只用 `1-3` 个 skill；复杂任务通常 `2-3` 个最合适，避免一次铺到 `4+` 个。
 - skill 组合优先 `1` 个通用 skill，加 `1-2` 个真正专用 skill；简单任务不要为了凑数硬上多个 skill。
 - 优先 focused / compact skill，避免同时加载多个 comprehensive 或高度重叠的 skill。
 - 出现命令失败、用户纠正、知识过期、外部工具异常，或者发现更好的重复性做法时，主动使用 `self-improving-agent`，并把稳定结论沉淀到 `AGENTS.md` 或 memories。
 
-## 文档、汇报与沟通
+## 文档与沟通
 
 - 用户经常兼任产品、售前和对甲方沟通角色；遇到文档、提案、汇报、FAQ、项目更新、PPT、Word、PDF、邮件这类任务时，主动考虑文档与沟通类 skills，而不是默认只从纯开发角度处理。
 
@@ -46,6 +49,7 @@
 - `paru` 不要在 root 下运行；需要 AUR 时切到 `louis` 用户。
 - 前端包管理优先用 `bun`。
 - Python 依赖优先用 `uv`；只有在确实没法走 `uv` 时才考虑 `pip`。
+- 如果必须使用 `npm` 或 `pip`，优先配置镜像。
 - 如果 `pip` 被系统外部包限制拦住，再考虑 `--break-system-packages`。
 
 ## Skills 仓库维护约定
@@ -59,7 +63,9 @@
 
 ## 本机目录与同步
 
-- 各工具入口文档和 skills 入口，优先围绕各自用户的 `~/.codex` 目录组织。
+- 当前 repo 中的 `global-context/AGENTS.md` 是四端共享上下文真源，目标包括 Codex、Claude Code、Gemini CLI、OpenCode。
+- OpenCode 不会像 Codex/Claude/Gemini 那样自动发现全局 `AGENTS.md`；同步时需要同时把它的 `instructions` 指向对应文件。
+- MCP 也要以同一份真源做四端同步，但不同客户端保留各自原生配置面：Codex `config.toml`、Gemini `settings.json`、Claude `claude mcp ...`、OpenCode `opencode.jsonc`。
 - root 和 louis 是两套独立用户环境；当用户要求一致时，再做显式同步。
 - 统计 curated skills 数量时，不要把 `.system` 算进去。
 

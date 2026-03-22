@@ -2,4 +2,3 @@
 
 context7-docs-lookup
 context7-mcp
-find-docs

@@ -1,6 +1,5 @@
 # Public database/data starter
 
-embedding-strategies
 polars
 postgresql-table-design
 prisma

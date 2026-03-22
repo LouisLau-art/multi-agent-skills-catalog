@@ -18,11 +18,9 @@ doc-coauthoring
 docx
 dotnet-backend-patterns
 e2e-testing-patterns
-embedding-strategies
 executing-plans
 fastapi-templates
 figma
-find-docs
 find-skills
 frontend-design
 gemini-api-dev
@@ -118,3 +116,4 @@ deploy-to-vercel
 wrangler
 tailored-resume-generator
 content-strategy
+claude-automation-recommender

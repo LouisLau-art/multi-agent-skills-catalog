@@ -1,10 +1,11 @@
-# Context7 Setup for Codex, Gemini CLI, and Claude Code
+# Context7 Setup for Codex, Gemini CLI, Claude Code, and OpenCode
 
-This document explains the recommended Context7 setup for the three agent environments used in this workspace:
+This document explains the recommended Context7 setup for the four agent environments used in this workspace:
 
 - Codex
 - Gemini CLI
 - Claude Code
+- OpenCode
 
 ## Recommendation
 
@@ -16,12 +17,29 @@ Use this order of preference:
 Rationale:
 
 - MCP gives a consistent external tool surface
-- instruction files (`AGENTS.md`, `GEMINI.md`, `CLAUDE.md`) keep the workflow stable
+- one tracked context source keeps behavior stable across four agents
 - skills remain useful as reusable workflow wrappers, but should not be treated as a universal replacement for MCP
+
+## Tracked Source Of Truth In This Repo
+
+This repo now treats these files as the five-agent runtime baseline:
+
+- `global-context/AGENTS.md` for shared global context
+- `global-context/mcp-servers.json` for managed MCP servers
+- `scripts/sync_agent_context.py` to sync the shared context into local runtimes
+- `scripts/sync_mcp.py` to sync managed MCP servers into local runtimes
+
+Recommended sync flow:
+
+```bash
+python scripts/install_curated.py all --profiles context7-integration
+python scripts/sync_agent_context.py --mode symlink
+python scripts/sync_mcp.py
+```
 
 ## Public Repo Mapping
 
-This repository exposes an optional public profile for this setup:
+This repository exposes an optional public profile for Context7-oriented setup:
 
 - `context7-integration`
 
@@ -44,62 +62,41 @@ python scripts/install_curated.py all --profiles context7-integration
 
 ### Global instructions
 
-Put the behavior rule in:
+Put the shared file at:
 
 - `~/.codex/AGENTS.md`
 
-Example:
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP configuration
 
-Put the MCP server in:
+Put managed MCP servers in:
 
 - `~/.codex/config.toml`
 
-Remote server:
+Context7 example:
 
 ```toml
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"
-http_headers = { "CONTEXT7_API_KEY" = "YOUR_API_KEY" }
+
+[mcp_servers.context7.http_headers]
+CONTEXT7_API_KEY = "YOUR_API_KEY"
 ```
-
-Local server:
-
-```toml
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
-startup_timeout_ms = 20_000
-```
-
-If startup is slow, increase `startup_timeout_ms` to `40_000`.
 
 ## Gemini CLI
 
 ### Global instructions
 
-Put the behavior rule in:
+Put the shared file at:
 
 - `~/.gemini/GEMINI.md`
 
-Example:
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP configuration
 
-Put the MCP server in:
+Put managed MCP servers in:
 
 - `~/.gemini/settings.json`
 
-Remote server:
+Context7 example:
 
 ```json
 {
@@ -110,19 +107,6 @@ Remote server:
         "CONTEXT7_API_KEY": "YOUR_API_KEY",
         "Accept": "application/json, text/event-stream"
       }
-    }
-  }
-}
-```
-
-Local server:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -140,28 +124,16 @@ Useful built-ins:
 
 ### Global instructions
 
-Put the behavior rule in:
+Put the shared file at:
 
 - `~/.claude/CLAUDE.md`
 
-Example:
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP configuration
 
-Recommended user-scope remote setup:
+Claude's native user-scope flow is CLI-driven:
 
 ```bash
 claude mcp add --scope user --header "CONTEXT7_API_KEY: YOUR_API_KEY" --transport http context7 https://mcp.context7.com/mcp
-```
-
-Local server:
-
-```bash
-claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
 ```
 
 Verification:
@@ -172,7 +144,55 @@ claude mcp list
 
 ### Plugin note
 
-For Claude Code specifically, Context7 can also be installed as a plugin-oriented integration. That path is stronger when you want more than raw MCP access, because it can also expose commands, agents, and skills.
+Claude can also expose Context7 through a plugin-oriented integration. If you want strict one-to-one parity with the other four agents, prefer the native user MCP entry and remove duplicate plugin-managed entries.
+
+## OpenCode
+
+### Global instructions
+
+OpenCode does not automatically discover a global `AGENTS.md` file. Keep the shared file at:
+
+- `~/.config/opencode/AGENTS.md`
+
+Then include it from:
+
+- `~/.config/opencode/opencode.jsonc`
+
+Example:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "/home/louis/.config/opencode/AGENTS.md"
+  ]
+}
+```
+
+### MCP configuration
+
+OpenCode stores MCP servers under the `mcp` key in:
+
+- `~/.config/opencode/opencode.jsonc`
+
+Context7 example:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+
 
 ## When Skill-Only Is Acceptable
 
@@ -193,5 +213,6 @@ It is not the best default when you want:
 - Codex docs: https://context7.com/openai/codex/llms.txt
 - Gemini CLI docs: https://context7.com/google-gemini/gemini-cli/llms.txt
 - Claude Code Context7 guide: https://context7.com/docs/clients/claude-code
+- OpenCode config docs: https://opencode.ai/docs/config
 - Context7 all-clients MCP configs: https://context7.com/docs/resources/all-clients
 - Context7 best practices: https://context7.com/docs/tips

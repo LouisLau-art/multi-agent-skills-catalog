@@ -1,10 +1,11 @@
-# Codex、Gemini CLI、Claude Code 的 Context7 接法
+# Codex、Gemini CLI、Claude Code、OpenCode 的 Context7 接法
 
-这份文档说明这个工作区里最常用的三种 agent 应该如何接入 Context7：
+这份文档说明这个工作区里四种目标 agent 应该如何统一接入 Context7：
 
 - Codex
 - Gemini CLI
 - Claude Code
+- OpenCode
 
 ## 推荐结论
 
@@ -16,12 +17,29 @@
 原因很直接：
 
 - MCP 负责统一的外部工具能力
-- `AGENTS.md` / `GEMINI.md` / `CLAUDE.md` 负责稳定行为规则
+- 一份共享上下文真源负责稳定四端行为规则
 - skill 适合做工作流包装，但不该被当成 MCP 的通用替代品
 
-## 对应到本 repo
+## 对应到本 repo 的真源
 
-这个 repo 现在已经提供了一个可选公开 profile：
+这个 repo 现在把下面几项当作四端运行时基线：
+
+- `global-context/AGENTS.md`：统一全局上下文真源
+- `global-context/mcp-servers.json`：统一 MCP 真源
+- `scripts/sync_agent_context.py`：把上下文真源同步到四端
+- `scripts/sync_mcp.py`：把受管 MCP servers 同步到四端
+
+推荐同步顺序：
+
+```bash
+python scripts/install_curated.py all --profiles context7-integration
+python scripts/sync_agent_context.py --mode symlink
+python scripts/sync_mcp.py
+```
+
+## 对应到本 repo 的公开 profile
+
+这个 repo 仍然提供一个可选公开 profile：
 
 - `context7-integration`
 
@@ -44,62 +62,41 @@ python scripts/install_curated.py all --profiles context7-integration
 
 ### 全局规则
 
-行为规则放在：
+共享文件放在：
 
 - `~/.codex/AGENTS.md`
 
-示例：
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP 配置
 
-MCP server 放在：
+受管 MCP servers 放在：
 
 - `~/.codex/config.toml`
 
-远端 server：
+Context7 示例：
 
 ```toml
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"
-http_headers = { "CONTEXT7_API_KEY" = "YOUR_API_KEY" }
+
+[mcp_servers.context7.http_headers]
+CONTEXT7_API_KEY = "YOUR_API_KEY"
 ```
-
-本地 server：
-
-```toml
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
-startup_timeout_ms = 20_000
-```
-
-如果启动慢，可以把 `startup_timeout_ms` 提高到 `40_000`。
 
 ## Gemini CLI
 
 ### 全局规则
 
-行为规则放在：
+共享文件放在：
 
 - `~/.gemini/GEMINI.md`
 
-示例：
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP 配置
 
-MCP server 放在：
+受管 MCP servers 放在：
 
 - `~/.gemini/settings.json`
 
-远端 server：
+Context7 示例：
 
 ```json
 {
@@ -110,19 +107,6 @@ MCP server 放在：
         "CONTEXT7_API_KEY": "YOUR_API_KEY",
         "Accept": "application/json, text/event-stream"
       }
-    }
-  }
-}
-```
-
-本地 server：
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -140,28 +124,16 @@ MCP server 放在：
 
 ### 全局规则
 
-行为规则放在：
+共享文件放在：
 
 - `~/.claude/CLAUDE.md`
 
-示例：
-
-```markdown
-Always use Context7 MCP when I need library/API documentation, setup, configuration, or code examples.
-```
-
 ### MCP 配置
 
-推荐用 user-scope 的远端接法：
+Claude 更适合走 user-scope CLI 入口：
 
 ```bash
 claude mcp add --scope user --header "CONTEXT7_API_KEY: YOUR_API_KEY" --transport http context7 https://mcp.context7.com/mcp
-```
-
-本地 server：
-
-```bash
-claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
 ```
 
 校验：
@@ -172,27 +144,53 @@ claude mcp list
 
 ### Plugin 说明
 
-对 Claude Code 来说，Context7 还可以走 plugin 方案。  
-如果你不只是想要 MCP，而是还想要额外的 commands、agents、skills，那 plugin 路线更强。
+Claude 也可以通过 plugin 暴露 Context7。  
+如果你想追求和另外四端严格的一对一 MCP 对齐，优先保留原生 user MCP，删除重复的 plugin 管理入口。
 
-## 什么时候可以接受 skill-only
+## OpenCode
 
-只有这些情况我觉得可以直接用 skill-only：
+### 全局规则
 
-- 只是想快速本地开箱
-- 当前环境不方便接 MCP
-- 只需要轻量级 docs 查询
+OpenCode 不会自动发现全局 `AGENTS.md`。建议把共享文件放在：
 
-但它不适合作为默认方案，尤其当你想要：
+- `~/.config/opencode/AGENTS.md`
 
-- 多 agent 一致
-- 团队统一标准
-- 可复用、可写进文档的配置方式
+然后在下面这个配置里显式引用它：
 
-## 资料来源
+- `~/.config/opencode/opencode.jsonc`
 
-- Codex docs: https://context7.com/openai/codex/llms.txt
-- Gemini CLI docs: https://context7.com/google-gemini/gemini-cli/llms.txt
-- Claude Code Context7 guide: https://context7.com/docs/clients/claude-code
-- Context7 all-clients MCP configs: https://context7.com/docs/resources/all-clients
-- Context7 best practices: https://context7.com/docs/tips
+示例：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "/home/louis/.config/opencode/AGENTS.md"
+  ]
+}
+```
+
+### MCP 配置
+
+OpenCode 把 MCP servers 放在 `mcp` 字段下，文件是：
+
+- `~/.config/opencode/opencode.jsonc`
+
+Context7 示例：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+

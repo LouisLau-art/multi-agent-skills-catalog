@@ -34,7 +34,7 @@ This repository intentionally contains:
 - `scripts/install_curated.sh` (thin Unix wrapper around the Python installer)
 - `scripts/install_curated.ps1` (thin PowerShell wrapper around the Python installer)
 - `scripts/validate_skills_frontmatter.py` (post-install validator/sanitizer for `SKILL.md` frontmatter)
-- `global-context/` (tracked global agent context shared by Codex / Gemini / Claude)
+- `global-context/` (tracked runtime source of truth shared by Codex / Claude / Gemini / OpenCode)
 - docs for de-dup policy and stack classification
 
 It intentionally does **not** contain third-party `SKILL.md` contents.
@@ -56,7 +56,7 @@ python scripts/install_curated.py claude --profiles public-default
 # install the full public catalog
 python scripts/install_curated.py claude --profiles all-public
 
-# install once, then sync to Codex + Gemini + OpenCode + Amp + CodeBuddy
+# install once, then sync to Codex + Gemini + OpenCode + CodeBuddy
 python scripts/install_curated.py all --profiles public-default
 
 # add writing/blog support on top of the default profile
@@ -75,7 +75,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install_curated.ps1 all --pro
 python scripts/install_curated.py --list-profiles
 
 # dry-run first
-DRY_RUN=1 python scripts/install_curated.py claude+opencode+amp --profiles public-default+cloud-platform
+DRY_RUN=1 python scripts/install_curated.py claude+opencode --profiles public-default+cloud-platform
 ```
 
 PowerShell dry-run example:
@@ -123,10 +123,9 @@ Supported targets:
 - `gemini` (sync to `~/.gemini/skills`)
 - `qwen` (alias of `gemini`; uses the same skills directory)
 - `opencode` (sync to `~/.config/opencode/skills` on Unix-like systems, `%APPDATA%\\opencode\\skills` on Windows)
-- `amp` / `ampcode` (sync to `~/.config/agents/skills` on Unix-like systems, `%APPDATA%\\agents\\skills` on Windows)
 - `codebuddy` (sync to `~/.codebuddy/skills`)
-- `all` / `claude+codex+gemini+opencode+amp+codebuddy`
-- custom combos such as `claude+codex+opencode`, `claude+gemini+amp+codebuddy`, `claude+qwen`
+- `all` / `claude+codex+gemini+opencode+codebuddy`
+- custom combos such as `claude+codex+opencode`, `claude+gemini+codebuddy`, `claude+qwen`
 - `universal`, `global`, `cursor`, `auto` (install-only targets; no post-install sync)
 
 The installer reads `skills_manifest.csv` as the public catalog, resolves one or more profile files from `profiles/`, installs the matching upstream skills, validates/sanitizes known `SKILL.md` frontmatter issues in the Claude-compatible base install, then copies the resulting local skill tree into compatible agent directories. It does **not** vendor third-party `SKILL.md` files into this repo.
@@ -140,7 +139,6 @@ export CLAUDE_SKILLS_DIR=/custom/claude/skills
 export CODEX_SKILLS_DIR=/custom/codex/skills
 export GEMINI_SKILLS_DIR=/custom/gemini/skills
 export OPENCODE_SKILLS_DIR=/custom/opencode/skills
-export AMP_SKILLS_DIR=/custom/amp/skills
 export CODEBUDDY_SKILLS_DIR=/custom/codebuddy/skills
 ```
 
@@ -154,7 +152,7 @@ If you use `~/.codex/skills` as the primary user skills directory, sync other ag
 # Preview what would change
 python scripts/sync_from_codex.py --dry-run --prune
 
-# Copy Codex user skills into Claude/Gemini/OpenCode/Amp/CodeBuddy
+# Copy Codex user skills into Claude/Gemini/OpenCode/CodeBuddy
 python scripts/sync_from_codex.py --prune
 
 # Or mirror each skill directory as symlinks
@@ -162,6 +160,21 @@ python scripts/sync_from_codex.py --mode symlink --prune
 ```
 
 This script syncs user skill directories only and leaves target-side `.system` folders untouched.
+
+## Four-Agent Runtime Sync
+
+Use the tracked repo source of truth when you want skills, global context, and MCP to stay aligned across Codex / Claude / Gemini / OpenCode:
+
+```bash
+python scripts/sync_agent_context.py --mode symlink
+python scripts/sync_mcp.py
+```
+
+What this does:
+
+- mirrors `global-context/AGENTS.md` into each runtime-specific global instruction file
+- ensures OpenCode loads the shared file through its `instructions` config
+- syncs managed MCP servers from `global-context/mcp-servers.json`
 
 ## Files
 

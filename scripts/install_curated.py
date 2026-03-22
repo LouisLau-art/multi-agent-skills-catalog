@@ -18,10 +18,9 @@ BASE_TARGET_FLAGS = {
     "cursor": "--cursor",
     "auto": None,
 }
-SYNC_TARGETS = ("codex", "gemini", "opencode", "amp", "codebuddy")
+SYNC_TARGETS = ("codex", "gemini", "opencode", "codebuddy")
 SYNC_ALIAS = {
-    "ampcode": "amp",
-    "qwen": "gemini",
+        "qwen": "gemini",
 }
 PROFILE_ALIASES = {
     "public-default": ("core-meta", "development-core"),
@@ -52,8 +51,8 @@ def parse_args() -> argparse.Namespace:
         nargs="?",
         default="claude",
         help=(
-            "Install target. Examples: claude, codex, gemini, opencode, amp, codebuddy, qwen, all, "
-            "claude+codex+gemini+opencode+amp+codebuddy+qwen, universal, global, cursor, auto"
+            "Install target. Examples: claude, codex, gemini, opencode, codebuddy, qwen, all, "
+            "claude+codex+gemini+opencode+codebuddy+qwen, universal, global, cursor, auto"
         ),
     )
     parser.add_argument(
@@ -93,16 +92,14 @@ def platform_skill_dirs() -> dict[str, Path]:
     appdata = Path(os.getenv("APPDATA", str(home)))
     if os.name == "nt":
         opencode_default = appdata / "opencode" / "skills"
-        amp_default = appdata / "agents" / "skills"
     else:
         opencode_default = home / ".config" / "opencode" / "skills"
-        amp_default = home / ".config" / "agents" / "skills"
+    
     return {
         "claude": Path(os.getenv("CLAUDE_SKILLS_DIR", str(home / ".claude" / "skills"))).expanduser(),
         "codex": Path(os.getenv("CODEX_SKILLS_DIR", str(home / ".codex" / "skills"))).expanduser(),
         "gemini": Path(os.getenv("GEMINI_SKILLS_DIR", str(home / ".gemini" / "skills"))).expanduser(),
         "opencode": Path(os.getenv("OPENCODE_SKILLS_DIR", str(opencode_default))).expanduser(),
-        "amp": Path(os.getenv("AMP_SKILLS_DIR", str(amp_default))).expanduser(),
         "codebuddy": Path(os.getenv("CODEBUDDY_SKILLS_DIR", str(home / ".codebuddy" / "skills"))).expanduser(),
     }
 
@@ -144,7 +141,7 @@ def parse_target(raw_target: str) -> tuple[str, list[str]]:
     if base_target != "claude" and sync_targets:
         raise SystemExit(
             "Sync targets require the Claude-compatible base install. "
-            "Use 'claude+codex+gemini+opencode+amp+codebuddy' style targets for multi-agent sync."
+            "Use 'claude+codex+gemini+opencode+codebuddy' style targets for multi-agent sync."
         )
 
     return base_target, sync_targets

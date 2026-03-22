@@ -1,0 +1,27 @@
+{
+  "managedServers": [
+    "context7",
+    "github"
+  ],
+  "servers": {
+    "context7": {
+      "transport": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headersFrom": {
+        "CONTEXT7_API_KEY": "context7_api_key"
+      }
+    },
+    "github": {
+      "transport": "stdio",
+      "command": "${HOME}/.local/bin/github-mcp-codex",
+      "env": {
+        "GITHUB_TOOLSETS": "repos,issues,pull_requests",
+        "GITHUB_READ_ONLY": "true"
+      },
+      "codex": {
+        "startup_timeout_sec": 20.0,
+        "tool_timeout_sec": 60.0
+      }
+    }
+  }
+}

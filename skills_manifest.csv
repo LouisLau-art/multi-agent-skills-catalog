@@ -19,11 +19,9 @@ doc-coauthoring,doc-coauthoring,/anthropics/skills,453,8.5,0.671
 docx,docx,/anthropics/skills,539,8.5,0.684
 dotnet-backend-patterns,dotnet-backend-patterns,/wshobson/agents,128,9.5,0.602
 e2e-testing-patterns,e2e-testing-patterns,/wshobson/agents,72,9.5,0.559
-embedding-strategies,embedding-strategies,/wshobson/agents,49,9.5,0.531
 executing-plans,executing-plans,/obra/superpowers,43,9.5,0.521
 fastapi-templates,fastapi-templates,/wshobson/agents,117,9.5,0.595
 figma,figma,/openai/skills,782,,
-find-docs,find-docs,/upstash/context7,8.0K,9.5,0.806
 find-skills,find-skills,/vercel-labs/skills,125,9.6,0.602
 frontend-design,frontend-design,/anthropics/skills,3K,8.5,0.812
 gemini-api-dev,gemini-api-dev,/google-gemini/gemini-skills,910,8,
@@ -119,3 +117,4 @@ deploy-to-vercel,deploy-to-vercel,/vercel-labs/agent-skills,9.5K,9.6,0.809
 wrangler,wrangler,/cloudflare/skills,4.4K,8.8,0.734
 tailored-resume-generator,tailored-resume-generator,/composiohq/awesome-claude-skills,1.7K,9.5,0.758
 content-strategy,content-strategy,/coreyhaines31/marketingskills,25.5K,8.4,0.816
+claude-automation-recommender,claude-automation-recommender,/anthropics/claude-plugins-official,132,8.5,0.720
