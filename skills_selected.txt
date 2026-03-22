@@ -119,3 +119,4 @@ content-strategy
 claude-automation-recommender
 using-superpowers
 claude-md-improver
+impeccable
