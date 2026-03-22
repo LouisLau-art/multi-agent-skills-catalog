@@ -18,7 +18,7 @@ BASE_TARGET_FLAGS = {
     "cursor": "--cursor",
     "auto": None,
 }
-SYNC_TARGETS = ("codex", "gemini", "opencode", "codebuddy")
+SYNC_TARGETS = ("codex", "gemini", "codebuddy")
 SYNC_ALIAS = {
         "qwen": "gemini",
 }
@@ -51,8 +51,8 @@ def parse_args() -> argparse.Namespace:
         nargs="?",
         default="claude",
         help=(
-            "Install target. Examples: claude, codex, gemini, opencode, codebuddy, qwen, all, "
-            "claude+codex+gemini+opencode+codebuddy+qwen, universal, global, cursor, auto"
+            "Install target. Examples: claude, codex, gemini, codebuddy, qwen, all, "
+            "claude+codex+gemini+codebuddy+qwen, universal, global, cursor, auto"
         ),
     )
     parser.add_argument(
@@ -90,16 +90,11 @@ def parse_args() -> argparse.Namespace:
 def platform_skill_dirs() -> dict[str, Path]:
     home = Path.home()
     appdata = Path(os.getenv("APPDATA", str(home)))
-    if os.name == "nt":
-        opencode_default = appdata / "opencode" / "skills"
-    else:
-        opencode_default = home / ".config" / "opencode" / "skills"
     
     return {
         "claude": Path(os.getenv("CLAUDE_SKILLS_DIR", str(home / ".claude" / "skills"))).expanduser(),
         "codex": Path(os.getenv("CODEX_SKILLS_DIR", str(home / ".codex" / "skills"))).expanduser(),
         "gemini": Path(os.getenv("GEMINI_SKILLS_DIR", str(home / ".gemini" / "skills"))).expanduser(),
-        "opencode": Path(os.getenv("OPENCODE_SKILLS_DIR", str(opencode_default))).expanduser(),
         "codebuddy": Path(os.getenv("CODEBUDDY_SKILLS_DIR", str(home / ".codebuddy" / "skills"))).expanduser(),
     }
 
@@ -141,7 +136,7 @@ def parse_target(raw_target: str) -> tuple[str, list[str]]:
     if base_target != "claude" and sync_targets:
         raise SystemExit(
             "Sync targets require the Claude-compatible base install. "
-            "Use 'claude+codex+gemini+opencode+codebuddy' style targets for multi-agent sync."
+            "Use 'claude+codex+gemini+codebuddy' style targets for multi-agent sync."
         )
 
     return base_target, sync_targets
@@ -358,7 +353,6 @@ def main() -> int:
 
     if base_target == "claude":
         run_post_install_validation(paths["claude"], entries, args.dry_run)
-    else:
         print(
             f"Skipping post-install frontmatter validation for base target '{base_target}' "
             "(installer does not manage a deterministic local skills path for this target)."
@@ -388,8 +382,7 @@ def main() -> int:
                 + ", ".join(missing[:20])
                 + (" ..." if len(missing) > 20 else "")
             )
-        else:
-            print(f"Verified {len(entries)} curated skill directories in {paths['claude']}")
+                print(f"Verified {len(entries)} curated skill directories in {paths['claude']}")
 
     return 0
 

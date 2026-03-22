@@ -14,17 +14,12 @@ SYNC_ALIAS = {
 def platform_skill_dirs() -> dict[str, Path]:
     home = Path.home()
     appdata = Path(os.getenv("APPDATA", str(home)))
-    if os.name == "nt":
-        opencode_default = appdata / "opencode" / "skills"
-    else:
-        opencode_default = home / ".config" / "opencode" / "skills"
     
     return {
         "claude": Path(os.getenv("CLAUDE_SKILLS_DIR", str(home / ".claude" / "skills"))).expanduser(),
         "codex": Path(os.getenv("CODEX_SKILLS_DIR", str(home / ".codex" / "skills"))).expanduser(),
         "gemini": Path(os.getenv("GEMINI_SKILLS_DIR", str(home / ".gemini" / "skills"))).expanduser(),
         "qwen": Path(os.getenv("QWEN_SKILLS_DIR", str(home / ".qwen" / "skills"))).expanduser(),
-        "opencode": Path(os.getenv("OPENCODE_SKILLS_DIR", str(opencode_default))).expanduser(),
         "codebuddy": Path(os.getenv("CODEBUDDY_SKILLS_DIR", str(home / ".codebuddy" / "skills"))).expanduser(),
     }
 
@@ -35,8 +30,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--targets",
-        default="claude,gemini,qwen,opencode,codebuddy",
-        help="Comma-separated target dirs to sync from codex. Supported: claude, gemini, qwen, opencode, codebuddy.",
+        default="claude,gemini,qwen,codebuddy",
+        help="Comma-separated target dirs to sync from codex. Supported: claude, gemini, qwen, codebuddy.",
     )
     parser.add_argument(
         "--mode",
@@ -86,7 +81,6 @@ def sync_target(source_root: Path, target_root: Path, mode: str, prune: bool, dr
 
     if dry_run:
         print(f"DRY_RUN target: {target_root}")
-    else:
         target_root.mkdir(parents=True, exist_ok=True)
 
     if prune:
@@ -106,8 +100,7 @@ def sync_target(source_root: Path, target_root: Path, mode: str, prune: bool, dr
                 remove_path(dst, dry_run)
             if dry_run:
                 print(f"DRY_RUN symlink: {dst} -> {src}")
-            else:
-                dst.symlink_to(src)
+                        dst.symlink_to(src)
             continue
 
         if dry_run:
@@ -128,7 +121,7 @@ def main() -> int:
 
     raw_targets = [t.strip().lower() for t in args.targets.split(",") if t.strip()]
     targets = [SYNC_ALIAS.get(t, t) for t in raw_targets]
-    valid = {"claude", "gemini", "qwen", "opencode", "codebuddy"}
+    valid = {"claude", "gemini", "qwen", "codebuddy"}
     for target in targets:
         if target not in valid:
             raise SystemExit(f"Unsupported target: {target}")

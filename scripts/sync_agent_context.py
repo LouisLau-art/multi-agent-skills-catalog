@@ -8,7 +8,7 @@ import shutil
 from pathlib import Path
 
 
-TARGETS = ("codex", "claude", "gemini", "opencode")
+TARGETS = ("codex", "claude", "gemini")
 ALIASES = {
         "qwen": "gemini",
 }
@@ -27,7 +27,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--targets",
         default="all",
-        help="Comma- or plus-separated targets. Supported: codex, claude, gemini, opencode, all.",
+        help="Comma- or plus-separated targets. Supported: codex, claude, gemini, all.",
     )
     parser.add_argument(
         "--mode",

@@ -16,7 +16,7 @@ except Exception:
     tomllib = None  # type: ignore[assignment]
 
 
-TARGETS = ("codex", "claude", "gemini", "opencode")
+TARGETS = ("codex", "claude", "gemini")
 ALIASES = {
         "qwen": "gemini",
 }
@@ -36,7 +36,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--targets",
         default="all",
-        help="Comma- or plus-separated targets. Supported: codex, claude, gemini, opencode, all.",
+        help="Comma- or plus-separated targets. Supported: codex, claude, gemini, all.",
     )
     parser.add_argument(
         "--servers",
@@ -80,12 +80,6 @@ def gemini_settings_path() -> Path:
     return Path(os.getenv("GEMINI_SETTINGS_FILE", str(Path.home() / ".gemini" / "settings.json"))).expanduser()
 
 
-def opencode_config_path() -> Path:
-    return Path(
-        os.getenv("OPENCODE_CONFIG_FILE", str(Path.home() / ".config" / "opencode" / "opencode.jsonc"))
-    ).expanduser()
-
-
 def claude_settings_path() -> Path:
     return Path(os.getenv("CLAUDE_SETTINGS_FILE", str(Path.home() / ".claude.json"))).expanduser()
 
@@ -115,7 +109,6 @@ def load_context7_key_from_local_configs() -> str:
 
     for path_getter, key_path in (
         (gemini_settings_path, ("mcpServers", "context7", "headers", "CONTEXT7_API_KEY")),
-        (opencode_config_path, ("mcp", "context7", "headers", "CONTEXT7_API_KEY")),
     ):
         try:
             payload = load_jsonc_object(path_getter())
@@ -257,7 +250,7 @@ def resolve_server(spec: dict[str, Any]) -> dict[str, Any]:
         if env_map:
             resolved["env"] = env_map
 
-    for platform in ("codex", "gemini", "opencode", "claude"):
+    for platform in ("codex", "gemini", "claude"):
         extra = spec.get(platform)
         if extra is not None:
             if not isinstance(extra, dict):
@@ -475,7 +468,6 @@ def main() -> int:
     if "gemini" in selected_targets:
         sync_gemini(gemini_settings_path(), resolved_servers, args.dry_run)
     if "opencode" in selected_targets:
-        sync_opencode(opencode_config_path(), resolved_servers, args.dry_run)
     if "claude" in selected_targets:
         sync_claude(claude_settings_path(), resolved_servers, args.dry_run)
 

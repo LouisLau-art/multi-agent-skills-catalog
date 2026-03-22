@@ -1,4 +1,4 @@
-# Context7 Setup for Codex, Gemini CLI, Claude Code, and OpenCode
+# Context7 Setup for Codex, Gemini CLI, Claude Code
 
 This document explains the recommended Context7 setup for the four agent environments used in this workspace:
 
@@ -146,54 +146,6 @@ claude mcp list
 
 Claude can also expose Context7 through a plugin-oriented integration. If you want strict one-to-one parity with the other four agents, prefer the native user MCP entry and remove duplicate plugin-managed entries.
 
-## OpenCode
-
-### Global instructions
-
-OpenCode does not automatically discover a global `AGENTS.md` file. Keep the shared file at:
-
-- `~/.config/opencode/AGENTS.md`
-
-Then include it from:
-
-- `~/.config/opencode/opencode.jsonc`
-
-Example:
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "instructions": [
-    "/home/louis/.config/opencode/AGENTS.md"
-  ]
-}
-```
-
-### MCP configuration
-
-OpenCode stores MCP servers under the `mcp` key in:
-
-- `~/.config/opencode/opencode.jsonc`
-
-Context7 example:
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "YOUR_API_KEY"
-      }
-    }
-  }
-}
-```
-
-
-
 ## When Skill-Only Is Acceptable
 
 Skill-only is acceptable when:
@@ -213,6 +165,5 @@ It is not the best default when you want:
 - Codex docs: https://context7.com/openai/codex/llms.txt
 - Gemini CLI docs: https://context7.com/google-gemini/gemini-cli/llms.txt
 - Claude Code Context7 guide: https://context7.com/docs/clients/claude-code
-- OpenCode config docs: https://opencode.ai/docs/config
 - Context7 all-clients MCP configs: https://context7.com/docs/resources/all-clients
 - Context7 best practices: https://context7.com/docs/tips

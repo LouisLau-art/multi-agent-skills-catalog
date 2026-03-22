@@ -6,7 +6,7 @@
 2. Python 包与环境管理优先使用 `uv`，除非仓库已经明确固定其他工作流。
 3. JavaScript 工具安装与运行优先使用 `bun`，除非仓库已经固定使用其他包管理器或锁文件。
 4. 每个非平凡任务一开始都先用 `find-skills`。
-   先检查是否存在匹配的已安装 skill 或可安装 skill；如果用户点名某个 skill，或者任务明显匹配某个已安装 skill，先打开对应的 `SKILL.md` 并按其流程执行。
+   先检查是否存在匹配的已安装 skill 或可安装 skill；如果用户点名某个 skill，或者任务明显匹配某个已安装 skill，先打开对应的 `SKILL.md` 并按其流程执行。在去网络上下载或寻找新的 skill 之前，**必须先去 `~/.<agent>/skills_backup` 目录里看看是否已经被我们备份和隐藏过**，如果有，优先恢复或查阅它，不要盲目去外网重新下载。
 5. 优先使用 MCP，而不是普通 web search。
    文档、框架、API、SDK、CLI 工具和配置说明优先用 Context7；GitHub 相关信息默认优先用 GitHub MCP 的只读搜索/发现能力；只有当 Context7、GitHub MCP、`gh` 和本地文档都不够时，才回退到 web search。
 6. 如果用户直接给的是 GitHub 仓库 URL，优先用 `gh` 或 GitHub MCP 去看仓库信息、README、目录、issue、pull request、release，不要先用普通 web search。
@@ -63,9 +63,7 @@
 
 ## 本机目录与同步
 
-- 当前 repo 中的 `global-context/AGENTS.md` 是四端共享上下文真源，目标包括 Codex、Claude Code、Gemini CLI、OpenCode。
-- OpenCode 不会像 Codex/Claude/Gemini 那样自动发现全局 `AGENTS.md`；同步时需要同时把它的 `instructions` 指向对应文件。
-- MCP 也要以同一份真源做四端同步，但不同客户端保留各自原生配置面：Codex `config.toml`、Gemini `settings.json`、Claude `claude mcp ...`、OpenCode `opencode.jsonc`。
+- 当前 repo 中的 `global-context/AGENTS.md` 是三端共享上下文真源，目标包括 Codex、Claude Code、Gemini CLI。
 - root 和 louis 是两套独立用户环境；当用户要求一致时，再做显式同步。
 - 统计 curated skills 数量时，不要把 `.system` 算进去。
 

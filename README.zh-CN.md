@@ -36,7 +36,7 @@ https://louislau-art.github.io/multi-agent-skills-catalog/
 - `scripts/fetch_context7_docs_popular.py`：拉取 docs popular 并生成站点数据
 - `docs/index.html`：静态排行榜页面
 - `docs/troubleshooting.md`：常见安装/认证/frontmatter 排障
-- `global-context/`：同步到 GitHub 的四端运行时真源，供 Codex / Claude / Gemini / OpenCode 共用
+- `global-context/`：同步到 GitHub 的三端运行时真源，供 Codex / Claude / Gemini 共用
 
 不包含第三方技能原始 `SKILL.md` 文件；仓库只保留清单、安装器与同步逻辑。
 
@@ -57,7 +57,7 @@ python scripts/install_curated.py claude --profiles public-default
 # 安装完整公开 catalog
 python scripts/install_curated.py claude --profiles all-public
 
-# 一次安装，并同步到 Codex + Gemini + OpenCode + CodeBuddy
+# 一次安装，并同步到 Codex + Gemini + CodeBuddy
 python scripts/install_curated.py all --profiles public-default
 
 # 在默认 profile 基础上叠加写作/博客 profile
@@ -76,7 +76,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install_curated.ps1 all --pro
 python scripts/install_curated.py --list-profiles
 
 # 先 dry-run
-DRY_RUN=1 python scripts/install_curated.py claude+opencode --profiles public-default+cloud-platform
+DRY_RUN=1 python scripts/install_curated.py claude --profiles public-default+cloud-platform
 ```
 
 PowerShell 的 dry-run 示例：
@@ -123,10 +123,9 @@ Context7 接法文档：
 - `codex`：通过 Claude 兼容目录安装，再同步到 `~/.codex/skills`
 - `gemini`：同步到 `~/.gemini/skills`
 - `qwen`：`gemini` 的别名，共用同一个 skills 目录
-- `opencode`：Unix 类系统默认同步到 `~/.config/opencode/skills`；Windows 默认同步到 `%APPDATA%\\opencode\\skills`
 - `codebuddy`：同步到 `~/.codebuddy/skills`
-- `all` / `claude+codex+gemini+opencode+codebuddy`
-- 自定义组合，例如 `claude+codex+opencode`、`claude+gemini+codebuddy`、`claude+qwen`
+- `all` / `claude+codex+gemini+codebuddy`
+- 自定义组合，例如 `claude+codex`、`claude+gemini+codebuddy`、`claude+qwen`
 - `universal`、`global`、`cursor`、`auto`（仅安装，不做后续同步）
 
 安装器会把 `skills_manifest.csv` 当作公开 catalog，再从 `profiles/` 解析一个或多个安装档，只安装匹配到的 skills；随后在 Claude 兼容基准目录里校验并修复已知 `SKILL.md` frontmatter 问题，再把本地生成的 skills 目录同步到兼容 agent 的目录中；并不会把第三方 `SKILL.md` vendoring 到本仓库。
@@ -139,7 +138,6 @@ Context7 接法文档：
 export CLAUDE_SKILLS_DIR=/custom/claude/skills
 export CODEX_SKILLS_DIR=/custom/codex/skills
 export GEMINI_SKILLS_DIR=/custom/gemini/skills
-export OPENCODE_SKILLS_DIR=/custom/opencode/skills
 export CODEBUDDY_SKILLS_DIR=/custom/codebuddy/skills
 ```
 
@@ -153,7 +151,7 @@ export CODEBUDDY_SKILLS_DIR=/custom/codebuddy/skills
 # 先预览会改哪些目录
 python scripts/sync_from_codex.py --dry-run --prune
 
-# 把 Codex 用户 skills 复制到 Claude/Gemini/OpenCode/CodeBuddy
+# 把 Codex 用户 skills 复制到 Claude/Gemini/CodeBuddy
 python scripts/sync_from_codex.py --prune
 
 # 或者把每个 skill 目录做成软链接
@@ -162,9 +160,9 @@ python scripts/sync_from_codex.py --mode symlink --prune
 
 这个脚本只同步用户 skill 目录，不会碰目标目录里的 `.system`。
 
-## 四端运行时同步
+## 三端运行时同步
 
-当你希望 skills、全局上下文、MCP 在 Codex / Claude / Gemini / OpenCode 四端保持一致时，直接用 repo 里跟踪的真源：
+当你希望 skills、全局上下文、MCP 在 Codex / Claude / Gemini 三端保持一致时，直接用 repo 里跟踪的真源：
 
 ```bash
 python scripts/sync_agent_context.py --mode symlink
@@ -175,7 +173,7 @@ python scripts/sync_mcp.py
 
 - 把 `global-context/AGENTS.md` 镜像到各自的全局上下文入口
 - 确保 OpenCode 通过 `instructions` 加载这份共享文件
-- 把 `global-context/mcp-servers.json` 里的受管 MCP servers 同步到四端
+- 把 `global-context/mcp-servers.json` 里的受管 MCP servers 同步到三端
 
 ## 拉取动态榜单
 
