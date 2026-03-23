@@ -39,3 +39,4 @@ python-performance-optimization
 uv-package-manager
 prisma-database-setup
 better-auth-best-practices
+firecrawl-scrape

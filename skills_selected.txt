@@ -48,3 +48,4 @@ webapp-testing
 writing-plans
 writing-skills
 xlsx
+firecrawl-scrape
