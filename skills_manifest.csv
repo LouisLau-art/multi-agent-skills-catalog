@@ -7,7 +7,6 @@ docx,docx,/anthropics/skills,539,8.5,0.684
 executing-plans,executing-plans,/obra/superpowers,43,9.5,0.521
 find-skills,find-skills,/vercel-labs/skills,125,9.6,0.602
 gh-cli,gh-cli,/github/awesome-copilot,45,8.2,0.642
-markitdown,markitdown,/davila7/claude-code-templates,47,10,0.540
 mermaid-diagrams,mermaid-diagrams,/softaworks/agent-toolkit,22,6,0.535
 next-best-practices,next-best-practices,/vercel-labs/next-skills,121,9.6,0.600
 pdf,pdf,/anthropics/skills,1K,8.5,0.730
@@ -47,6 +46,7 @@ writing-skills,writing-skills,/local/custom,0,0,0
 self-improving-agent,self-improving-agent,/local/custom,0,0,0
 gemini,gemini,/local/custom,0,0,0
 react-19,react-19,/gentleman-programming/gentleman-skills,66,10,0.850
-bun-next-js,bun-next-js,/local/custom,0,0,0
 tanstack-query-best-practices,tanstack-query-best-practices,/deckardger/tanstack-agent-skills,2.1K,9.5,0.800
 firecrawl-scrape,firecrawl-scrape,/firecrawl/cli,6K,10,0.850
+
+bun,bun,/bun.sh/bun,193,10,0.850

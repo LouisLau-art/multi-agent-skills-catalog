@@ -2,7 +2,6 @@ agent-browser
 ai-sdk
 better-auth-best-practices
 brainstorming
-bun-next-js
 claude-automation-recommender
 claude-md-improver
 context7-docs-lookup
@@ -17,7 +16,6 @@ gemini
 gh-cli
 git-commit
 github-actions-templates
-markitdown
 mermaid-diagrams
 next-best-practices
 pdf
@@ -49,3 +47,5 @@ writing-plans
 writing-skills
 xlsx
 firecrawl-scrape
+
+bun
