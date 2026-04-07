@@ -85,6 +85,10 @@ def build_ranked_url(base: str, limit: int, offset: int) -> str:
     return f"{base.rstrip('/')}/api/skills/ranked?{urlencode({'limit': limit, 'offset': offset})}"
 
 
+def can_keep_stale_snapshot(out_json: Path, out_csv: Path) -> bool:
+    return out_json.exists() and out_csv.exists()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch Context7 ranked skills for site JSON/CSV.")
     parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
@@ -93,6 +97,11 @@ def main() -> int:
     parser.add_argument("--max-pages", type=int, default=DEFAULT_MAX_PAGES)
     parser.add_argument("--output-json", default=DEFAULT_OUT_JSON)
     parser.add_argument("--output-csv", default=DEFAULT_OUT_CSV)
+    parser.add_argument(
+        "--keep-stale-on-error",
+        action="store_true",
+        help="Keep existing output files and exit successfully when refresh fails.",
+    )
     args = parser.parse_args()
 
     base = args.base_url.rstrip("/")
@@ -100,76 +109,85 @@ def main() -> int:
     limit = max(1, min(int(args.limit), 100))
     max_pages = max(1, int(args.max_pages))
     now = datetime.now(timezone.utc)
-
-    rows: list[dict[str, Any]] = []
-    offset = 0
-    api_calls = 0
-
-    for _ in range(max_pages):
-        url = build_ranked_url(base, limit, offset)
-        page = fetch_json(url)
-        api_calls += 1
-        if not isinstance(page, list) or not page:
-            break
-
-        for idx, item in enumerate(page, start=1):
-            if not isinstance(item, dict):
-                continue
-            row = {
-                "rank": offset + idx,
-                "name": item.get("name", ""),
-                "source": item.get("project", ""),
-                "installCount": item.get("installCount"),
-                "trustScore": item.get("trustScore"),
-                "verified": item.get("verified"),
-                "benchmarkScore": item.get("benchmarkScore"),
-                "url": item.get("url", ""),
-            }
-            rows.append(row)
-
-        installs = [to_num(x.get("installCount")) for x in page if isinstance(x, dict)]
-        installs = [v for v in installs if v is not None]
-        if installs and max(installs) < float(min_installs):
-            break
-
-        offset += limit
-
-    filtered = [
-        r
-        for r in rows
-        if to_num(r.get("installCount")) is not None and to_num(r.get("installCount")) >= min_installs
-    ]
-    filtered.sort(key=lambda x: int(x["rank"]))
-
     out_json = Path(args.output_json)
     out_csv = Path(args.output_csv)
-    out_json.parent.mkdir(parents=True, exist_ok=True)
-    out_csv.parent.mkdir(parents=True, exist_ok=True)
 
-    headers = [
-        "rank",
-        "name",
-        "source",
-        "installCount",
-        "trustScore",
-        "verified",
-        "benchmarkScore",
-        "url",
-    ]
-    with out_csv.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
-        writer.writeheader()
-        writer.writerows(filtered)
+    try:
+        rows: list[dict[str, Any]] = []
+        offset = 0
+        api_calls = 0
 
-    payload = {
-        "generatedAtUtc": now.isoformat(),
-        "baseUrl": base,
-        "minInstalls": min_installs,
-        "rows": len(filtered),
-        "apiCalls": api_calls,
-        "items": filtered,
-    }
-    out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        for _ in range(max_pages):
+            url = build_ranked_url(base, limit, offset)
+            page = fetch_json(url)
+            api_calls += 1
+            if not isinstance(page, list) or not page:
+                break
+
+            for idx, item in enumerate(page, start=1):
+                if not isinstance(item, dict):
+                    continue
+                row = {
+                    "rank": offset + idx,
+                    "name": item.get("name", ""),
+                    "source": item.get("project", ""),
+                    "installCount": item.get("installCount"),
+                    "trustScore": item.get("trustScore"),
+                    "verified": item.get("verified"),
+                    "benchmarkScore": item.get("benchmarkScore"),
+                    "url": item.get("url", ""),
+                }
+                rows.append(row)
+
+            installs = [to_num(x.get("installCount")) for x in page if isinstance(x, dict)]
+            installs = [v for v in installs if v is not None]
+            if installs and max(installs) < float(min_installs):
+                break
+
+            offset += limit
+
+        filtered = [
+            r
+            for r in rows
+            if to_num(r.get("installCount")) is not None and to_num(r.get("installCount")) >= min_installs
+        ]
+        filtered.sort(key=lambda x: int(x["rank"]))
+
+        out_json.parent.mkdir(parents=True, exist_ok=True)
+        out_csv.parent.mkdir(parents=True, exist_ok=True)
+
+        headers = [
+            "rank",
+            "name",
+            "source",
+            "installCount",
+            "trustScore",
+            "verified",
+            "benchmarkScore",
+            "url",
+        ]
+        with out_csv.open("w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=headers)
+            writer.writeheader()
+            writer.writerows(filtered)
+
+        payload = {
+            "generatedAtUtc": now.isoformat(),
+            "baseUrl": base,
+            "minInstalls": min_installs,
+            "rows": len(filtered),
+            "apiCalls": api_calls,
+            "items": filtered,
+        }
+        out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as exc:
+        if args.keep_stale_on_error and can_keep_stale_snapshot(out_json, out_csv):
+            print(
+                f"WARN: {exc}. keeping existing snapshot at {out_json} and {out_csv}",
+                file=sys.stderr,
+            )
+            return 0
+        raise
 
     print(f"Done. rows={len(filtered)} api_calls={api_calls} min_installs>={min_installs}")
     print(f"JSON: {out_json}")

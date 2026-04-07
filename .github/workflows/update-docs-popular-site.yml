@@ -55,6 +55,7 @@ jobs:
         run: |
           python3 scripts/fetch_context7_skills_for_site.py \
             --min-installs 0 \
+            --keep-stale-on-error \
             --output-json docs/data/context7_skills_ranked_all.json \
             --output-csv docs/data/context7_skills_ranked_all.csv
 
