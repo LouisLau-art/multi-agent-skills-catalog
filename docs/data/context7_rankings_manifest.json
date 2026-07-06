@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-07-05T06:26:52.428093+00:00",
+  "generatedAtUtc": "2026-07-06T06:50:24.460202+00:00",
   "project": "multi-agent-skills-catalog",
   "siteUrl": "https://louislau-art.github.io/multi-agent-skills-catalog",
   "datasets": [
@@ -8,7 +8,7 @@
       "title": "Context7 Docs Popular Ranking (Top 50)",
       "relativePath": "docs/data/context7_docs_popular_top50.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_popular_top50.json",
-      "generatedAtUtc": "2026-07-05T06:15:57.632543+00:00",
+      "generatedAtUtc": "2026-07-06T06:48:55.042349+00:00",
       "rows": 50,
       "sourceEndpoint": "https://context7.com/api/rankings",
       "notes": [
@@ -35,7 +35,7 @@
       "title": "Context7 Docs Extended Ranking (Official Top 50 + Estimated)",
       "relativePath": "docs/data/context7_docs_extended_top1000.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_extended_top1000.json",
-      "generatedAtUtc": "2026-07-05T06:16:07.724959+00:00",
+      "generatedAtUtc": "2026-07-06T06:49:04.774817+00:00",
       "rows": 9003,
       "officialRows": 50,
       "estimatedRows": 8953,
@@ -95,12 +95,12 @@
       "title": "Skills.sh All-Time Ranking Snapshot (Top 2000)",
       "relativePath": "docs/data/skills_sh_all_time_top2000.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/skills_sh_all_time_top2000.json",
-      "generatedAtUtc": "2026-07-05T06:26:52.118407+00:00",
+      "generatedAtUtc": "2026-07-06T06:50:24.160097+00:00",
       "rows": 2000,
       "sourceRows": 2000,
       "sourceUrl": "https://skills.sh/",
-      "totalSkills": 9632,
-      "allTimeTotal": 887569,
+      "totalSkills": 9634,
+      "allTimeTotal": 895587,
       "notes": [
         "Primary skills dataset for the site.",
         "Starts from the prerendered skills.sh payload, then continues with the public pagination API.",
