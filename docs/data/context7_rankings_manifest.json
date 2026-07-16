@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-07-15T05:12:33.196717+00:00",
+  "generatedAtUtc": "2026-07-16T05:23:08.738107+00:00",
   "project": "multi-agent-skills-catalog",
   "siteUrl": "https://louislau-art.github.io/multi-agent-skills-catalog",
   "datasets": [
@@ -8,7 +8,7 @@
       "title": "Context7 Docs Popular Ranking (Top 50)",
       "relativePath": "docs/data/context7_docs_popular_top50.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_popular_top50.json",
-      "generatedAtUtc": "2026-07-15T05:11:06.143047+00:00",
+      "generatedAtUtc": "2026-07-16T05:21:40.735817+00:00",
       "rows": 50,
       "sourceEndpoint": "https://context7.com/api/rankings",
       "notes": [
@@ -35,10 +35,10 @@
       "title": "Context7 Docs Extended Ranking (Official Top 50 + Estimated)",
       "relativePath": "docs/data/context7_docs_extended_top1000.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_extended_top1000.json",
-      "generatedAtUtc": "2026-07-15T05:11:14.969540+00:00",
-      "rows": 8992,
+      "generatedAtUtc": "2026-07-16T05:21:49.142850+00:00",
+      "rows": 8988,
       "officialRows": 50,
-      "estimatedRows": 8942,
+      "estimatedRows": 8938,
       "notes": [
         "Rows 1-50 are official from /api/rankings.",
         "Rows >50 are estimated from /api/libraries/all and should be treated as directional."
@@ -95,12 +95,12 @@
       "title": "Skills.sh All-Time Ranking Snapshot (Top 2000)",
       "relativePath": "docs/data/skills_sh_all_time_top2000.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/skills_sh_all_time_top2000.json",
-      "generatedAtUtc": "2026-07-15T05:12:32.915783+00:00",
+      "generatedAtUtc": "2026-07-16T05:23:08.440520+00:00",
       "rows": 2000,
       "sourceRows": 2000,
       "sourceUrl": "https://skills.sh/",
-      "totalSkills": 9588,
-      "allTimeTotal": 891139,
+      "totalSkills": 9591,
+      "allTimeTotal": 905144,
       "notes": [
         "Primary skills dataset for the site.",
         "Starts from the prerendered skills.sh payload, then continues with the public pagination API.",
