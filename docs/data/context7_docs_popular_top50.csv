@@ -1,51 +1,51 @@
 rank,title,source,marketShare,tokens,snippets,updateUtc,updateAgo,trustScore,verified,benchmarkScore,type,popularityRank,docsRepoUrl,docsSiteUrl,libraryId
-1,Better Auth,/better-auth/better-auth,10.889333592764496,409469,2185,2026-08-26T01:37:04.315000Z,1h,7.6,True,79.5,repo,3,https://github.com/better-auth/better-auth,,/better-auth/better-auth
-2,Claude Code,/anthropics/claude-code,5.299978725163749,167420,938,2026-08-25T02:12:59.512000Z,1d,8.8,True,83,repo,41,https://github.com/anthropics/claude-code,,/anthropics/claude-code
-3,Expo,/expo/expo,4.677475198963137,706288,3421,2026-08-26T03:14:24.824000Z,13m,10,True,85.1,repo,5,https://github.com/expo/expo,,/expo/expo
-4,OpenCode,/anomalyco/opencode,4.324890478011341,250511,886,2026-08-25T02:02:20.415000Z,1d,9.6,True,83.8,repo,2,https://github.com/anomalyco/opencode,,/anomalyco/opencode
-5,Drizzle ORM,/drizzle-team/drizzle-orm-docs,3.3460965522143753,656023,3962,2026-08-25T01:37:11.276000Z,1d,7.6,True,81.8,repo,13,https://github.com/drizzle-team/drizzle-orm-docs,,/drizzle-team/drizzle-orm-docs
-6,LangGraph,/langchain-ai/langgraph,2.8908029397845394,83521,243,2026-08-24T22:35:55.247000Z,1d,9.2,True,78.9,repo,96,https://github.com/langchain-ai/langgraph,,/langchain-ai/langgraph
-7,FastAPI,/fastapi/fastapi,2.683062796914977,131845,568,2026-07-21T12:25:01.263000Z,1mo,9.9,True,83,repo,1077,https://github.com/fastapi/fastapi,,/fastapi/fastapi
-8,Clerk,/clerk/clerk-docs,2.2401382753286923,1149876,4885,2026-08-24T23:06:40.769000Z,1d,8.4,True,86.5,repo,35,https://github.com/clerk/clerk-docs,,/clerk/clerk-docs
-9,Zod,/colinhacks/zod,1.8954697725167686,99316,582,2026-08-24T20:07:19.041000Z,1d,9.6,True,91.7,repo,27,https://github.com/colinhacks/zod,,/colinhacks/zod
-10,Docker,/docker/docs,1.834906664859938,1628487,7445,2026-08-26T01:08:18.846000Z,2h,9.9,True,90.4,repo,16,https://github.com/docker/docs,,/docker/docs
-11,Cloudflare,/cloudflare/cloudflare-docs,1.60249902082238,6011928,16262,2026-08-25T11:47:29.899000Z,15h,9.3,True,74.3,repo,19,https://github.com/cloudflare/cloudflare-docs,,/cloudflare/cloudflare-docs
-12,Next Intl,/amannn/next-intl,1.5974807039658538,74024,360,2026-08-25T13:07:03.378000Z,14h,10,True,94.6,repo,83,https://github.com/amannn/next-intl,,/amannn/next-intl
-13,Google Gen AI Python SDK,/googleapis/python-genai,1.587090667657271,34589,259,2026-08-23T06:01:07.896000Z,2d,8.5,True,90.2,repo,145,https://github.com/googleapis/python-genai,,/googleapis/python-genai
-14,Laravel,/laravel/docs,1.5629381245570477,687893,5337,2026-08-25T06:33:03.510000Z,20h,9.5,True,80.2,repo,25,https://github.com/laravel/docs,,/laravel/docs
-15,Uv,/astral-sh/uv,1.4984068106132655,131268,681,2026-08-25T19:18:56.857000Z,8h,9.4,True,87.7,repo,37,https://github.com/astral-sh/uv,,/astral-sh/uv
-16,Terraform AWS Provider,/hashicorp/terraform-provider-aws,1.2844063931943142,1653956,8702,2026-08-25T14:38:09.221000Z,12h,9.8,True,78.2,repo,52,https://github.com/hashicorp/terraform-provider-aws,,/hashicorp/terraform-provider-aws
-17,GenAI,/googleapis/js-genai,1.274672675991716,56974,280,2026-08-15T16:36:53.444000Z,10d,8.5,True,85.5,repo,251,https://github.com/googleapis/js-genai,,/googleapis/js-genai
-18,Ant Design,/ant-design/ant-design,1.2325167949534916,299601,1228,2026-08-23T12:42:40.775000Z,2d,8.7,True,82.6,repo,90,https://github.com/ant-design/ant-design,,/ant-design/ant-design
-19,Litellm,/berriai/litellm,1.1562727092721432,236562,1101,2026-08-18T13:45:16.988000Z,7d,7.7,True,80.2,repo,104,https://github.com/berriai/litellm,,/berriai/litellm
-20,FastMCP,/jlowin/fastmcp,1.1145308141315398,57671,214,2026-03-15T09:51:02.904000Z,5mo,9.3,True,66.3,repo,3953,https://github.com/jlowin/fastmcp,,/jlowin/fastmcp
-21,Langfuse,/langfuse/langfuse-docs,1.096376017938312,694662,1979,2026-08-18T09:31:22.507000Z,7d,8.3,True,78.2,repo,116,https://github.com/langfuse/langfuse-docs,,/langfuse/langfuse-docs
-22,Anthropic SDK for Python,/anthropics/anthropic-sdk-python,1.0735260158330422,34860,217,2026-08-15T15:00:44.640000Z,10d,8.8,True,87.4,repo,214,https://github.com/anthropics/anthropic-sdk-python,,/anthropics/anthropic-sdk-python
-23,Anthropic SDK TypeScript,/anthropics/anthropic-sdk-typescript,1.0608237168279915,27144,184,2026-08-20T13:57:46.668000Z,5d,8.8,True,93.7,repo,184,https://github.com/anthropics/anthropic-sdk-typescript,,/anthropics/anthropic-sdk-typescript
-24,Electron,/electron/electron,1.041851046056537,482861,2302,2026-08-25T09:43:06.182000Z,17h,10,True,87.8,repo,67,https://github.com/electron/electron,,/electron/electron
-25,React,/facebook/react,1.021818167498492,903895,3401,2026-06-09T14:08:47.426000Z,2mo,9.2,True,56,repo,811,https://github.com/facebook/react,,/facebook/react
-26,ASP.NET Core,/dotnet/aspnetcore.docs,0.992536238154576,1599555,7399,2026-08-25T09:31:54.856000Z,17h,8.3,True,82.3,repo,68,https://github.com/dotnet/aspnetcore.docs,,/dotnet/aspnetcore.docs
-27,ADK Python,/google/adk-python,0.9572969507717253,156976,670,2026-08-23T06:45:02.722000Z,2d,8.9,True,76,repo,316,https://github.com/google/adk-python,,/google/adk-python
-28,Sentry,/getsentry/sentry-docs,0.8959058713196527,1969328,7815,2026-08-25T05:02:10.395000Z,22h,9,True,92.2,repo,76,https://github.com/getsentry/sentry-docs,,/getsentry/sentry-docs
-29,Godot Engine,/godotengine/godot-docs,0.8913015403607474,2817932,19949,2026-08-21T07:57:48.280000Z,4d,9.9,True,71.1,repo,179,https://github.com/godotengine/godot-docs,,/godotengine/godot-docs
-30,Go,/golang/go,0.8790637133383935,2448370,11288,2026-08-15T00:57:58.554000Z,11d,8.3,True,69.9,repo,118,https://github.com/golang/go,,/golang/go
-31,Flutter,/flutter/website,0.872712563835868,934922,3544,2026-08-24T20:05:11.764000Z,1d,7.9,True,88.7,repo,57,https://github.com/flutter/website,,/flutter/website
-32,Docker Compose,/docker/compose,0.8390787339584251,18484,73,2026-08-25T21:55:54.887000Z,5h,9.9,True,84.4,repo,91,https://github.com/docker/compose,,/docker/compose
-33,.NET,/dotnet/docs,0.8203382991783187,8366788,29681,2026-08-25T19:48:18.857000Z,7h,9.1,True,85.6,repo,85,https://github.com/dotnet/docs,,/dotnet/docs
-34,Django,/django/django,0.7977003386303672,1484205,6799,2026-08-25T12:38:52.676000Z,14h,8.8,True,93,repo,97,https://github.com/django/django,,/django/django
-35,Claude Agent SDK for Python,/anthropics/claude-agent-sdk-python,0.794176409892082,38638,261,2026-08-22T01:11:50.452000Z,4d,8.8,True,87.9,repo,336,https://github.com/anthropics/claude-agent-sdk-python,,/anthropics/claude-agent-sdk-python
-36,CopilotKit,/copilotkit/copilotkit,0.7793133064457908,1453639,5281,2026-08-22T19:00:05.293000Z,3d,8.2,True,80.2,repo,353,https://github.com/copilotkit/copilotkit,,/copilotkit/copilotkit
-37,Transformers,/huggingface/transformers,0.76484399446309,848559,3590,2026-08-21T15:26:21.095000Z,4d,9.6,True,83,repo,142,https://github.com/huggingface/transformers,,/huggingface/transformers
-38,HeroUI Native,/heroui-inc/heroui-native,0.7324521222785098,129748,719,2026-08-23T09:58:59.420000Z,2d,8.4,False,79.5,repo,518,https://github.com/heroui-inc/heroui-native,,/heroui-inc/heroui-native
-39,Express,/expressjs/express,0.7307658870369808,45276,356,2026-08-23T16:50:36.901000Z,2d,9,True,83.3,repo,170,https://github.com/expressjs/express,,/expressjs/express
-40,Keycloak,/keycloak/keycloak,0.7214562529490184,535656,2074,2026-08-24T22:14:37.579000Z,1d,8.4,True,71.9,repo,86,https://github.com/keycloak/keycloak,,/keycloak/keycloak
-41,Angular,/angular/angular,0.6943452252633582,38490,185,2026-08-25T11:38:50.207000Z,15h,8.9,False,55.8,repo,358,https://github.com/angular/angular,,/angular/angular
-42,GitHub Docs,/github/docs,0.6673250725308342,2135647,5662,2026-08-25T07:59:31.520000Z,19h,8.2,True,76.1,repo,70,https://github.com/github/docs,,/github/docs
-43,Agent Development Kit,/google/adk-docs,0.6557738562655099,1088757,6463,2026-08-23T10:38:22.900000Z,2d,8.9,True,84.25,repo,709,https://github.com/google/adk-docs,,/google/adk-docs
-44,Fastify,/fastify/fastify,0.6163947099064503,115873,607,2026-08-24T08:28:40.166000Z,1d,10,True,91,repo,143,https://github.com/fastify/fastify,,/fastify/fastify
-45,Terraform Provider for Google Cloud Platform,/hashicorp/terraform-provider-google,0.6102858936122885,2713891,8316,2026-08-15T19:19:41.878000Z,10d,9.8,True,90.6,repo,134,https://github.com/hashicorp/terraform-provider-google,,/hashicorp/terraform-provider-google
-46,Biome,/biomejs/biome,0.6066206038357913,151962,873,2026-08-26T02:16:20.263000Z,1h,7.9,False,82.7,repo,869,https://github.com/biomejs/biome,,/biomejs/biome
-47,Framer Motion,/grx7/framer-motion,0.5773689661429207,76392,287,2026-08-07T09:52:37.308000Z,18d,6,False,62.1,repo,1025,https://github.com/grx7/framer-motion,,/grx7/framer-motion
-48,Entity Framework Core,/dotnet/entityframework.docs,0.5761169112330429,484988,2274,2026-08-18T22:29:34.867000Z,7d,8.3,False,87.9,repo,111,https://github.com/dotnet/entityframework.docs,,/dotnet/entityframework.docs
-49,Assistant UI,/assistant-ui/assistant-ui,0.5733906626389541,486783,2667,2026-08-17T09:44:28.908000Z,8d,7.8,False,81.2,repo,403,https://github.com/assistant-ui/assistant-ui,,/assistant-ui/assistant-ui
-50,AWS SDK for JavaScript,/aws/aws-sdk-js-v3,0.5721487049460915,3608637,13700,2026-08-20T10:10:49.076000Z,5d,9.6,True,91.8,repo,157,https://github.com/aws/aws-sdk-js-v3,,/aws/aws-sdk-js-v3
+1,Better Auth,/better-auth/better-auth,10.889333592764496,409756,2179,2026-08-27T12:50:50.349000Z,3m,7.6,True,79.5,repo,2,https://github.com/better-auth/better-auth,,/better-auth/better-auth
+2,Claude Code,/anthropics/claude-code,5.299978725163749,167420,938,2026-08-26T05:45:15.506000Z,1d,8.8,True,83,repo,11,https://github.com/anthropics/claude-code,,/anthropics/claude-code
+3,Expo,/expo/expo,4.677475198963137,706288,3421,2026-08-26T03:14:24.824000Z,1d,10,True,85.1,repo,3,https://github.com/expo/expo,,/expo/expo
+4,OpenCode,/anomalyco/opencode,4.324890478011341,247415,862,2026-08-26T15:44:53.697000Z,21h,9.6,True,83.8,repo,1,https://github.com/anomalyco/opencode,,/anomalyco/opencode
+5,Drizzle ORM,/drizzle-team/drizzle-orm-docs,3.3460965522143753,656023,3962,2026-08-26T11:45:59.269000Z,1d,7.6,True,81.8,repo,4,https://github.com/drizzle-team/drizzle-orm-docs,,/drizzle-team/drizzle-orm-docs
+6,LangGraph,/langchain-ai/langgraph,2.8908029397845394,83521,243,2026-08-26T11:53:38.468000Z,1d,9.2,True,78.9,repo,28,https://github.com/langchain-ai/langgraph,,/langchain-ai/langgraph
+7,FastAPI,/fastapi/fastapi,2.683062796914977,131845,568,2026-07-21T12:25:01.263000Z,1mo,9.9,True,83,repo,277,https://github.com/fastapi/fastapi,,/fastapi/fastapi
+8,Clerk,/clerk/clerk-docs,2.2401382753286923,1148888,4863,2026-08-26T03:38:20.815000Z,1d,8.4,True,86.5,repo,10,https://github.com/clerk/clerk-docs,,/clerk/clerk-docs
+9,Zod,/colinhacks/zod,1.8954697725167686,113612,654,2026-08-26T05:12:58.350000Z,1d,9.6,True,91.7,repo,8,https://github.com/colinhacks/zod,,/colinhacks/zod
+10,Docker,/docker/docs,1.834906664859938,1628487,7445,2026-08-26T01:08:18.846000Z,1d,9.9,True,90.4,repo,7,https://github.com/docker/docs,,/docker/docs
+11,Cloudflare,/cloudflare/cloudflare-docs,1.60249902082238,5947655,16246,2026-08-26T21:48:58.054000Z,15h,9.3,True,74.3,repo,6,https://github.com/cloudflare/cloudflare-docs,,/cloudflare/cloudflare-docs
+12,Next Intl,/amannn/next-intl,1.5974807039658538,74024,360,2026-08-27T05:27:18.007000Z,7h,10,True,94.6,repo,21,https://github.com/amannn/next-intl,,/amannn/next-intl
+13,Google Gen AI Python SDK,/googleapis/python-genai,1.587090667657271,34589,259,2026-08-23T06:01:07.896000Z,4d,8.5,True,90.2,repo,39,https://github.com/googleapis/python-genai,,/googleapis/python-genai
+14,Laravel,/laravel/docs,1.5629381245570477,670132,5215,2026-08-26T18:27:51.783000Z,18h,9.5,True,80.2,repo,5,https://github.com/laravel/docs,,/laravel/docs
+15,Uv,/astral-sh/uv,1.4984068106132655,131780,703,2026-08-27T10:18:00.119000Z,2h,9.4,True,87.7,repo,9,https://github.com/astral-sh/uv,,/astral-sh/uv
+16,Terraform AWS Provider,/hashicorp/terraform-provider-aws,1.2844063931943142,1648731,8711,2026-08-27T11:16:31.540000Z,1h,9.8,True,78.2,repo,12,https://github.com/hashicorp/terraform-provider-aws,,/hashicorp/terraform-provider-aws
+17,GenAI,/googleapis/js-genai,1.274672675991716,56974,280,2026-08-15T16:36:53.444000Z,11d,8.5,True,85.5,repo,66,https://github.com/googleapis/js-genai,,/googleapis/js-genai
+18,Ant Design,/ant-design/ant-design,1.2325167949534916,299601,1226,2026-08-26T05:35:00.742000Z,1d,8.7,True,82.6,repo,22,https://github.com/ant-design/ant-design,,/ant-design/ant-design
+19,Litellm,/berriai/litellm,1.1562727092721432,228122,1058,2026-08-27T02:26:56.350000Z,10h,7.7,True,80.2,repo,25,https://github.com/berriai/litellm,,/berriai/litellm
+20,FastMCP,/jlowin/fastmcp,1.1145308141315398,57671,214,2026-03-15T09:51:02.904000Z,5mo,9.3,True,66.3,repo,1082,https://github.com/jlowin/fastmcp,,/jlowin/fastmcp
+21,Langfuse,/langfuse/langfuse-docs,1.096376017938312,714868,2014,2026-08-26T22:16:42.690000Z,14h,8.3,True,78.2,repo,32,https://github.com/langfuse/langfuse-docs,,/langfuse/langfuse-docs
+22,Anthropic SDK for Python,/anthropics/anthropic-sdk-python,1.0735260158330422,50474,322,2026-08-27T02:33:02.763000Z,10h,8.8,True,87.4,repo,59,https://github.com/anthropics/anthropic-sdk-python,,/anthropics/anthropic-sdk-python
+23,Anthropic SDK TypeScript,/anthropics/anthropic-sdk-typescript,1.0608237168279915,44606,285,2026-08-27T04:10:20.966000Z,8h,8.8,True,93.7,repo,49,https://github.com/anthropics/anthropic-sdk-typescript,,/anthropics/anthropic-sdk-typescript
+24,Electron,/electron/electron,1.041851046056537,473072,2248,2026-08-27T03:34:02.252000Z,9h,10,True,87.8,repo,17,https://github.com/electron/electron,,/electron/electron
+25,React,/facebook/react,1.021818167498492,903895,3401,2026-06-09T14:08:47.426000Z,2mo,9.2,True,56,repo,269,https://github.com/facebook/react,,/facebook/react
+26,ASP.NET Core,/dotnet/aspnetcore.docs,0.992536238154576,1584133,7208,2026-08-27T05:35:53.817000Z,7h,8.3,True,82.3,repo,14,https://github.com/dotnet/aspnetcore.docs,,/dotnet/aspnetcore.docs
+27,ADK Python,/google/adk-python,0.9572969507717253,156976,670,2026-08-23T06:45:02.722000Z,4d,8.9,True,76,repo,72,https://github.com/google/adk-python,,/google/adk-python
+28,Sentry,/getsentry/sentry-docs,0.8959058713196527,1962392,7701,2026-08-26T16:23:59.206000Z,20h,9,True,92.2,repo,15,https://github.com/getsentry/sentry-docs,,/getsentry/sentry-docs
+29,Godot Engine,/godotengine/godot-docs,0.8913015403607474,2817932,19949,2026-08-21T07:57:48.280000Z,6d,9.9,True,71.1,repo,48,https://github.com/godotengine/godot-docs,,/godotengine/godot-docs
+30,Go,/golang/go,0.8790637133383935,2398174,11058,2026-08-27T01:18:14.796000Z,11h,8.3,True,69.9,repo,29,https://github.com/golang/go,,/golang/go
+31,Flutter,/flutter/website,0.872712563835868,932108,3533,2026-08-26T05:12:57.958000Z,1d,7.9,True,88.7,repo,13,https://github.com/flutter/website,,/flutter/website
+32,Docker Compose,/docker/compose,0.8390787339584251,18484,73,2026-08-25T21:55:54.887000Z,1d,9.9,True,84.4,repo,23,https://github.com/docker/compose,,/docker/compose
+33,.NET,/dotnet/docs,0.8203382991783187,8366788,29681,2026-08-25T19:48:18.857000Z,1d,9.1,True,85.6,repo,20,https://github.com/dotnet/docs,,/dotnet/docs
+34,Django,/django/django,0.7977003386303672,1484205,6799,2026-08-26T20:51:12.153000Z,16h,8.8,True,93,repo,24,https://github.com/django/django,,/django/django
+35,Claude Agent SDK for Python,/anthropics/claude-agent-sdk-python,0.794176409892082,38638,261,2026-08-22T01:11:50.452000Z,5d,8.8,True,87.9,repo,84,https://github.com/anthropics/claude-agent-sdk-python,,/anthropics/claude-agent-sdk-python
+36,CopilotKit,/copilotkit/copilotkit,0.7793133064457908,1453639,5281,2026-08-22T19:00:05.293000Z,4d,8.2,True,80.2,repo,89,https://github.com/copilotkit/copilotkit,,/copilotkit/copilotkit
+37,Transformers,/huggingface/transformers,0.76484399446309,848559,3590,2026-08-21T15:26:21.095000Z,5d,9.6,True,83,repo,40,https://github.com/huggingface/transformers,,/huggingface/transformers
+38,HeroUI Native,/heroui-inc/heroui-native,0.7324521222785098,129748,719,2026-08-23T09:58:59.420000Z,4d,8.4,False,79.5,repo,124,https://github.com/heroui-inc/heroui-native,,/heroui-inc/heroui-native
+39,Express,/expressjs/express,0.7307658870369808,45276,356,2026-08-27T04:50:26.382000Z,8h,9,True,83.3,repo,47,https://github.com/expressjs/express,,/expressjs/express
+40,Keycloak,/keycloak/keycloak,0.7214562529490184,536455,2063,2026-08-26T04:23:54.512000Z,1d,8.4,True,71.9,repo,19,https://github.com/keycloak/keycloak,,/keycloak/keycloak
+41,Angular,/angular/angular,0.6943452252633582,38490,185,2026-08-27T10:13:33.922000Z,2h,8.9,True,55.8,repo,92,https://github.com/angular/angular,,/angular/angular
+42,GitHub Docs,/github/docs,0.6673250725308342,2137788,5660,2026-08-27T09:53:14.348000Z,3h,8.2,True,76.1,repo,16,https://github.com/github/docs,,/github/docs
+43,Agent Development Kit,/google/adk-docs,0.6557738562655099,1088757,6463,2026-08-23T10:38:22.900000Z,4d,8.9,True,84.25,repo,166,https://github.com/google/adk-docs,,/google/adk-docs
+44,Fastify,/fastify/fastify,0.6163947099064503,115873,607,2026-08-27T03:06:15.930000Z,9h,10,True,91,repo,35,https://github.com/fastify/fastify,,/fastify/fastify
+45,Terraform Provider for Google Cloud Platform,/hashicorp/terraform-provider-google,0.6102858936122885,2632087,8261,2026-08-27T07:23:37.919000Z,5h,9.8,True,90.6,repo,33,https://github.com/hashicorp/terraform-provider-google,,/hashicorp/terraform-provider-google
+46,Biome,/biomejs/biome,0.6066206038357913,151962,873,2026-08-26T02:16:20.263000Z,1d,7.9,False,82.7,repo,268,https://github.com/biomejs/biome,,/biomejs/biome
+47,Framer Motion,/grx7/framer-motion,0.5773689661429207,76392,287,2026-08-07T09:52:37.308000Z,20d,6,False,62.1,repo,255,https://github.com/grx7/framer-motion,,/grx7/framer-motion
+48,Entity Framework Core,/dotnet/entityframework.docs,0.5761169112330429,484239,2298,2026-08-26T22:35:11.444000Z,14h,8.3,True,87.9,repo,26,https://github.com/dotnet/entityframework.docs,,/dotnet/entityframework.docs
+49,Assistant UI,/assistant-ui/assistant-ui,0.5733906626389541,491777,2768,2026-08-26T23:37:05.491000Z,13h,7.8,True,81.2,repo,97,https://github.com/assistant-ui/assistant-ui,,/assistant-ui/assistant-ui
+50,AWS SDK for JavaScript,/aws/aws-sdk-js-v3,0.5721487049460915,3330454,11534,2026-08-27T07:27:16.145000Z,5h,9.6,True,91.8,repo,43,https://github.com/aws/aws-sdk-js-v3,,/aws/aws-sdk-js-v3
