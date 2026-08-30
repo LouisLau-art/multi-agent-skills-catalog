@@ -47,5 +47,6 @@ writing-plans
 writing-skills
 xlsx
 firecrawl-scrape
+x-twitter-scraper
 
 bun

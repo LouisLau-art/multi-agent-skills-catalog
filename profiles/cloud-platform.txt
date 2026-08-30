@@ -11,3 +11,4 @@ supabase-nextjs
 supabase-postgres-best-practices
 vercel-composition-patterns
 wrangler
+x-twitter-scraper
