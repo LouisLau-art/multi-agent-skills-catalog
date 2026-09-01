@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-08-31T08:46:02.908813+00:00",
+  "generatedAtUtc": "2026-09-01T08:30:37.842335+00:00",
   "project": "multi-agent-skills-catalog",
   "siteUrl": "https://louislau-art.github.io/multi-agent-skills-catalog",
   "datasets": [
@@ -8,7 +8,7 @@
       "title": "Context7 Docs Popular Ranking (Top 50)",
       "relativePath": "docs/data/context7_docs_popular_top50.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_popular_top50.json",
-      "generatedAtUtc": "2026-08-31T08:43:35.359156+00:00",
+      "generatedAtUtc": "2026-09-01T07:52:30.082775+00:00",
       "rows": 50,
       "sourceEndpoint": "https://context7.com/api/rankings",
       "notes": [
@@ -35,10 +35,10 @@
       "title": "Context7 Docs Extended Ranking (Official Top 50 + Estimated)",
       "relativePath": "docs/data/context7_docs_extended_top1000.json",
       "publicUrl": "https://louislau-art.github.io/multi-agent-skills-catalog/data/context7_docs_extended_top1000.json",
-      "generatedAtUtc": "2026-08-31T08:43:48.585541+00:00",
-      "rows": 8939,
+      "generatedAtUtc": "2026-09-01T07:52:43.753669+00:00",
+      "rows": 12036,
       "officialRows": 50,
-      "estimatedRows": 8889,
+      "estimatedRows": 11986,
       "notes": [
         "Rows 1-50 are official from /api/rankings.",
         "Rows >50 are estimated from /api/libraries/all and should be treated as directional."
