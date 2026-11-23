@@ -1,51 +1,51 @@
 rank,title,source,marketShare,tokens,snippets,updateUtc,updateAgo,trustScore,verified,benchmarkScore,type,popularityRank,docsRepoUrl,docsSiteUrl,libraryId
-1,Vercel,/websites/vercel,16.70520162511818,4535410,12604,2026-11-19T14:50:36.769000Z,2d,10,True,72,website,22,https://vercel.com/docs,https://vercel.com/docs,/websites/vercel
-2,Next.js,/vercel/next.js,8.174011007483069,950880,3264,2026-11-22T01:15:04.824000Z,8h,9.7,True,93.9,repo,1,https://github.com/vercel/next.js,,/vercel/next.js
-3,Better Auth,/better-auth/better-auth,3.2371669189493377,950217,3018,2026-11-21T14:14:25.694000Z,19h,8.5,True,79.5,repo,18,https://github.com/better-auth/better-auth,,/better-auth/better-auth
-4,React,/reactjs/react.dev,2.3758227113443295,754755,2231,2026-11-21T14:44:33.765000Z,19h,9.7,True,81.6,repo,6,https://github.com/reactjs/react.dev,,/reactjs/react.dev
-5,Supabase,/supabase/supabase,2.182466197342499,2830322,6941,2026-11-21T18:26:51.046000Z,15h,10,True,80.1,repo,9,https://github.com/supabase/supabase,,/supabase/supabase
-6,Claude Code,/websites/code_claude,1.850307638248436,2697679,3362,2026-11-21T02:23:43.578000Z,1d,9.9,True,81.5,website,2,https://code.claude.com/docs/en/cli-reference,https://code.claude.com/docs,/websites/code_claude
-7,Playwright,/microsoft/playwright,1.8425330447030688,1309065,5593,2026-11-22T08:50:31.493000Z,1h,10,True,96.6,repo,3,https://github.com/microsoft/playwright,,/microsoft/playwright
-8,OpenCode,/anomalyco/opencode,1.6939101001939336,2088251,6946,2026-11-21T16:39:05.139000Z,17h,9.9,True,83.8,repo,7,https://github.com/anomalyco/opencode,,/anomalyco/opencode
-9,Expo,/expo/expo,1.57810789434008,2503534,8827,2026-11-21T16:17:37.513000Z,17h,10,True,85.1,repo,14,https://github.com/expo/expo,,/expo/expo
-10,Vercel AI SDK,/vercel/ai,1.5461449160055314,1744923,6660,2026-11-14T17:10:03.526000Z,7d,9.7,True,83.8,repo,149,https://github.com/vercel/ai,,/vercel/ai
-11,Tailwind CSS,/tailwindlabs/tailwindcss.com,1.4426547645426246,282371,1166,2026-11-22T01:56:55.814000Z,7h,10,True,85.4,repo,28,https://github.com/tailwindlabs/tailwindcss.com,,/tailwindlabs/tailwindcss.com
-12,Vitest,/vitest-dev/vitest,1.4212198816340944,959310,3684,2026-11-21T19:47:32.951000Z,14h,9.2,True,86.8,repo,11,https://github.com/vitest-dev/vitest,,/vitest-dev/vitest
-13,Claude Code,/anthropics/claude-code,1.4154277181916979,41507,23,2026-11-21T23:46:53.625000Z,10h,9.5,True,83,repo,68,https://github.com/anthropics/claude-code,,/anthropics/claude-code
-14,Shadcn UI,/shadcn-ui/ui,1.3363016098815268,514330,2369,2026-11-21T09:48:36.662000Z,1d,10,True,84.6,repo,66,https://github.com/shadcn-ui/ui,,/shadcn-ui/ui
-15,Codex CLI,/openai/codex,1.3000726427178007,473240,2009,2026-11-21T11:19:27.660000Z,22h,9.4,True,52.8,repo,5,https://github.com/openai/codex,,/openai/codex
-16,TanStack Query,/tanstack/query,1.2229814338919216,246149,1298,2026-07-27T01:43:38.970000Z,3mo,9.5,True,92.1,repo,28407,https://github.com/tanstack/query,,/tanstack/query
-17,Stripe,/websites/stripe,1.1593360743490222,6380436,10301,2026-11-16T10:07:07.704000Z,5d,10,True,79,website,8,https://docs.stripe.com/,https://docs.stripe.com,/websites/stripe
-18,n8n,/n8n-io/n8n-docs,1.1208395174012307,1351835,1753,2026-11-21T21:28:55.791000Z,12h,9.8,True,82.5,repo,51,https://github.com/n8n-io/n8n-docs,,/n8n-io/n8n-docs
-19,Drizzle ORM,/drizzle-team/drizzle-orm-docs,1.0913722565956236,687788,3973,2026-11-21T09:45:52.266000Z,1d,7.6,True,81.8,repo,52,https://github.com/drizzle-team/drizzle-orm-docs,,/drizzle-team/drizzle-orm-docs
-20,Vite,/vitejs/vite,1.0796282402894175,423701,1274,2026-11-21T09:15:44.270000Z,1d,9.3,True,84.6,repo,24,https://github.com/vitejs/vite,,/vitejs/vite
-21,Astro,/withastro/docs,1.0507814869498726,696300,2646,2026-11-21T14:17:35.177000Z,19h,9.8,True,85.5,repo,34,https://github.com/withastro/docs,,/withastro/docs
-22,Docker,/docker/docs,1.0087375435692625,2263022,7086,2026-11-22T02:22:28.961000Z,7h,10,True,90.4,repo,13,https://github.com/docker/docs,,/docker/docs
-23,MongoDB,/mongodb/docs,0.9485209440318462,3085208,7932,2026-11-22T09:37:19.376000Z,18m,9.1,True,77.8,repo,72,https://github.com/mongodb/docs,,/mongodb/docs
-24,Cloudflare,/cloudflare/cloudflare-docs,0.9407121313247476,8452966,17765,2026-11-22T05:51:34.354000Z,4h,9.3,True,74.3,repo,10,https://github.com/cloudflare/cloudflare-docs,,/cloudflare/cloudflare-docs
-25,OpenClaw,/openclaw/openclaw,0.938398915991707,7811530,10034,2026-11-14T12:35:59.548000Z,7d,8.8,True,81.7,repo,113,https://github.com/openclaw/openclaw,,/openclaw/openclaw
-26,Python,/python/cpython,0.9327573168609284,5606193,14200,2026-11-22T03:39:59.228000Z,6h,9.7,True,73.4,repo,16,https://github.com/python/cpython,,/python/cpython
-27,OpenAI API,/websites/developers_openai_api,0.8886442548342949,3168220,4408,2026-11-21T03:26:53.318000Z,1d,9.4,True,81.9,website,26,https://developers.openai.com/api/docs/mcp,https://developers.openai.com/api,/websites/developers_openai_api
-28,GitHub Actions,/websites/github_en_actions,0.8840862624916765,586416,1147,2026-11-20T14:08:08.378000Z,1d,10,True,93.1,website,21,https://docs.github.com/en/actions,https://docs.github.com/en/actions,/websites/github_en_actions
-29,SwiftUI,/websites/developer_apple_swiftui,0.8392317852941967,2809331,12015,2026-11-14T19:37:10.412000Z,7d,10,True,91.3,website,38,https://developer.apple.com/documentation/swiftui,https://developer.apple.com/documentation/swiftui,/websites/developer_apple_swiftui
-30,Spring Boot,/spring-projects/spring-boot,0.81880066446312,1338369,5730,2026-11-22T09:29:22.594000Z,26m,9.7,True,88.3,repo,39,https://github.com/spring-projects/spring-boot,,/spring-projects/spring-boot
-31,FastAPI,/websites/fastapi_tiangolo,0.8122054913587605,542789,1536,2026-11-21T18:17:38.044000Z,15h,9,True,96.2,website,32,https://fastapi.tiangolo.com/learn/,https://fastapi.tiangolo.com/,/websites/fastapi_tiangolo
-32,Zod,/colinhacks/zod,0.8002014094233959,402905,1575,2026-11-21T22:19:12.197000Z,11h,9.6,True,91.7,repo,30,https://github.com/colinhacks/zod,,/colinhacks/zod
-33,Laravel,/laravel/docs,0.7960563282990026,1097960,6579,2026-11-21T20:00:21.557000Z,13h,9.7,True,80.2,repo,17,https://github.com/laravel/docs,,/laravel/docs
-34,Gemini API,/websites/ai_google_dev_gemini-api,0.7732481163663202,1166457,3230,2026-10-23T10:40:04.506000Z,29d,9,True,88.3,website,45,https://ai.google.dev/gemini-api/docs,https://ai.google.dev/gemini-api/docs,/websites/ai_google_dev_gemini-api
-35,Payload,/payloadcms/payload,0.7601513025330005,1787381,4963,2026-11-19T01:29:55.798000Z,3d,9.2,True,83,repo,106,https://github.com/payloadcms/payload,,/payloadcms/payload
-36,Clerk,/clerk/clerk-docs,0.7244128100207575,1833536,5244,2026-11-20T16:17:54.186000Z,1d,9.9,True,86.5,repo,82,https://github.com/clerk/clerk-docs,,/clerk/clerk-docs
-37,AI SDK,/websites/ai-sdk_dev,0.7069541937054126,1749880,5119,2026-11-13T21:23:18.437000Z,8d,9.6,True,88.6,website,157,https://ai-sdk.dev/docs/introduction,https://ai-sdk.dev/,/websites/ai-sdk_dev
-38,Model Context Protocol Typescript SDK,/modelcontextprotocol/typescript-sdk,0.7053162364972043,338808,925,2026-11-22T01:59:40.815000Z,7h,9,True,82.2,repo,71,https://github.com/modelcontextprotocol/typescript-sdk,,/modelcontextprotocol/typescript-sdk
-39,LangGraph,/langchain-ai/langgraph,0.7020927914621093,145281,594,2026-11-16T20:24:27.961000Z,5d,9.2,True,78.9,repo,528,https://github.com/langchain-ai/langgraph,,/langchain-ai/langgraph
-40,Tailwind CSS,/websites/tailwindcss,0.7017756938967319,251592,1424,2026-10-30T21:53:16.151000Z,22d,9.9,True,73,website,794,https://tailwindcss.com/docs/installation/using-vite,https://tailwindcss.com/docs,/websites/tailwindcss
-41,LangGraph,/websites/langchain_oss_python_langgraph,0.6804274995312545,198992,537,2026-11-16T14:33:33.873000Z,5d,10,True,93.6,website,110,https://docs.langchain.com/oss/python/langgraph/overview,https://docs.langchain.com/oss/python/langgraph/,/websites/langchain_oss_python_langgraph
-42,Bun,/oven-sh/bun,0.6728855962856606,3934545,21211,2026-11-22T00:47:44.029000Z,9h,9.7,True,90.7,repo,50,https://github.com/oven-sh/bun,,/oven-sh/bun
-43,MDN Web Docs,/mdn/content,0.6691990519284676,14877415,45843,2026-11-21T18:59:18.139000Z,14h,10,True,83.7,repo,19,https://github.com/mdn/content,,/mdn/content
-44,Prisma,/prisma/web,0.6682181026255017,2588189,5657,2026-11-21T08:50:00.953000Z,1d,10,True,82.6,repo,35,https://github.com/prisma/web,,/prisma/web
-45,NestJS,/nestjs/docs.nestjs.com,0.6556231698309087,1101487,3372,2026-11-21T07:44:52.059000Z,1d,9.7,True,91.3,repo,83,https://github.com/nestjs/docs.nestjs.com,,/nestjs/docs.nestjs.com
-46,FastAPI,/fastapi/fastapi,0.632308514304602,131845,568,2026-07-21T12:25:01.263000Z,4mo,9.9,True,83,repo,679,https://github.com/fastapi/fastapi,,/fastapi/fastapi
-47,TanStack Router,/tanstack/router,0.6258388114599243,879632,3166,2026-11-20T23:42:40.188000Z,1d,8,True,94.7,repo,89,https://github.com/tanstack/router,,/tanstack/router
-48,Expo,/websites/expo_dev,0.6236715978836042,2729106,8096,2026-11-20T09:30:37.269000Z,2d,10,True,75,website,40,https://docs.expo.dev/,https://docs.expo.dev/,/websites/expo_dev
-49,Three.js,/mrdoob/three.js,0.6087086990972004,3831336,16970,2026-11-22T01:24:12.184000Z,8h,9.1,True,89.6,repo,27,https://github.com/mrdoob/three.js,,/mrdoob/three.js
-50,Uv,/astral-sh/uv,0.6044632417650617,811331,4240,2026-11-21T20:49:17.032000Z,13h,10,True,87.7,repo,37,https://github.com/astral-sh/uv,,/astral-sh/uv
+1,Vercel,/websites/vercel,16.719850421173675,4535410,12604,2026-11-19T14:50:36.769000Z,3d,10,True,72,website,22,https://vercel.com/docs,https://vercel.com/docs,/websites/vercel
+2,Next.js,/vercel/next.js,8.163074521443992,951911,3264,2026-11-23T02:27:12.711000Z,8h,9.7,True,93.9,repo,1,https://github.com/vercel/next.js,,/vercel/next.js
+3,Better Auth,/better-auth/better-auth,3.2329830026045587,950265,3018,2026-11-22T14:20:05.951000Z,20h,8.5,True,79.5,repo,18,https://github.com/better-auth/better-auth,,/better-auth/better-auth
+4,React,/reactjs/react.dev,2.37442196976078,754755,2231,2026-11-22T15:27:38.734000Z,19h,9.7,True,81.6,repo,6,https://github.com/reactjs/react.dev,,/reactjs/react.dev
+5,Supabase,/supabase/supabase,2.1807150974703746,2830322,6941,2026-11-22T18:44:52.512000Z,16h,10,True,80.1,repo,9,https://github.com/supabase/supabase,,/supabase/supabase
+6,Claude Code,/websites/code_claude,1.858504000708763,2697679,3362,2026-11-21T02:23:43.578000Z,2d,9.9,True,81.5,website,2,https://code.claude.com/docs/en/cli-reference,https://code.claude.com/docs,/websites/code_claude
+7,Playwright,/microsoft/playwright,1.845016855861148,1309065,5593,2026-11-23T09:26:49.388000Z,1h,10,True,96.6,repo,3,https://github.com/microsoft/playwright,,/microsoft/playwright
+8,OpenCode,/anomalyco/opencode,1.6950869226133054,2197598,7007,2026-11-22T17:48:48.119000Z,17h,9.9,True,83.8,repo,7,https://github.com/anomalyco/opencode,,/anomalyco/opencode
+9,Expo,/expo/expo,1.578011865230973,2500037,8828,2026-11-22T17:40:50.223000Z,17h,10,True,85.1,repo,14,https://github.com/expo/expo,,/expo/expo
+10,Vercel AI SDK,/vercel/ai,1.5419574593029781,1744923,6660,2026-11-14T17:10:03.526000Z,8d,9.7,True,83.8,repo,149,https://github.com/vercel/ai,,/vercel/ai
+11,Tailwind CSS,/tailwindlabs/tailwindcss.com,1.4416441191136604,282371,1166,2026-11-23T02:43:40.244000Z,8h,10,True,85.4,repo,28,https://github.com/tailwindlabs/tailwindcss.com,,/tailwindlabs/tailwindcss.com
+12,Vitest,/vitest-dev/vitest,1.4227425598532701,959310,3684,2026-11-22T20:15:09.313000Z,14h,9.2,True,86.8,repo,11,https://github.com/vitest-dev/vitest,,/vitest-dev/vitest
+13,Claude Code,/anthropics/claude-code,1.4129825150571202,41507,23,2026-11-22T23:51:46.189000Z,11h,9.5,True,83,repo,68,https://github.com/anthropics/claude-code,,/anthropics/claude-code
+14,Shadcn UI,/shadcn-ui/ui,1.3341267197644637,514330,2369,2026-11-22T14:27:15.768000Z,20h,10,True,84.6,repo,66,https://github.com/shadcn-ui/ui,,/shadcn-ui/ui
+15,Codex CLI,/openai/codex,1.3046464726215736,483181,2009,2026-11-22T11:29:38.941000Z,23h,9.4,True,52.8,repo,5,https://github.com/openai/codex,,/openai/codex
+16,TanStack Query,/tanstack/query,1.2220522072345854,246149,1298,2026-07-27T01:43:38.970000Z,3mo,9.5,True,92.1,repo,28407,https://github.com/tanstack/query,,/tanstack/query
+17,Stripe,/websites/stripe,1.1618455562506946,6380436,10301,2026-11-16T10:07:07.704000Z,7d,10,True,79,website,8,https://docs.stripe.com/,https://docs.stripe.com,/websites/stripe
+18,n8n,/n8n-io/n8n-docs,1.1194898725663789,1351835,1753,2026-11-22T22:20:55.128000Z,12h,9.8,True,82.5,repo,51,https://github.com/n8n-io/n8n-docs,,/n8n-io/n8n-docs
+19,Drizzle ORM,/drizzle-team/drizzle-orm-docs,1.0899800633120371,702214,3995,2026-11-22T10:56:14.589000Z,23h,7.6,True,81.8,repo,52,https://github.com/drizzle-team/drizzle-orm-docs,,/drizzle-team/drizzle-orm-docs
+20,Vite,/vitejs/vite,1.0792603868979995,423701,1274,2026-11-22T10:50:23.399000Z,1d,9.3,True,84.6,repo,24,https://github.com/vitejs/vite,,/vitejs/vite
+21,Astro,/withastro/docs,1.0506056048671788,696300,2646,2026-11-22T17:29:02.220000Z,17h,9.8,True,85.5,repo,34,https://github.com/withastro/docs,,/withastro/docs
+22,Docker,/docker/docs,1.0095665721467422,2263022,7086,2026-11-23T02:34:40.260000Z,8h,10,True,90.4,repo,13,https://github.com/docker/docs,,/docker/docs
+23,MongoDB,/mongodb/docs,0.9461080889031838,3085208,7932,2026-11-23T09:47:11.565000Z,1h,9.1,True,77.8,repo,72,https://github.com/mongodb/docs,,/mongodb/docs
+24,Cloudflare,/cloudflare/cloudflare-docs,0.9436885437813052,8452256,17770,2026-11-23T06:30:05.082000Z,4h,9.3,True,74.3,repo,10,https://github.com/cloudflare/cloudflare-docs,,/cloudflare/cloudflare-docs
+25,OpenClaw,/openclaw/openclaw,0.9366050070758051,7811530,10034,2026-11-14T12:35:59.548000Z,8d,8.8,True,81.7,repo,113,https://github.com/openclaw/openclaw,,/openclaw/openclaw
+26,Python,/python/cpython,0.9341991060053656,5618976,14241,2026-11-23T04:12:49.284000Z,6h,9.7,True,73.4,repo,16,https://github.com/python/cpython,,/python/cpython
+27,OpenAI API,/websites/developers_openai_api,0.889189654316132,3168220,4408,2026-11-21T03:26:53.318000Z,2d,9.4,True,81.9,website,26,https://developers.openai.com/api/docs/mcp,https://developers.openai.com/api,/websites/developers_openai_api
+28,GitHub Actions,/websites/github_en_actions,0.8844233323467168,586416,1147,2026-11-20T14:08:08.378000Z,2d,10,True,93.1,website,21,https://docs.github.com/en/actions,https://docs.github.com/en/actions,/websites/github_en_actions
+29,SwiftUI,/websites/developer_apple_swiftui,0.8387589661884033,2809331,12015,2026-11-14T19:37:10.412000Z,8d,10,True,91.3,website,38,https://developer.apple.com/documentation/swiftui,https://developer.apple.com/documentation/swiftui,/websites/developer_apple_swiftui
+30,Spring Boot,/spring-projects/spring-boot,0.8178903895121997,1338369,5730,2026-11-23T09:31:11.803000Z,1h,9.7,True,88.3,repo,39,https://github.com/spring-projects/spring-boot,,/spring-projects/spring-boot
+31,FastAPI,/websites/fastapi_tiangolo,0.8125874015195107,542789,1536,2026-11-21T18:17:38.044000Z,1d,9,True,96.2,website,32,https://fastapi.tiangolo.com/learn/,https://fastapi.tiangolo.com/,/websites/fastapi_tiangolo
+32,Zod,/colinhacks/zod,0.8004282776786411,393907,1553,2026-11-22T23:22:43.731000Z,11h,9.6,True,91.7,repo,30,https://github.com/colinhacks/zod,,/colinhacks/zod
+33,Laravel,/laravel/docs,0.7965965732328089,1097960,6579,2026-11-22T22:23:28.695000Z,12h,9.7,True,80.2,repo,17,https://github.com/laravel/docs,,/laravel/docs
+34,Gemini API,/websites/ai_google_dev_gemini-api,0.7732174910917988,1166457,3230,2026-10-23T10:40:04.506000Z,1mo,9,True,88.3,website,45,https://ai.google.dev/gemini-api/docs,https://ai.google.dev/gemini-api/docs,/websites/ai_google_dev_gemini-api
+35,Payload,/payloadcms/payload,0.7587684406177226,1787381,4963,2026-11-19T01:29:55.798000Z,4d,9.2,True,83,repo,106,https://github.com/payloadcms/payload,,/payloadcms/payload
+36,Clerk,/clerk/clerk-docs,0.7233211949787708,1850448,5317,2026-11-22T10:08:05.756000Z,1d,9.9,True,86.5,repo,82,https://github.com/clerk/clerk-docs,,/clerk/clerk-docs
+37,AI SDK,/websites/ai-sdk_dev,0.7053519792333899,1749880,5119,2026-11-13T21:23:18.437000Z,9d,9.6,True,88.6,website,157,https://ai-sdk.dev/docs/introduction,https://ai-sdk.dev/,/websites/ai-sdk_dev
+38,Model Context Protocol Typescript SDK,/modelcontextprotocol/typescript-sdk,0.7044582938641245,338808,925,2026-11-23T04:55:40.848000Z,5h,9,True,82.2,repo,71,https://github.com/modelcontextprotocol/typescript-sdk,,/modelcontextprotocol/typescript-sdk
+39,LangGraph,/langchain-ai/langgraph,0.7000671833092864,145281,594,2026-11-16T20:24:27.961000Z,6d,9.2,True,78.9,repo,528,https://github.com/langchain-ai/langgraph,,/langchain-ai/langgraph
+40,Tailwind CSS,/websites/tailwindcss,0.6997169859890146,251592,1424,2026-10-30T21:53:16.151000Z,23d,9.9,True,73,website,794,https://tailwindcss.com/docs/installation/using-vite,https://tailwindcss.com/docs,/websites/tailwindcss
+41,LangGraph,/websites/langchain_oss_python_langgraph,0.6789757537929099,198992,537,2026-11-16T14:33:33.873000Z,6d,10,True,93.6,website,110,https://docs.langchain.com/oss/python/langgraph/overview,https://docs.langchain.com/oss/python/langgraph/,/websites/langchain_oss_python_langgraph
+42,Bun,/oven-sh/bun,0.6727472443109308,3938835,21491,2026-11-23T04:36:43.475000Z,6h,9.7,True,90.7,repo,50,https://github.com/oven-sh/bun,,/oven-sh/bun
+43,MDN Web Docs,/mdn/content,0.6717580505815913,14881140,45805,2026-11-22T21:32:35.472000Z,13h,10,True,83.7,repo,19,https://github.com/mdn/content,,/mdn/content
+44,Prisma,/prisma/web,0.6681855831131032,2589082,5738,2026-11-22T10:34:38.520000Z,1d,10,True,82.6,repo,35,https://github.com/prisma/web,,/prisma/web
+45,NestJS,/nestjs/docs.nestjs.com,0.6546052039139872,1101487,3372,2026-11-22T16:23:22.971000Z,18h,9.7,True,91.3,repo,83,https://github.com/nestjs/docs.nestjs.com,,/nestjs/docs.nestjs.com
+46,FastAPI,/fastapi/fastapi,0.6306326055353735,131845,568,2026-07-21T12:25:01.263000Z,4mo,9.9,True,83,repo,679,https://github.com/fastapi/fastapi,,/fastapi/fastapi
+47,TanStack Router,/tanstack/router,0.6251795329768537,879632,3166,2026-11-22T18:57:37.764000Z,15h,8,True,94.7,repo,89,https://github.com/tanstack/router,,/tanstack/router
+48,Expo,/websites/expo_dev,0.6239697604159143,2729106,8096,2026-11-20T09:30:37.269000Z,3d,10,True,75,website,40,https://docs.expo.dev/,https://docs.expo.dev/,/websites/expo_dev
+49,Three.js,/mrdoob/three.js,0.610641796168423,3819624,17000,2026-11-23T03:01:35.760000Z,7h,9.1,True,89.6,repo,27,https://github.com/mrdoob/three.js,,/mrdoob/three.js
+50,Uv,/astral-sh/uv,0.6044542188407613,811331,4240,2026-11-22T21:23:48.576000Z,13h,10,True,87.7,repo,37,https://github.com/astral-sh/uv,,/astral-sh/uv
